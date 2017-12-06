@@ -1,42 +1,58 @@
-# LS-Mongo-I
+# Building and API using a Relational Database
 
 ## Topics
 
 * Databases
 * Relational Databases
-* Non-Relational Databases
-* MongoDB
-* Mongoose
-* ORM
-* `mongod`
-* Mongoose.connect
-* Mongoose.Schema
-* Mongoose.model
-* module.exports
-* Model.find
-* Model.findById
-* Model.find().remove()
-* .save
-* Error first callback
-* \_id
+* Query Builder - Knex
 
 ## Assignment
 
-Download MongoDB.  https://www.mongodb.com/download-center
-Create a new folder and run `npm init` to create your `package.json` file.
-Install npm packages: `npm i --save express body-parser cors mongoose`
-Start your MongoDB server by running `mongod` from the command line.
-Implement the following routes but have them utilize a database to achieve data persistence.
+Build an API that persists data to SQLite3 or MySQL.
+
+Use knex migrations to create the following database tables:
+
+Users
+- id: primary key, autoincrements.
+- name: up to 128 characters long, required.
+- createdAt: defaults to the current date and time.
+
+Posts
+- id: primary key, autoincrements.
+- userId: references the id in the users table.
+- text: not size limit, required.
+- createdAt: defaults to the current date and time.
+
+Tags
+- id: primary key, autoincrements
+- tag: string up to 16 characters long, unique.
+- createdAt: defaults to the current date and time.
+
+Establish a many to many relationship between `Posts` and `Tags`. 
+The same `tag` can be added to different `posts` and a `post` can have multiple `tags`.
+Add any tables necessary to accomplish this.
+
+Seed test data into your tables using knex.
+
+Implement the following endpoints:
+
 * [POST] `/users` This route should save a new user to the server.
 * [GET] `/users` This route will return an array of all users.
-* [GET] `/users/:id` This route will return the user with the matching `id` (`_id` on the db document) property.
+* [GET] `/users/:id` This route will return the user with the matching `id`.
+* [GET] `/users/:id/posts` returns all posts for the user with the specified `id`.
 * [DELETE] `/users/:id` This route should delete the specified user.
+
+* [POST] `/posts` This route should save a new post to the server.
+* [GET] `/posts` This route will return an array of all posts.
+* [GET] `/posts/:id` This route will return the post with the matching `id`.
+* [DELETE] `/posts/:id` This route should delete the specified post.
+
+* [POST] `/tags` This route should save a new tag to the server.
+* [GET] `/tags` This route will return an array of all tags
+* [GET] `/tags/:id` This route will return the tag with the matching `id`.
+* [DELETE] `/tags/:id` This route should delete the specified tag.
 
 ## Extra Credit
 
-Implement a second collection called `BlogPosts`.  Implement the following routes:
-* [POST] `/posts` This route should save a new blog post to the server.
-* [GET] `/posts` This route will return an array of all blog posts.
-* [GET] `/posts/:id` This route will return the blog post with the matching `id` property.
-* [DELETE] `/posts/:id` This route should delete the specified blog post.
-Your user objects can take any form.
+- add a [GET] `/posts/:id/tags` endpoint that returns all tags for the post with the specified `id`.
+- have the post returned by the [GET] `/posts/:id` endpoint include the user name(not the id) and the tags associated with the post.
