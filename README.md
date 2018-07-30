@@ -10,32 +10,30 @@
 
 Build an API that persists data to SQLite3.
 
-Use knex migrations to create the following database tables:
+Create the following database tables:
 
 Users
 
-- id: primary key, autoincrements.
-- name: up to 128 characters long, required.
-- createdAt: defaults to the current date and time.
+- `id`: primary key, autoincrements.
+- `name`: up to 128 characters long, required.
+- `created_at`: defaults to the current date and time.
 
 Posts
 
-- id: primary key, autoincrements.
-- userId: references the id in the users table.
-- text: not size limit, required.
-- createdAt: defaults to the current date and time.
+- `id`: primary key, autoincrements.
+- `user_id`: references the id in the users table.
+- `text`: no size limit, required.
+- `created_at`: defaults to the current date and time.
 
 Tags
 
-- id: primary key, autoincrements
-- tag: string up to 16 characters long, unique.
-- createdAt: defaults to the current date and time.
+- `id`: primary key, autoincrements
+- `tag`: string up to 16 characters long, unique.
+- `created_at`: defaults to the current date and time.
 
-Establish a many to many relationship between `Posts` and `Tags`.
-The same `tag` can be added to different `posts` and a `post` can have multiple `tags`.
-Add any tables necessary to accomplish this.
+Establish a many to many relationship between `Posts` and `Tags`. The same `tag` can be added to different `posts` and a `post` can have multiple `tags`. Add any tables necessary to accomplish this.
 
-Seed test data into your tables using knex.
+Add test data to your tables.
 
 Implement the following endpoints:
 
