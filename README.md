@@ -11,7 +11,7 @@
 
 Build an API that persists data to SQLite3.
 
-### Use knex migrations to create a database called `lambda.sqlite3` and add the following tables:
+Use knex migrations to create a database called `lambda.sqlite3` and add the following tables:
 
 #### cohorts
 
@@ -24,9 +24,9 @@ Build an API that persists data to SQLite3.
 - `name`: text, required.
 - `cohort_id`: references the `id` in the cohorts table.
 
-### Use knex seeding feature to add test data to your tables.
+Use knex seeding feature to add test data to your tables.
 
-### Implement the following endpoints:
+Implement the following endpoints:
 
 #### Cohorts
 
