@@ -16,14 +16,12 @@ cohorts
 
 - `id`: primary key, autoincrements.
 - `name`: text, required.
-- `created_at`: defaults to the current date and time.
 
 students
 
 - `id`: primary key, autoincrements.
 - `name`: text, required.
-- `cohort_id`: references the id in the cohorts table.
-- `created_at`: defaults to the current date and time.
+- `cohort_id`: references the `id` in the cohorts table.
 
 Use knex seeding feature to add test data to your tables.
 
@@ -48,7 +46,7 @@ Implement the following endpoints:
 
 ## Extra Credit
 
-- have the student returned by the `[GET] /students/:id` endpoint include the cohort name and remove the `cohort_id` and `created_at` fields. The returned object should look like this:
+- have the student returned by the `[GET] /students/:id` endpoint include the cohort name and remove the `cohort_id` fields. The returned object should look like this:
 
 ```js
 {
