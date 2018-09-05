@@ -28,8 +28,6 @@ Use knex seeding feature to add test data to your tables.
 
 Implement the following endpoints:
 
-#### Cohorts
-
 - `[POST] /api/cohorts` This route should save a new cohort to the database.
 - `[GET] /api/cohorts` This route will return an array of all cohorts.
 - `[GET] /api/cohorts/:id` This route will return the cohort with the matching `id`.
@@ -37,7 +35,9 @@ Implement the following endpoints:
 - `[PUT] /api/cohorts/:id` This route will update the cohort with the matching `id` using information sent in the body of the request.
 - `[DELETE] /api/cohorts/:id` This route should delete the specified cohort.
 
-#### Students
+## Stretch Problem
+
+Add the following endpoints.
 
 - `[POST] /students` This route should save a new student to the database.
 - `[GET] /students` This route will return an array of all students.
@@ -45,9 +45,7 @@ Implement the following endpoints:
 - `[PUT] /students/:id` This route will update the student with the matching `id` using information sent in the body of the request.
 - `[DELETE] /students/:id` This route should delete the specified student.
 
-## Stretch Problem
-
-- have the student returned by the `[GET] /students/:id` endpoint include the cohort name and remove the `cohort_id` fields. The returned object should look like this:
+Have the student returned by the `[GET] /students/:id` endpoint include the cohort name and remove the `cohort_id` fields. The returned object should look like this:
 
 ```js
 {
