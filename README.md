@@ -22,13 +22,15 @@ The requirements for the system, as stated by the client are:
 - for some recipes, the order in which the steps are performed matters, please provide a way to specify that order.
 - have a way to pick a _dish_ and a _recipe_ and get a _shopping list_ with all the ingredients, and quantity of each, needed to cook the dish.
 
-In addition to the migration and seed scripts write a data access library that publishes the following API:
+In addition to the migration and seed scripts write create a JavaScript file that **exports** and object with the following functions:
 
 - `getDishes()`: should return a list of all dishes in the database.
-- `addDish(dish)`: should add the dish to the database and return the id of the new dish.
-- `getDish(id)`: should return the dish with the provided id and include a list of the related recipes.
-- `getRecipes()`: should return a list of all recipes in the database including the dish they belong to.
-- `addRecipe(recipe)`: should add a recipe to the database and return the id of the new recipe.
+- `addDish(dish)`: should add the `dish` to the database and return the `id` of the new `dish`.
+- `getDish(id)`: should return the `dish` with the provided `id` and include a list of the related recipes.
+- `getRecipes()`: should return a list of all recipes in the database including the `dish` they belong to.
+- `addRecipe(recipe)`: should add a `recipe` to the database and return the `id` of the new `recipe`.
+
+Name this file anything you want and place it where it makes the most sense to you.
 
 ## Stretch Problems
 
