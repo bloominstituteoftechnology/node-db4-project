@@ -9,7 +9,7 @@
 
 ## Assignment
 
-Design the data model for a recipe book application, then use Knex migrations and seeding functionality to build a `SQLite3` database based on the model and seed it with test data.
+Design the data model for a recipe book application, then use `Knex migrations and seeding` functionality to build a `SQLite3` database based on the model and seed it with test data.
 
 The requirements for the system, as stated by the client are:
 
@@ -34,6 +34,7 @@ Name this file anything you want and place it where it makes the most sense to y
 
 ## Stretch Problems
 
+- design and build a RESTful API that makes use of your data access file and publishes endpoints that a client application can use to manage all resources.
 - add a method called `getRecipe(id)` to your data access library that should return the recipe with the provided `id`. The recipe should include:
   - name of the dish.
   - name of the recipe.
@@ -42,3 +43,4 @@ Name this file anything you want and place it where it makes the most sense to y
 - follow the same pattern to add the CRUD operations for other entities in the system.
 - add _units of measure_ support for the ingredients.
 - add a table of unit of measure convertions, so that we can record the quantity for an ingredient using a unit of measure and see the values for other units reading the recipe.
+- design and build a front end client for your API.
