@@ -1,10 +1,10 @@
-# Building and API using a Relational Database
+# Building an API using a Relational Database
 
 ## Topics
 
 - Databases
 - Relational Databases
-- Knex mirations.
+- Knex migrations.
 - Seeding data.
 
 ## Assignment
@@ -15,12 +15,12 @@ Use knex migrations to create a database called `lambda.sqlite3` and add the fol
 
 #### cohorts
 
-- `id`: primary key, autoincrements.
+- `id`: primary key, auto-increments.
 - `name`: text, required.
 
 #### students
 
-- `id`: primary key, autoincrements.
+- `id`: primary key, auto-increments.
 - `name`: text, required.
 - `cohort_id`: references the `id` in the cohorts table.
 
