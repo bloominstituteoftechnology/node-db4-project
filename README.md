@@ -13,7 +13,7 @@ Design the **data model** for a _recipe book_ application, then use `Knex migrat
 
 The requirements for the system, as stated by the client are:
 
-- have a way to manage dishes. A **dish** is something the client wants to cook like _pizza_ or _tacos_.
+- have a way to manage dishes. A **dish** is something the client wants to cook, like _pizza_ or _tacos_.
 - have a way to manage recipes. A **dish** can have different recipes for tacos, like _tex-mex_ or _granny's_. A **recipe** belongs only to one **dish**.
 - have a way to manage ingredients.
 - a **recipe** could have more than one **ingredient** and the same **ingredient** can be used in multiple recipes. Examples are _"cup of corn flour"_ or _"gram of butter"_.
@@ -40,6 +40,5 @@ Organize and name your files anyway you see fit.
   - the list of ingredients with the quantity.
 - follow the same pattern to add the CRUD operations for other entities in the system.
 - add _units of measure_ support for the **ingredient**s.
-- add a table of unit of measure convertions, so that we can record the quantity for an **ingredient** using a unit of measure and see the values for other units reading the recipe.
 - design and build a front end client for your API.
 - add a `getShoppingList(recipeId)` that returns a list of all the recipe's ingredients including the quantity of each.
