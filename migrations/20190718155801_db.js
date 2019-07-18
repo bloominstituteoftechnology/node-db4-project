@@ -20,18 +20,22 @@ exports.up = function(knex) {
       table
         .integer("recipeID")
         .references("id")
-        .inTable("recipies"),
+        .inTable("recipies")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
       table
         .integer("ingredientID")
         .references("id")
         .inTable("ingredients")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
       table.float("quantity").notNullable();
     });
 };
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists("recipes_ingredient")
-    .dropTableIfExits("ingredients")
-    .dropTableIfExists("recipes");
+    .dropTable("recipes_ingredients")
+    .dropTable("ingredients")
+    .dropTable("recipes");
 };

@@ -145,6 +145,11 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+bluebird@^2.9.13:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
+  integrity sha1-U0uQM8AiyVecVro7Plpcqvu2UOE=
+
 bluebird@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
@@ -1050,6 +1055,14 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
+knex-cleaner@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/knex-cleaner/-/knex-cleaner-1.2.1.tgz#bc6556ed918f17ca87298ec74f09a8b7e368cda4"
+  integrity sha512-8olGXJsg+HKVG5WAXC+fi11pVXXJI/pYWFR4aJYg5oBHl4oLRIBMwwpPY2CwmL67OFBvFWrUy398X+w8mAvEBQ==
+  dependencies:
+    bluebird "^2.9.13"
+    lodash "^4.17.13"
+
 knex@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/knex/-/knex-0.19.0.tgz#3c0383e70f01b35836079b8ef837fc6566c1aab3"
@@ -1085,7 +1098,7 @@ liftoff@3.1.0:
     rechoir "^0.6.2"
     resolve "^1.1.7"
 
-lodash@^4.17.14:
+lodash@^4.17.13, lodash@^4.17.14:
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
