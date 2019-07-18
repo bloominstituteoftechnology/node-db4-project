@@ -1,0 +1,19 @@
+{
+  "name": "db4-challenge",
+  "version": "1.0.0",
+  "description": "- database modeling.\r - migration scripts.\r - seeding.\r - knex.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaschaWebDev/node-db4-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaschaWebDev/node-db4-challenge/issues"
+  },
+  "homepage": "https://github.com/SaschaWebDev/node-db4-challenge#readme"
+}
