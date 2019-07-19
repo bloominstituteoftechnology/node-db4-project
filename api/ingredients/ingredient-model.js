@@ -3,10 +3,10 @@ const db = require('../../data/db-config.js');
 module.exports = {
   find,
   findById,
-  findRecipes,
   add,
   update,
   remove,
+  findRecipes,
 };
 
 function find() {
@@ -24,15 +24,6 @@ function findById(id) {
         return null;
       }
     });
-}
-
-function findRecipes(id) {
-  return db('recipes_ingredients as ri')
-    .join('recipes as r', 'ri.recipe_id', 'r.id')
-    .join('ingredients as i', 'ri.ingredient_id', 'i.id')
-    .where('ingredient_id', id)
-    .select('r.recipe_name', 'i.ingredient_name', 'ri.quantity')
-    .orderBy('r.id', 'asc');
 }
 
 function add(ingredient) {
@@ -54,4 +45,13 @@ function remove(id) {
     : db('ingredients')
         .where('id', id)
         .del();
+}
+
+function findRecipes(id) {
+  return db('recipes_ingredients as ri')
+    .join('recipes as r', 'ri.recipe_id', 'r.id')
+    .join('ingredients as i', 'ri.ingredient_id', 'i.id')
+    .where('ingredient_id', id)
+    .select('r.recipe_name', 'i.ingredient_name', 'ri.quantity')
+    .orderBy('r.id', 'asc');
 }
