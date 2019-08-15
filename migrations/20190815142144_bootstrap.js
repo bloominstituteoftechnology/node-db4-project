@@ -11,7 +11,7 @@ exports.up = function(knex) {
     })
     .createTable("instructions", tbl => {
       tbl.increments();
-      tbl.string("name", 255).notNullable();
+      tbl.string("what_to_do", 255).notNullable();
     })
     .createTable("recipe_ingredients", tbl => {
       tbl.increments();
@@ -48,11 +48,11 @@ exports.up = function(knex) {
         .onUpdate("CASCADE");
       // foreign key
       tbl
-        .integer("ingredient_id")
+        .integer("instruction_id")
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("ingredients")
+        .inTable("instructions")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
     });
