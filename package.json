@@ -4,7 +4,7 @@
   "description": "## Topics",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "knex": "^0.19.1",
     "knex-cleaner": "^1.3.0",
+    "nodemon": "^1.19.1",
     "sqlite3": "^4.0.9"
   }
 }
