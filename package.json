@@ -19,6 +19,7 @@
   "homepage": "https://github.com/cesareferrari/node-db4-challenge#readme",
   "dependencies": {
     "knex": "^0.19.1",
+    "knex-cleaner": "^1.3.0",
     "sqlite3": "^4.0.9"
   }
 }
