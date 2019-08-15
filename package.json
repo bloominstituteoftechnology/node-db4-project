@@ -1,0 +1,24 @@
+{
+  "name": "55-node-db4-challenge",
+  "version": "1.0.0",
+  "description": "## Topics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesareferrari/node-db4-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cesareferrari/node-db4-challenge/issues"
+  },
+  "homepage": "https://github.com/cesareferrari/node-db4-challenge#readme",
+  "dependencies": {
+    "knex": "^0.19.1",
+    "sqlite3": "^4.0.9"
+  }
+}
