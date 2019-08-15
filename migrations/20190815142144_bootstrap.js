@@ -22,7 +22,7 @@ exports.up = function(knex) {
         .notNullable()
         .references("id")
         .inTable("recipes")
-        .onDelete("RESTRICT")
+        .onDelete("CASCADE")
         .onUpdate("CASCADE");
       // foreign key
       tbl
@@ -31,9 +31,8 @@ exports.up = function(knex) {
         .notNullable()
         .references("id")
         .inTable("ingredients")
-        .onDelete("RESTRICT")
+        .onDelete("CASCADE")
         .onUpdate("CASCADE");
-      tbl.float("ingredient_quantity").notNullable();
     })
     .createTable("recipe_instructions", tbl => {
       tbl.increments();
@@ -44,7 +43,7 @@ exports.up = function(knex) {
         .notNullable()
         .references("id")
         .inTable("recipes")
-        .onDelete("RESTRICT")
+        .onDelete("CASCADE")
         .onUpdate("CASCADE");
       // foreign key
       tbl
@@ -53,7 +52,7 @@ exports.up = function(knex) {
         .notNullable()
         .references("id")
         .inTable("instructions")
-        .onDelete("RESTRICT")
+        .onDelete("CASCADE")
         .onUpdate("CASCADE");
     });
 };
