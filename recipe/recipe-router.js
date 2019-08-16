@@ -7,19 +7,32 @@ const router = express.Router();
 router.get('/', async (req, res) => {
  try {
   const recipe = await RecipeDb.find();
-  res.json(recipe);
+  res.status(200).json(recipe);
  } catch (err) {
   res.status(500).json({ message: 'Failed to get recipes' });
  }
 });
 
-router.post('/', async(req, res)=>{
-    try{
-        const recipe = await RecipeDb.add(req.body)
+router.get('/:id', async (req, res) => {
+ try {
+  const recipe = await RecipeDb.findById(req.params.id);
+  if (recipe.length > 0) {
+   res.status(200).json(recipe);
+  } else {
+   res.status(404).json({ message: 'There is no recipe with this id' });
+  }
+ } catch (err) {
+  res.status(500).json({ message: 'Failed to get this recipe' });
+ }
+});
 
-    }catch(err){
-        res.status(500).json({message: 'Failed to add recipe'})
-    }
-})
+router.post('/', async (req, res) => {
+ try {
+  const recipe = await RecipeDb.add(req.body);
+  res.status(200).json(recipe);
+ } catch (err) {
+  res.status(500).json({ message: 'Failed to add recipe' });
+ }
+});
 
 module.exports = router;
