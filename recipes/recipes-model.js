@@ -36,8 +36,8 @@ function getInstructions(id) {
         where r.id = 1
     */
 
-    return db('steps')
-        // .innerJoin('recipes as r', 's.recipe_id', 'r.id')
-        // .select('r.recipe_name', 's.step_number', 's.instruction')
-        .where('recipe_id', id)
+    return db('steps as s')
+        .innerJoin('recipes as r', 's.recipe_id', 'r.id')
+        .select('r.recipe_name', 's.step_number', 's.instruction')
+        .where('r.id', id)
 }
