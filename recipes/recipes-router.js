@@ -35,7 +35,12 @@ router.get('/:id/instructions', async (req, res) => {
 
   try {
     const instructions = await Recipes.getInstructions(id);
-    res.status(200).json(instructions);
+
+    if (instructions && instructions.length > 0) {
+      res.status(200).json(instructions);
+    } else {
+      res.status(404).json({message: "Cannot find instructions"});
+    }
   } catch (err) {
     console.log(err)
     res.status(500).json({message: "Cannot get instructions"})
