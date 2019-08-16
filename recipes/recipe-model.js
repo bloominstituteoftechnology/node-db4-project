@@ -16,8 +16,6 @@ function getRecipes() {
 //   join recipe_ingredients as ri on r.id = ri.recipe_id
 //   join ingredients as i on i.id = ri.ingredient_id
 //   where r.id = 1
-
-// wont return recipe name for some reason
 function getShoppingList(recipe_id) {
   const id = recipe_id;
   return db('recipes as r')
