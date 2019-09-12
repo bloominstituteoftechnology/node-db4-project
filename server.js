@@ -2,6 +2,9 @@ const express = require("express");
 
 const server = express();
 
+const recipesRouter = require("./recipes/recipes-router.js");
+
+server.use("api/recipes", recipesRouter);
 server.use(express.json());
 server.use(logger);
 
