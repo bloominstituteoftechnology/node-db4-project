@@ -5,7 +5,6 @@ module.exports = {
   getRecipesByIngredient
 }
 
-
 function getIngredients() {
   return db('ingredients');
 }

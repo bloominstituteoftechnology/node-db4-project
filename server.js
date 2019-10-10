@@ -10,5 +10,4 @@ server.use(express.json());
 server.use("/api/recipes", recipeRoutes);
 server.use("/api/ingredients", ingredientRoutes);
 
-
 module.exports = server;
