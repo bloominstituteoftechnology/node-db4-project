@@ -1,0 +1,28 @@
+{
+  "name": "db4-challenge",
+  "version": "1.0.0",
+  "description": "- database modeling.\r - migration scripts.\r - seeding.\r - knex.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.5",
+    "knex-cleaner": "^1.3.0",
+    "nodemon": "^1.19.3",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordandoan/node-db4-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordandoan/node-db4-challenge/issues"
+  },
+  "homepage": "https://github.com/jordandoan/node-db4-challenge#readme"
+}
