@@ -13,29 +13,34 @@ exports.up = function(knex, Promise) {
       .unique()
       .notNullable();
   })
-  // .createTable('recipe_ingredients', tbl => {
-  //   tbl.integer('recipe_id')
-  //     .unsigned()
-  //     .notNullable()
-  //     .references('id')
-  //     .inTable('recipes')
-  //     .onUpdate('CASCADE')
-  //     .onDelete('CASCADE');
-  //   tbl.integer('ingredient_id')
-  //     .unsigned()
-  //     .notNullable()
-  //     .references('id')
-  //     .inTable('ingredients')
-  //     .onUpdate('CASCADE')
-  //     .onDelete('CASCADE');
-  // })
+  .createTable('recipe_ingredients', tbl => {
+    tbl.integer('recipe_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('recipes')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
+    tbl.integer('ingredient_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('ingredients')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
+    tbl.decimal('quantity')
+      .unsigned()
+      .notNullable()
+  })
   .createTable('steps', tbl => {
     tbl.increments();
     tbl.integer('recipe_id')
       .unsigned()
       .notNullable()
       .references('id')
-      .inTable('recipes');
+      .inTable('recipes')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     tbl.integer('step_number')
       .unsigned()
       .notNullable();
