@@ -1,12 +1,12 @@
 const express = require('express');
 
-// const PostRouter = require('./posts/post-router.js');
+const RecipesRouter = require('./recipes/recipes-router.js');
 
 const server = express();
 
 server.use(express.json());
 
-// server.use('/recipes', PostRouter);
+server.use('/recipes', RecipesRouter);
 
 server.get('/', (req, res) => {
   res.send('<h3>Lambda Project</h3>');
