@@ -33,7 +33,7 @@ exports.up = function(knex) {
             .onDelete('CASCADE')
             .onUpdate('CASCADE')
         tbl
-            .string('quantity').notNullable()
+            .float('quantity').notNullable()
         tbl
             .unique(['recipe_id', 'ingredient_id'])
     })
