@@ -33,27 +33,31 @@ exports.up = function(knex) {
       })
       .createTable('steps', table => {
           table.increments()
-          table.integer('instructions_id')
+
+          table
+              .integer('instructions_id')
               .unsigned()
               .notNullable()
               .references('id')
-              .inTable('instructions')
+              .inTable('recipes_instructions')
+
           table.integer('recipes_id')
               .unsigned()
               .notNullable()
               .references('id')
               .inTable('recipes')
-          table.string('step')
-          .unsigned()
+
+          table.string('step', 128)
           .notNullable()
       })
   };
   
   exports.down = function(knex) {
       return knex.schema
-      .dropTableIfExists('ingredients')
-      .dropTableIfExists('instructions')
+      .dropTableIfExists('recipes_and_ingredients')
+      .dropTableIfExists('recipes_instructions')
       .dropTableIfExists('steps')
-      .dropTableIfExists('recipes');
+      .dropTableIfExists('recipes')
+      .dropTableIfExists('ingredients')
   };
   
