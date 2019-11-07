@@ -1,0 +1,50 @@
+
+exports.up = function(knex) {
+  return knex.schema.createTable('recipes', tbl => {
+      tbl.increments();
+      
+      tbl.string('name', 255).notNullable();
+  })
+  .createTable('ingredients', tbl => {
+      tbl.increments();
+      
+      tbl.string('name', 255).notNullable();
+  })
+  .createTable('instructions', tbl => {
+      tbl.increments();
+      
+      tbl.string('text', 255).notNullable();
+      
+      tbl.integer('step_number').notNullable();
+      
+      tbl.integer('recipe_id')
+      .unsigned()
+      .references('id')
+      .inTable('recipes')
+      .onDelete('RESTRICT')
+      .onUdate('CASCADE');
+  })
+  .createTable('recipe_ingredients', tbl => {
+      tbl.increments();
+      
+      tbl.integer('recipe_id')
+      .unsigned()
+      .references('id')
+      .inTable('recipes')
+      .onDelete('RESTRICT')
+      .onUdate('CASCADE');
+
+      tbl.integer('ingredient_id')
+      .unsigned()
+      .references('id')
+      .inTable('ingredients')
+      .onDelete('RESTRICT')
+      .onUdate('CASCADE');
+
+      tbl.float('amount').notNullable();
+  });
+};
+
+exports.down = function(knex) {
+  
+};
