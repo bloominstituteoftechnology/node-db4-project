@@ -1,0 +1,23 @@
+{
+  "name": "db4-challenge",
+  "version": "1.0.0",
+  "description": "A Recipebook Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uzoamaka126/node-db4-challenge.git"
+  },
+  "author": "Uzoamaka Anyanwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uzoamaka126/node-db4-challenge/issues"
+  },
+  "homepage": "https://github.com/Uzoamaka126/node-db4-challenge#readme",
+  "dependencies": {
+    "knex": "^0.20.1",
+    "sqlite3": "^4.1.0"
+  }
+}
