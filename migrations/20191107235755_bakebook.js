@@ -2,27 +2,36 @@
 exports.up = function(knex) {
     return knex.schema
     .createTable('recipes', tbl => {
-      // the type of the Primary Key is: integer without negative values, also called unsigned
       tbl.increments();
       tbl.string('name', 255).notNullable();
+
+      tbl.onDelete('RESTRICT')
+      tbl.onUpdate('CASCADE');
     })
-    .createTable('ingredientList', tbl => {
+
+    .createTable('ingredients', tbl => {
       tbl.increments();
-      tbl.string('ingredient', 200).notNullable();
-      tbl.string('quantity', 200).notNullable();
+      tbl.string('name', 255).notNullable();
+      tbl.string('instructions', 800).notNullable();
     })
-    // .createTable('animals', tbl => {
-    //   tbl.increments();
-    //   tbl.string('name', 255).notNullable();
-    //   // define our Foreign Key
-    //   tbl
-    //     .integer('species_id')
-    //     .unsigned()
-    //     .references('id')
-    //     .inTable('species')
-    //     .onDelete('RESTRICT')
-    //     .onUpdate('CASCADE'); 
-    // });
+
+    .createTable('recipes_ingredients', tbl => {
+      tbl.increments();
+      tbl
+      .interger('ingredients_id')
+      .unsigned()
+      .references('id')
+      .inTable('ingredients')
+      .onDelete('RESTRICT')
+      .onUpdate('CASCADE');
+      tbl
+      .interger('recipe_id')
+      .unsigned()
+      .references('id')
+      .inTable('recipes')
+      .onDelete('RESTRICT')
+      .onUpdate('CASCADE');
+    })
 };
 
 exports.down = function(knex) {

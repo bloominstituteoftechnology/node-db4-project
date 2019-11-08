@@ -8,9 +8,9 @@ const server = express();
 server.use(helmet());
 server.use(express.json());
 
-server.get('/api/species', (req, res) => {
+server.get('/api/recipes', (req, res) => {
   // get all species from the database
-  db('species')
+  db('recipes')
   .then(species => {
     res.status(200).json(species);
   })
@@ -34,7 +34,7 @@ server.get('/api/animals', (req, res) => {
 });
 
 // create animal
-server.post('/api/animals', (req, res) => {
+server.post('/api/recipes', (req, res) => {
   db('animals').insert(req.body)
   .then(ids => {
     const id = ids[0];
@@ -52,7 +52,7 @@ server.post('/api/animals', (req, res) => {
 });
 
 // remove species
-server.delete('/api/species/:id', (req, res) => {
+server.delete('/api/recipes/:id', (req, res) => {
   db('species')
     .where({ id: req.params.id })
     .del()
