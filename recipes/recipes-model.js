@@ -26,7 +26,7 @@ function getShoppingList(id) {
 function getInstructions(id) {
     return db('steps as st')
     .join('recipes as re', 'st.recipes_id', 're.id')
-    .join('instructions as in', 'st.instructions_id', 'in.id')
-    .select('re.recipe_name', 'st.step', 'st')
-    .where('recipes_id', '=', id);
+    .join('recipes_instructions as in', 'st.instructions_id', 'in.id')
+    .select('st.step', 'in.instructions')
+    .where('recipes_id', id);
 }
