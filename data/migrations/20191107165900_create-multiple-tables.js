@@ -22,8 +22,8 @@ exports.up = function(knex) {
               .references('id')
               .inTable('ingredients')
           table.integer('quantity')
-          .unsigned()
-          .notNullable()
+            .unsigned()
+            .notNullable()
       })
       .createTable('recipes_instructions', table => {
           table.increments()
