@@ -5,7 +5,7 @@ exports.up = function(knex) {
       .createTable('recipes', tbl => {
         tbl.increments('recipe_id');
 
-        tbl.string('recipe_name', 255).notNullable()
+        tbl.string('recipe_name', 255).notNullable();
       })
       .createTable('ingredients', tbl => {
         tbl.increments('ingredient_id');
@@ -21,6 +21,11 @@ exports.up = function(knex) {
           .references('recipes.id')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
+
+        tbl.text('step').notNullable();
+
+        tbl.integer('step_number').notNullable().unique();
+
       })
       .createTable('recipes_ingredients', tbl => {
         tbl.integer('recipe_id')
