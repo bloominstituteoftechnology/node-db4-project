@@ -18,7 +18,7 @@ exports.up = function(knex) {
         tbl.integer('recipe_id')
           .unsigned()
           .notNullable()
-          .references('recipes.id')
+          .references('recipes.recipe_id')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
 
@@ -31,14 +31,14 @@ exports.up = function(knex) {
         tbl.integer('recipe_id')
           .unsigned()
           .notNullable()
-          .references('recipes.id')
+          .references('recipes.recipe_id')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
 
         tbl.integer('ingredient_id')
           .unsigned()
           .notNullable()
-          .references('ingredients.id')
+          .references('ingredients.ingredient_id')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
 
