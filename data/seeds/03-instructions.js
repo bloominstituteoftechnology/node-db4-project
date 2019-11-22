@@ -1,5 +1,4 @@
 exports.seed = function(knex) {
-  // Deletes ALL existing entries
   return knex('instructions').insert([
     {
       instructions_id: 1,
