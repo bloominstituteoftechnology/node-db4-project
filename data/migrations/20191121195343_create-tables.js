@@ -24,7 +24,7 @@ exports.up = function(knex) {
 
         tbl.text('step').notNullable();
 
-        tbl.integer('step_number').notNullable().unique();
+        tbl.integer('step_number').notNullable();
 
       })
       .createTable('recipes_ingredients', tbl => {
