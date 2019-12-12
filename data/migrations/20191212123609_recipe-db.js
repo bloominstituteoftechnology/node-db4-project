@@ -2,14 +2,14 @@
 exports.up = function(knex) {
   return knex.schema.createTable('recipes', tbl=> {
 
-        tbl.increment();
+        tbl.increments();
 
         tbl.string('recipe_name')
         .notNullable()
   })
-  .createTable('ingredients', ()=>{
+  .createTable('ingredients', tbl =>{
 
-        tbl.increment();
+        tbl.increments();
 
         tbl.string('ingredient_name')
         .notNullable()
@@ -17,7 +17,7 @@ exports.up = function(knex) {
   })
   .createTable('instructions', tbl => {
 
-        tbl.increment();
+        tbl.increments();
 
         tbl.string('step_name')
         .notNullable()
@@ -25,34 +25,46 @@ exports.up = function(knex) {
   })
   .createTable('recipe_ingredients', tbl => {
 
-        tbl.primary('recipe_id', 'ingredient_id')
+        tbl.primary(['recipe_id', 'ingredient_id'])
         
         tbl.integer('recipe_id')
+        .unsigned()
         .notNullable()
-        .reference('id')
-        .inTable('recipe')
+        .references('id')
+        .inTable('recipes')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
 
         tbl.integer('ingredient_id')
+        .unsigned()
         .notNullable()
-        .reference('id')
+        .references('id')
         .inTable('ingredients')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
 
         tbl.integer('quantity_ingredients')
 
   })
   .createTable('recipe_instructions', tbl => {
 
-        tbl.primary('recipe_id', 'step_id')
+        tbl.primary(['recipe_id', 'step_id'])
 
          tbl.integer('recipe_id')
+         .unsigned()
          .notNullable()
-        .reference('id')
-        .inTable('recipe')
+        .references('id')
+        .inTable('recipes')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
 
         tbl.integer('step_id')
+        .unsigned()
         .notNullable()
-        .reference('id')
+        .references('id')
         .inTable('instructions')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
 
         tbl.integer('step_order_position')
   })
