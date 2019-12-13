@@ -3,12 +3,12 @@ exports.up = function(knex) {
   return knex.schema.createTable('ingredient', tbl => {
       tbl.increments();
 
-      tbl.string('ingredient_name', 255).notNullable();
+      tbl.text('ingredient_name', 255).notNullable();
   })
   .createTable('recipe_step', tbl => {
       tbl.increments();
 
-      tbl.string('unit_of_measurement', 255).notNullable();
+      tbl.text('unit_of_measurement', 255).notNullable();
 
       tbl.float('quantity').notNullable();
 
@@ -25,7 +25,7 @@ exports.up = function(knex) {
 
       tbl.float('step').notNullable();
 
-      tbl.string('instruction', 255).notNullable();
+      tbl.text('instruction', 255).notNullable();
 
       tbl.integer('recipe_step_id')
         .unsigned()
