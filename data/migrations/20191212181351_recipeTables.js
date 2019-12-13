@@ -36,6 +36,10 @@ exports.up = function(knex) {
         .inTable("ingredients")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
+      tbl
+        .integer("quantity")
+        .unsigned()
+        .notNullable();
     });
 };
 
