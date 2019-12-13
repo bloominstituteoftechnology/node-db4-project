@@ -4,7 +4,10 @@ const db = require('../data/db-config')
 module.exports = {
     getRecipes,
     getShoppingList,
-    getInstructions
+    getInstructions,
+    findRecipesId,
+    findIngredientId,
+    getIngredients
 
 
 }
@@ -12,9 +15,17 @@ module.exports = {
 
 function getRecipes(){
 // SELECT * FROM recipes;
+
   return  db('recipes')
     .select('*')
 
+}
+
+function findRecipesId(id){
+    return db('recipes')
+            .select('*')
+            .where({id})//returns ARRAY
+            .first()//returns just the one!
 }
 
 function getShoppingList(recipe_id){
@@ -38,6 +49,36 @@ function getShoppingList(recipe_id){
             
 
 
+}
+
+function getIngredients(ingredient_id){
+    //     SELECT 
+    //     recipe_name as 'Recipe'
+    // ,   ingredient_name as 'Ingredient'
+    // ,   quantity_ingredients as 'Quantity' 
+    // FROM recipe_ingredients as ri
+    
+    // JOIN recipes as r
+    // ON r.id = ri.recipe_id
+    
+    // JOIN ingredients as i
+    // ON i.id = ri.ingredient_id
+    // ;
+        return db('recipe_ingredients')
+                .select('ingredient_name', 'recipe_name')
+                .join('recipes', 'recipes.id','recipe_ingredients.recipe_id')
+                .join('ingredients', 'ingredients.id','recipe_ingredients.ingredient_id')
+                .where({ingredient_id})
+                
+    
+    
+    }
+
+function findIngredientId(id){
+    return db('ingredients')
+            .select('*')
+            .where({id})//returns ARRAY
+            .first()//returns just the one!
 }
 
 function getInstructions(recipe_id){
