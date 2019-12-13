@@ -23,16 +23,18 @@ exports.up = function(knex) {
   .createTable('instructions', tbl => {
       tbl.increments();
 
+      tbl.float('step').notNullable();
+
       tbl.string('instruction', 255).notNullable();
 
       tbl.integer('recipe_step_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('ingredient')
+        .inTable('recipe_step')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
-  })
+  });
 
 };
 
@@ -40,5 +42,5 @@ exports.down = function(knex) {
   return knex.schema    
     .dropTableIfExists('instructions')
     .dropTableIfExists('recipe_step')
-    .dropTableIfExists('ingredients');
+    .dropTableIfExists('ingredient');
 };

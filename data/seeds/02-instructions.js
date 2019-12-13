@@ -6,7 +6,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('instructions').insert([
-        { recipe_step_id: 1, instruction: "1. Toast the bagel and spread CC" }
+        { recipe_step_id: 1, step: 1, instruction: "1. Toast the bagel and spread CC" }
       ]);
     });
 };
