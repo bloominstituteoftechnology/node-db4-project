@@ -33,7 +33,10 @@ exports.seed = function(knex) {
           quantity: 8,
           unit_of_measurement: 'lbs'
          },
-         { recipe_id: 2, ingredient_id: 3, quantity: 4, unit_of_measurement: 'tbsp'}
+         { recipe_id: 2,
+            ingredient_id: 3,
+            quantity: 4,
+            unit_of_measurement: 'tbsp'}
       ]);
     });
 };
