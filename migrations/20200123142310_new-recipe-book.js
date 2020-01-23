@@ -2,8 +2,7 @@ exports.up = function (knex) {
     return (knex.schema
         .createTable('recipes', table => {
             table.increments();
-            table.string('name', 128);
-            notNullable();
+            table.string('name', 128).notNullable();
         })
         .createTable('ingredients', table => {
             table.increments();
