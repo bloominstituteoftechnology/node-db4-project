@@ -39,6 +39,7 @@ router.get("/:id/shoppinglist", (req, res) => {
 
   Recipes.getShoppingList(id)
     .then(List => {
+      console.log(List);
       if (List.length) {
         res.status(200).json(List);
       } else {

@@ -23,9 +23,16 @@ function findById(id) {
 
 function getShoppingList(recipe_id) {
   return db("ingredients")
-    .select("ingredients.name", "ingredients.quantities", "recipes.name")
+    .select(
+      { ingredient_Name: "ingredients.name" },
+      "ingredients.quantities",
+      {
+        recipes_id: "recipes.id"
+      },
+      { recipe_Name: "recipes.name" }
+    )
     .join("recipes", "recipes.id", "ingredients.recipe_id")
-    .where("recipes_id", recipe_id);
+    .where("recipe_id", recipe_id);
 }
 
-module.exports = { getRecipes, findById,getShoppingList };
+module.exports = { getRecipes, findById, getShoppingList };
