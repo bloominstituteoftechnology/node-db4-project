@@ -18,4 +18,4 @@ function findById(id) {
     .first();
 }
 
-module.exports = { find };
+module.exports = { find,findById };
