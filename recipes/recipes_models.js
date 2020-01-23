@@ -18,9 +18,6 @@ function findById(id) {
     .first();
 }
 
-// - [ ] `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
-// - [ ] `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
-
 function getShoppingList(recipe_id) {
   return db("ingredients")
     .select(
@@ -29,10 +26,27 @@ function getShoppingList(recipe_id) {
       {
         recipes_id: "recipes.id"
       },
-      { recipe_Name: "recipes.name" }
+      { recipe_Name: "recipes.name" },
+      "ingredients.id"
     )
     .join("recipes", "recipes.id", "ingredients.recipe_id")
     .where("recipe_id", recipe_id);
 }
 
-module.exports = { getRecipes, findById, getShoppingList };
+// - [ ] `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
+
+function getInstructions(recipe_id) {
+  return db("steps")
+    .select(
+      {
+        recipe_name: "recipes.name"
+      },
+      "steps.instructions",
+      "steps.step_number",
+      "steps.id"
+    )
+    .join("recipes", "recipes.id", "steps.recipe_id")
+    .where("recipe_id", recipe_id);
+}
+
+module.exports = { getRecipes, findById, getShoppingList, getInstructions };
