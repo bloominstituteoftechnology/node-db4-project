@@ -27,11 +27,14 @@ function getShoppingList(recipe_id) {
         recipes_id: "recipes.id"
       },
       { recipe_Name: "recipes.name" },
-      "ingredients.id"
+      "ingredients_recipes.recipe_id"
     )
-    .join("recipes", "recipes.id", "ingredients.recipe_id")
+    .join("recipes", "recipes.id", "ingredients_recipes.recipe_id")
+    .join("ingredients_recipes", "ingredients_recipes.id", "ingredients.id")
     .where("recipe_id", recipe_id);
 }
+
+// - [ ] `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
 
 // - [ ] `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
 
