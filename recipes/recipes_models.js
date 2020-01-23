@@ -10,4 +10,12 @@ async function find(query = {}) {
   return rows;
 }
 
+function findById(id) {
+  return db
+    .select("*")
+    .from("recipes")
+    .where({ id })
+    .first();
+}
+
 module.exports = { find };
