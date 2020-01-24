@@ -12,6 +12,8 @@ exports.up = function(knex) {
   })
   .createTable('recipe_book', tbl => {
       tbl.increments();
+      tbl.float('quantity').notNullable();
+      tbl.string('measurement');
       // foreign key that points to recipe table
       tbl.integer("recipe_id")
       .unsigned()
