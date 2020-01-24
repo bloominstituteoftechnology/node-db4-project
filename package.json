@@ -1,0 +1,28 @@
+{
+  "name": "db4",
+  "version": "1.0.0",
+  "description": "## Topics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmjles/node-db4-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmjles/node-db4-challenge/issues"
+  },
+  "homepage": "https://github.com/jmjles/node-db4-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.3.1",
+    "mongoose": "^5.8.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
