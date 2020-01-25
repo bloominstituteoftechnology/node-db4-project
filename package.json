@@ -1,0 +1,8 @@
+{
+  "name": "node-db4-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LambdaSchool/node-db4-challenge.git",
+  "author": "Victor Tran <victor.n.tran@outlook.com>",
+  "license": "MIT"
+}
