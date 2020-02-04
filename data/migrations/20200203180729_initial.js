@@ -15,12 +15,7 @@ exports.up = async function(knex) {
   // steps refs recipe
   await knex.schema.createTable("steps", table => {
     table.increments("id");
-    table.string("name").notNullable();
-    table
-      .integer("recipe_id")
-      .references("id")
-      .inTable("recipes")
-      .onDelete('CASCADE');
+    table.string("instruction").notNullable();
   });
 
   // recipes_ingredients refs recipes + ingredients
@@ -32,16 +27,16 @@ exports.up = async function(knex) {
       .onDelete('CASCADE');
 
       table
-      .integer("ingredients_id")
+      .integer("ingredient_id")
       .references("id")
-      .inTable("recipes")
+      .inTable("ingredients")
       .onDelete('CASCADE');
 
-      table.primary(['recipe_id', 'ingredients_id'])
+      table.primary(['recipe_id', 'ingredient_id'])
   });
 
   // steps + recipes => steps can belong to many recipe and many recipes can have many steps
-  await knex.schema.createTable("steps_recipes", table => {
+  await knex.schema.createTable("recipes_steps", table => {
     table
       .integer("recipe_id")
       .references("id")
@@ -49,14 +44,20 @@ exports.up = async function(knex) {
       .onDelete('CASCADE');
 
       table
-      .integer("steps_id")
+      .integer("step_id")
       .references("id")
       .inTable("steps")
       .onDelete('CASCADE');
 
-      table.primary(['recipe_id', 'steps_id'])
+      table.primary(['recipe_id', 'step_id'])
   });
 
 };
 
-exports.down = async function(knex) {};
+exports.down = async function(knex) {
+  await knex.schema.dropTableIfExists('steps_recipes')
+  await knex.schema.dropTableIfExists('recipes_ingredients')
+  await knex.schema.dropTableIfExists('steps')
+  await knex.schema.dropTableIfExists('ingredients')
+  await knex.schema.dropTableIfExists('recipes')
+};

@@ -4,9 +4,17 @@
   "main": "index.js",
   "repository": "https://github.com/LambdaSchool/node-db4-challenge.git",
   "author": "Victor Tran <victor.n.tran@outlook.com>",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "knex": "^0.20.8",
+    "knex-cleaner": "^1.3.0",
     "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
