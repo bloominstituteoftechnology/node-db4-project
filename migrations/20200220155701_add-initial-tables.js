@@ -13,7 +13,9 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("recipes");
+        .inTable("recipes")
+        .onDelete("RESTRICT")
+        .onUpdate("CASCADE");
     })
     .createTable("ingredients", tbl => {
       tbl.increments();
@@ -27,14 +29,18 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("recipes");
+        .inTable("recipes")
+        .onDelete("RESTRICT")
+        .onUpdate("CASCADE");
 
       tbl
         .integer("ingredient_id")
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("ingredients");
+        .inTable("ingredients")
+        .onDelete("RESTRICT")
+        .onUpdate("CASCADE");
     });
 };
 

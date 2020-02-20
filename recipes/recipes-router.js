@@ -26,7 +26,6 @@ router.get("/:id/instructions", async (req, res) => {
     const instructions = await Recipes.getInstructions(req.params.id);
     res.status(200).json(instructions);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "server error :(" });
   }
 });
