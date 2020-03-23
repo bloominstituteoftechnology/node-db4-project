@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       filename: './data/recipes.db3',
     },
-    useNullAsDefault: true //only needed for sqlite
+    useNullAsDefault: true
   },
 
   staging: {
@@ -22,7 +22,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './data/migrations'
     }
   },
 
@@ -38,7 +38,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './data/migrations'
     }
   }
 
