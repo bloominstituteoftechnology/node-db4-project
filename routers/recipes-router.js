@@ -162,13 +162,14 @@ function validateInstruction(req, res, next) {
 }
 
 async function validateInstructionId(req, res, next) {
+  const { instructionId } = req.params;
   try {
-    const instruction = await Instructions.getById(req.params.instructionId);
+    const instruction = await Instructions.getById(instructionId);
 
     !instruction.length
       ? next({
           status: 404,
-          message: "Instruction does not exist",
+          message: `Instruction with id of ${instructionId} does not exist`,
         })
       : next();
   } catch (error) {
