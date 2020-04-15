@@ -13,7 +13,7 @@ function getShoppingList(recipe_id) {
     .join("ingredients", "recipes_ingredients.ingredient_id", "ingredients.id")
     .select(
       "recipes_ingredients.ingredient_quantity",
-      "ingredients.ingredient_name",
+      "ingredients.name",
       "recipes_ingredients.unit"
     )
     .where({ "recipes_ingredients.recipe_id": recipe_id });
