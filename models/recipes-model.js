@@ -31,6 +31,10 @@ function getShoppingList(recipe_id) {
     .where({ "recipes_ingredients.recipe_id": recipe_id });
 }
 
+function addToShoppingList(item) {
+  return db("recipes_ingredients").insert(item);
+}
+
 function getInstructions(recipe_id) {
   return db("instructions").where({ recipe_id });
 }
@@ -43,4 +47,5 @@ module.exports = {
   getInstructions,
   update,
   remove,
+  addToShoppingList,
 };

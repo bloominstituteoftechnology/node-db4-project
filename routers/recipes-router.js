@@ -82,6 +82,22 @@ router.get("/:id/shoppinglist", validate.recipeId, (req, res, next) => {
     });
 });
 
+router.post(
+  "/:id/shoppingList",
+  validate.recipeId,
+  validate.shoppingListItem,
+  async (req, res, next) => {
+    const item = req.body;
+    item.recipe_id = req.params.id;
+    try {
+      const result = await Recipes.addToShoppingList(item);
+      res.json(result);
+    } catch (error) {
+      next({ message: error });
+    }
+  }
+);
+
 router.get("/:id/instructions", validate.recipeId, (req, res, next) => {
   const { id } = req.params;
 
