@@ -1,3 +1,7 @@
+const Recipes = require("../models/recipes-model.js");
+const Instructions = require("../models/instructions-model.js");
+const Ingredients = require("../models/ingredients-model.js");
+
 // Validation functions
 function recipeBody(req, res, next) {
   const recipe = req.body;
@@ -74,6 +78,17 @@ async function ingredientId(req, res, next) {
   }
 }
 
+async function shoppingListItem(req, res, next) {
+  const { ingredient_id, unit, ingredient_quantity } = req.body;
+  if (!(ingredient_id && unit && ingredient_quantity)) {
+    res.status(400).json({
+      message: "Please provide a ingredient_id, unit and ingredient_quantity",
+    });
+  } else {
+    next();
+  }
+}
+
 module.exports = {
   recipeBody,
   recipeId,
@@ -81,4 +96,5 @@ module.exports = {
   instructionId,
   ingredientBody,
   ingredientId,
+  shoppingListItem,
 };
