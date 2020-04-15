@@ -12,6 +12,16 @@ router.get("/", (req, res, next) => {
     });
 });
 
+router.post("/", validateRecipeBody, async (req, res, next) => {
+  try {
+    const [newRecipeId] = await Recipes.add(req.body);
+    const addedRecipe = await Recipes.getById(newRecipeId);
+    res.status(200).json(addedRecipe);
+  } catch (err) {
+    next({ message: "Failed to add recipe" });
+  }
+});
+
 router.get("/:id", validateRecipeId, async (req, res, next) => {
   const { id } = req.params;
   try {
@@ -46,10 +56,25 @@ router.get("/:id/instructions", validateRecipeId, (req, res, next) => {
     });
 });
 
+function validateRecipeBody(req, res, next) {
+  const recipe = req.body;
+  !recipe.name
+    ? next({
+        status: 400,
+        message: "Please provide a recipe name",
+      })
+    : next();
+}
+
 async function validateRecipeId(req, res, next) {
   try {
     const recipe = await Recipes.getById(req.params.id);
-    !recipe ? next({ status: 404, message: "Recipe does not exist" }) : next();
+    !recipe
+      ? next({
+          status: 404,
+          message: "Recipe does not exist",
+        })
+      : next();
   } catch (err) {
     res.status(500).json({ message: "Internal server error" });
   }

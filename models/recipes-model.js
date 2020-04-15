@@ -8,6 +8,10 @@ function getById(recipe_id) {
   return db("recipes").where({ id: recipe_id }).first();
 }
 
+function add(recipe) {
+  return db("recipes").insert(recipe);
+}
+
 function getShoppingList(recipe_id) {
   return db("recipes_ingredients")
     .join("ingredients", "recipes_ingredients.ingredient_id", "ingredients.id")
@@ -24,6 +28,7 @@ function getInstructions(recipe_id) {
 }
 
 module.exports = {
+  add,
   getAll,
   getById,
   getShoppingList,
