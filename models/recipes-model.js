@@ -12,6 +12,14 @@ function add(recipe) {
   return db("recipes").insert(recipe);
 }
 
+function update(recipe_id, recipe) {
+  return db("recipes").where({ id: recipe_id }).update(recipe);
+}
+
+function remove(recipe_id) {
+  return db("recipes").where({ id: recipe_id }).del();
+}
+
 function getShoppingList(recipe_id) {
   return db("recipes_ingredients")
     .join("ingredients", "recipes_ingredients.ingredient_id", "ingredients.id")
@@ -33,4 +41,6 @@ module.exports = {
   getById,
   getShoppingList,
   getInstructions,
+  update,
+  remove,
 };

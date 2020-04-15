@@ -56,6 +56,39 @@ router.get("/:id/instructions", validateRecipeId, (req, res, next) => {
     });
 });
 
+router.put(
+  "/:id",
+  validateRecipeId,
+  validateRecipeBody,
+  async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const result = await Recipes.update(id, req.body);
+      if (+result === 1) {
+        const updatedRecipe = await Recipes.getById(id);
+        res.json(updatedRecipe);
+      } else {
+        next({ message: "Failed to update recipe" });
+      }
+    } catch (error) {
+      next({ message: "Failed to update recipe" });
+    }
+  }
+);
+
+router.delete("/:id", validateRecipeId, async (req, res, next) => {
+  try {
+    const result = await Recipes.remove(req.params.id);
+    if (+result === 1) {
+      res.status(204);
+    } else {
+      next({ message: "Failed to delete recipe" });
+    }
+  } catch (error) {
+    next({ message: "Failed to delete recipe" });
+  }
+});
+
 function validateRecipeBody(req, res, next) {
   const recipe = req.body;
   !recipe.name
