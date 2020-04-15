@@ -1,6 +1,7 @@
 const express = require("express");
 const Ingredients = require("../models/ingredients-model.js");
 const router = express.Router();
+const validate = require("../utils/validators.js");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -11,7 +12,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", validateIngredient, async (req, res, next) => {
+router.post("/", validate.ingredientBody, async (req, res, next) => {
   try {
     const [id] = await Ingredients.add(req.body);
     const ingredient = await Ingredients.getById(id);
@@ -36,7 +37,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", validateIngredientId, async (req, res, next) => {
+router.delete("/:id", validate.ingredientId, async (req, res, next) => {
   const { id } = req.params;
   try {
     const result = await Ingredients.remove(id);
@@ -55,31 +56,5 @@ router.delete("/:id", validateIngredientId, async (req, res, next) => {
     next({ message: "Failed to get ingredient" });
   }
 });
-
-function validateIngredient(req, res, next) {
-  const ingredient = req.body;
-
-  !ingredient.name
-    ? res.status(400).json({ message: "Please provide an ingredient name" })
-    : next();
-}
-
-async function validateIngredientId(req, res, next) {
-  const { id } = req.params;
-
-  try {
-    const ingredient = await Ingredients.getById(id);
-
-    !ingredient.length
-      ? res.status(400).json({
-          message: `Ingredient with id of ${id} does not exist!`,
-        })
-      : next();
-  } catch (error) {
-    res.status(500).json({
-      message: "Error while validating ingredient id",
-    });
-  }
-}
 
 module.exports = router;

@@ -2,6 +2,7 @@ const express = require("express");
 const Recipes = require("../models/recipes-model.js");
 const Instructions = require("../models/instructions-model");
 const router = express.Router();
+const validate = require("../utils/validators.js");
 
 router.get("/", (req, res, next) => {
   Recipes.getAll()
@@ -13,7 +14,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.post("/", validateRecipeBody, async (req, res, next) => {
+router.post("/", validate.recipeBody, async (req, res, next) => {
   try {
     const [newRecipeId] = await Recipes.add(req.body);
     const addedRecipe = await Recipes.getById(newRecipeId);
@@ -23,7 +24,7 @@ router.post("/", validateRecipeBody, async (req, res, next) => {
   }
 });
 
-router.get("/:id", validateRecipeId, async (req, res, next) => {
+router.get("/:id", validate.recipeId, async (req, res, next) => {
   const { id } = req.params;
   try {
     const recipe = await Recipes.getById(id);
@@ -35,8 +36,8 @@ router.get("/:id", validateRecipeId, async (req, res, next) => {
 
 router.put(
   "/:id",
-  validateRecipeId,
-  validateRecipeBody,
+  validate.recipeId,
+  validate.recipeBody,
   async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -53,20 +54,23 @@ router.put(
   }
 );
 
-router.delete("/:id", validateRecipeId, async (req, res, next) => {
+router.delete("/:id", validate.recipeId, async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const result = await Recipes.remove(req.params.id);
-    if (+result === 1) {
-      res.status(204);
-    } else {
-      next({ message: "Failed to delete recipe" });
-    }
+    const result = await Recipes.remove(id);
+
+    !result
+      ? next({ message: "Failed to delete recipe" })
+      : res.status(200).json({
+          message: `Recipe with id of ${id} successfully deleted!`,
+        });
+    //res.status(204);
   } catch (error) {
-    next({ message: "Failed to delete recipe" });
+    next({ message: error });
   }
 });
 
-router.get("/:id/shoppinglist", validateRecipeId, (req, res, next) => {
+router.get("/:id/shoppinglist", validate.recipeId, (req, res, next) => {
   const { id } = req.params;
 
   Recipes.getShoppingList(id)
@@ -78,7 +82,7 @@ router.get("/:id/shoppinglist", validateRecipeId, (req, res, next) => {
     });
 });
 
-router.get("/:id/instructions", validateRecipeId, (req, res, next) => {
+router.get("/:id/instructions", validate.recipeId, (req, res, next) => {
   const { id } = req.params;
 
   Recipes.getInstructions(id)
@@ -92,8 +96,8 @@ router.get("/:id/instructions", validateRecipeId, (req, res, next) => {
 
 router.post(
   "/:id/instructions",
-  validateRecipeId,
-  validateInstruction,
+  validate.recipeId,
+  validate.instructionBody,
   async (req, res, next) => {
     const { id } = req.params;
     const instruction = req.body;
@@ -111,14 +115,16 @@ router.post(
 
 router.delete(
   "/:id/instructions/:instructionId",
-  validateRecipeId,
-  validateInstructionId,
+  validate.recipeId,
+  validate.instructionId,
   async (req, res, next) => {
     try {
       const result = await Instructions.remove(req.params.instructionId);
 
       if (+result === 1) {
-        res.status(204);
+        res.status(200).json({
+          message: `Instruction with id of ${instructionId} successfully deleted!`,
+        });
       } else {
         next({ message: "Failed to delete recipe step from database " });
       }
@@ -127,54 +133,5 @@ router.delete(
     }
   }
 );
-
-function validateRecipeBody(req, res, next) {
-  const recipe = req.body;
-  !recipe.name
-    ? next({
-        status: 400,
-        message: "Please provide a recipe name",
-      })
-    : next();
-}
-
-async function validateRecipeId(req, res, next) {
-  try {
-    const recipe = await Recipes.getById(req.params.id);
-    !recipe
-      ? next({
-          status: 404,
-          message: "Recipe does not exist",
-        })
-      : next();
-  } catch (err) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-}
-
-function validateInstruction(req, res, next) {
-  const instruction = req.body;
-  if (!instruction.step || !instruction.step_number) {
-    next({ status: 400, message: "Please provide a step number and step" });
-  } else {
-    next();
-  }
-}
-
-async function validateInstructionId(req, res, next) {
-  const { instructionId } = req.params;
-  try {
-    const instruction = await Instructions.getById(instructionId);
-
-    !instruction.length
-      ? next({
-          status: 404,
-          message: `Instruction with id of ${instructionId} does not exist`,
-        })
-      : next();
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-}
 
 module.exports = router;
