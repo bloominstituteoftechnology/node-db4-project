@@ -2,17 +2,27 @@ const express = require("express");
 const Recipes = require("../models/recipes-model.js");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  Recipes.getRecipes()
+router.get("/", (req, res, next) => {
+  Recipes.getAll()
     .then((recipes) => {
       res.json(recipes);
     })
     .catch((err) => {
-      res.status(500).json({ message: "Failed to get recipes" });
+      next({ message: "Failed to retrieve recipes" });
     });
 });
 
-router.get("/:id/shoppinglist", (req, res) => {
+router.get("/:id", validateRecipeId, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const recipe = await Recipes.getById(id);
+    res.json(recipe);
+  } catch (error) {
+    next({ message: "Failed to retrieve recipe" });
+  }
+});
+
+router.get("/:id/shoppinglist", validateRecipeId, (req, res, next) => {
   const { id } = req.params;
 
   Recipes.getShoppingList(id)
@@ -20,11 +30,11 @@ router.get("/:id/shoppinglist", (req, res) => {
       res.json(list);
     })
     .catch((err) => {
-      res.status(500).json({ message: "Failed to get shopping list" });
+      next({ message: "Failed to retrieve shopping list" });
     });
 });
 
-router.get("/:id/instructions", (req, res) => {
+router.get("/:id/instructions", validateRecipeId, (req, res, next) => {
   const { id } = req.params;
 
   Recipes.getInstructions(id)
@@ -32,8 +42,17 @@ router.get("/:id/instructions", (req, res) => {
       res.json(instructions);
     })
     .catch((err) => {
-      res.status(500).json({ message: "Failed to get instructions" });
+      next({ message: "Failed to retrieve instructions" });
     });
 });
+
+async function validateRecipeId(req, res, next) {
+  try {
+    const recipe = await Recipes.getById(req.params.id);
+    !recipe ? next({ status: 404, message: "Recipe does not exist" }) : next();
+  } catch (err) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
 
 module.exports = router;
