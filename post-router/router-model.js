@@ -8,7 +8,7 @@ function findById(id) {
     return db('recipes').where({ id: Number(id) });
 }
 
-function insert(recipe) {
+function add(recipe) {
     return db('recipes')
         .insert(posts, 'id')
         .then(ids => ({id: ids[0]}));
@@ -29,7 +29,7 @@ function remove(id) {
 module.exports = {
     find,
     findById,
-    insert,
+    add,
     update,
     remove
 }

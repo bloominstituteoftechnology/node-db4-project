@@ -1,35 +1,71 @@
-const db = require('../data/db-config');
+const express = require('express');
 
-function find() {
-    return db('recipes');
-}
+const Recipes = require('./router-model');
 
-function findById(id) {
-    return db('recipes').where({ id: Number(id) });
-}
+const router = express.Router();
 
-function insert(recipe) {
-    return db('recipes')
-        .insert(posts, 'id')
-        .then(ids => ({id: ids[0]}));
-}
+router.get('/', (req, res) =>{
+    Recipes.find()
+    .then(recipes =>{
+        if (!recipes){
+            res.status(404).json({error: 'Recipe list not found'})
+        } else {
+        res.json(201).json({message: 'Rendering Recipe List...', recipes})
+    }
+    })
+    .catch(err => {
+        res.status(500).json({error: 'Failed to find the recipe list', err})
+    })
+})
 
-function update(id, recipe) {
-    return db('recipes')
-        .where('id', Number(id))
-        .update(recipe);
-}
+router.get('/:id', (req, res) => {
+    Recipes.findById(id)
+    .then(recipe => {
+        if(!recipe){
+            res.status(404).json({error: 'Recipe not found'})
+        } else {
+            res.status(201).json({message: 'Recipe found: ', recipe})
+        }
+    })
+    .catch(err => {
+        res.status(500).json({error: 'Failed to find the recipe', err})
+    })
+})
 
-function remove(id) {
-    return db('recipes')
-        .where("id", Number(id))
-        .del();
-}
+router.post('/', (req, res) => {
+    const recipeData = req.body;
+    Recipes.add(recipeData)
+        .then(recipe => {
+            if (!recipe) {
+                res.status(400).json({error: 'Unable to process recipe data'})
+            } else {
+                res.status(201).json({message: 'Recipe added: ', recipe})
+            }
+        })
+        .catch(err =>{
+            res.status(500).json({error: 'Failed to add the recipe to the list', err})
+        })
+})
 
-module.exports = {
-    find,
-    findById,
-    insert,
-    update,
-    remove
-}
+router.put('/:id', (req, res) => {
+    const {id} = req.params;
+    const changes = req.body;
+
+    Recipes.findById(id)
+        .then(recipe => {
+            if (!recipe) {
+                res.status(404).json({error: 'Recipe not found with given id.'})
+            } else {
+                res.status(201).json({message: "Recipe successfully updated."})
+            }
+        })
+        .catch(err => {
+            res.status(500).json({error: 'Failed to update the recipe', err})
+        })
+})
+
+router.delete('/:id', (req, res) => {
+
+})
+
+module.exports = router;
