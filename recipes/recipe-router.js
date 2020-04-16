@@ -12,7 +12,15 @@ router.get("/",(req,res)=>{
         res.status(500).json({ message: 'Failed to get recipes' });
     })
 })
-router.get("/:id",(req,res)=>{
+router.get("/:id/recipes",(req,res)=>{
+    Recipes.getRecipesbyId(req.params.id).then(recipes=>{
+        res.status(200).json(recipes)
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json({ message: 'Failed to get Shopping list' });
+    })
+})
+router.get("/:id/shoppingList",(req,res)=>{
     Recipes.getShoppingList(req.params.id).then(recipes=>{
         res.status(200).json(recipes)
     }).catch(err=>{

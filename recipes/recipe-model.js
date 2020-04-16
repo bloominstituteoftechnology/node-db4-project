@@ -3,6 +3,7 @@ const db = require("../data/dbconfig");
 
 module.exports = {
     getRecipes,
+    getRecipesbyId,
     getShoppingList,
     getInstructions,
 }
@@ -10,11 +11,13 @@ module.exports = {
 function getRecipes(){
     return db("Recipes").select("*");
 }
+function getRecipesbyId(recipe_id){
+    return db("Recipes").select("*").where({"id":recipe_id});
+}
 
 function getShoppingList(recipe_id){
-    return db("Recipes")
+    return db("Ingredients_recipes as IR")
         .select("I.Ingredient_name")
-        .from("Ingredients_recipes as IR")
         .join("Ingredients as I", function(){
             this.on("I.id","=","IR.IngredientId")
         })
@@ -25,14 +28,11 @@ function getShoppingList(recipe_id){
 }
 
 function getInstructions(recipe_id){
-    return db("Recipes")
-        .select("s.Instructions","s.StepNumber")
-        .from("Ingredients_recipes as ir")
-        .join("Steps as s", function(){
-            this.on("s.RecipeId", "=", "ir.RecipeId")
-        }).where({"ir.RecipeId":recipe_id})
+
+    return db("Steps")
+        .select("Instructions","StepNumber")
+        .where({"RecipeId":recipe_id})
         .then(data=>{
             return data;
         })
-
 }
