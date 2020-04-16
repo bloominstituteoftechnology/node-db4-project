@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/MrR3set/node-db4-project#readme",
   "dependencies": {
-    "knex": "^0.20.15"
+    "dotnet": "^1.1.4",
+    "express": "^4.17.1",
+    "knex": "^0.20.15",
+    "knex-cleaner": "^1.3.0",
+    "sqlite3": "^4.1.1"
   }
 }
