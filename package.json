@@ -4,8 +4,7 @@
   "description": "- database modeling.\r - migration scripts.\r - seeding.\r - knex.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "server": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.20.15",
+    "nodemon": "^2.0.3",
     "sqlite3": "^4.1.1"
   }
 }
