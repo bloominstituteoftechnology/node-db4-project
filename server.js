@@ -1,11 +1,11 @@
 const express = require('express');
 
-const SchemeRouter = require('./schemes/scheme-router');
+const Router = require('./post-router/router');
 
 const server = express();
 
 server.use(express.json());
-server.use('/api/schemes', SchemeRouter);
+server.use('/api/recipes', Router);
 
 //sanity test
 server.get('/', (req, res) => {
