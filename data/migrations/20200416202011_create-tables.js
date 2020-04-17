@@ -8,32 +8,40 @@ exports.up = function(knex) {
         })
         .createTable('ingredients', tbl => {
             tbl.increments();
-            tbl.string('ingredients_name', 128).notNullable().unique();
-        })
-        .createTable('recipe_ingredients', tbl => {
-            tbl.increments()
-            tbl.integer('recipeId').unsigned().notNullable().references(recipes.id)
-            tbl.integer('ingredientsId').unsigned().notNullable().references(ingredients.id)
-            tbl.float('quantity').unsigned().notNullable()
-            tbl.text('unit')
-        })
-        .createTable('instructions', tbl => {
-            tbl.increments()
-            tbl.integer('recipeId').unsigned().notNullable().references('recipes.id')
-            tbl.text('instructions').notNullable()
-            tbl.integer('step_number').unsigned().notNullable()
-        })
-        .createTable('', tbl => {
-            
-        })
+            tbl.text('ingredient_name')
+                .notNullable()
+            tbl.float('quantity')
+                .notNullable()
+            tbl.integer('recipe_id')
+                .unsigned()
+                .notNullable()
+                .references('id')
+                .inTable('recipes')
+                .onUpdate('CASCADE')
+                .onDelete('CASCADE');
+            })
+            .createTable('steps', tbl => {
+                tbl.increments();
+                tbl.integer('step_number')
+                  .unsigned()
+                  .notNullable();
+                tbl.text('instructions')
+                  .notNullable();
+                tbl.integer('recipe_id')
+                  .unsigned()
+                  .notNullable()
+                  .references('id')
+                  .inTable('recipes')
+                  .onUpdate('CASCADE')
+                  .onDelete('CASCADE');
+              })
      )
 };
 
 exports.down = function(knex) {
     return(
         knex.schema
-        .dropTableIfExists('instructions')
-        .dropTableIfExists('recipe_ingredients')
+        .dropTableIfExists('steps')
         .dropTableIfExists('ingredients')
         .dropTableIfExists('recipes')
     )
