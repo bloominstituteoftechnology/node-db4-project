@@ -9,7 +9,7 @@ exports.up = function(knex) {
 
     .createTable("ingredients", table => {
         table.increments()
-        table.decimal("quantity", null)
+        table.float("quantity", null)
             .notNullable()
         table.string("ingredients", 128)
             .notNullable()
