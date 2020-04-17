@@ -53,8 +53,7 @@ exports.up = function(knex) {
               .references("id")
               .inTable("ingredients")
               .onUpdate("CASCADE")
-              .onDelete("CASCADE")
-  
+              .onDelete("CASCADE") 
       })
   };
   
