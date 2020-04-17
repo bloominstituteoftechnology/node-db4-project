@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Recipes = require('../recipes/recipe-model');
+const Recipes = require('../recipes/recipe-model')
 
 const router = express.Router();
 const validate = require('../utils/validate');
