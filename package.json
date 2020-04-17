@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Rrawla2/node-db4-project#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "knex": "^0.20.15",
     "nodemon": "^2.0.3",
