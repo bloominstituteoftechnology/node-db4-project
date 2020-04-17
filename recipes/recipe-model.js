@@ -26,4 +26,5 @@ function getInstructions(recipe_id) {
     return db("instructions")
     .join("recipes", "recipes.id", "instructions.recipe_id")
     .select("recipes.title", "instructions.step_number", "instructions.instructions")
+    .where({ recipe_id })
 }
