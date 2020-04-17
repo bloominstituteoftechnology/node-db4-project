@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/anatulea/node-db4-project#readme",
   "dependencies": {
+    "gitignore": "^0.6.0",
     "knex": "^0.20.15",
+    "knex-cleaner": "^1.3.0",
     "nodemon": "^2.0.3",
     "sqlite3": "^4.1.1"
   }
