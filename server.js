@@ -12,4 +12,4 @@ server.get('/', (req, res) => {
     res.status(200).json({api: 'green light'});
 });
 
-module.export = server;
+module.exports = server;
