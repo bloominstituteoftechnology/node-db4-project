@@ -4,10 +4,6 @@ module.exports = {
     getRecipe,
     getShoppingList,
     getInstructions,
-    // addRecipe,
-    // findRecipeById,
-    // updateRecipe,
-    // deleteRecipe
 }
 
 function getRecipe() {
@@ -28,3 +24,6 @@ function getInstructions(recipe_id) {
     .select("recipes.title", "instructions.step_number", "instructions.instructions")
     .where({ recipe_id })
 }
+
+
+
