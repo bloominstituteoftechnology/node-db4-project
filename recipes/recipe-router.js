@@ -21,14 +21,33 @@ router.get('/:id/ingredients', (req, res) => {
         .then(ingredients => {
             console.log(ingredients)
             if (ingredients) {
-                req.status(200).json(ingredients)
+                res.status(200).json(ingredients)
             } else {
-                req.status(404).json({ message: "No ingredients were found" })
+                res.status(404).json({ message: "No ingredients were found" })
             }
         })
         
         .catch(err => {
             res.status(500).json({ message: "Could not retrieve ingredients list" })
+        })
+    
+})
+
+router.get('/:id/instructions', (req, res) => {
+    const { id } = req.params
+
+    Recipes.getInstructions(id)
+        .then(instructions => {
+            console.log(instructions)
+            if (instructions) {
+                res.status(200).json(instructions)
+            } else {
+                res.status(404).json({ message: "No instructions were found" })
+            }
+        })
+        
+        .catch(err => {
+            res.status(500).json({ message: "Could not retrieve a list of instructions" })
         })
     
 })

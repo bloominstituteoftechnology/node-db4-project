@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex("instructions").insert([
-        {step_number: 1, instructions: "Mix Flour, Sugar and Milk in a bowl.", recipe_id: 1},
+        {step_number: 1, instructions: "Mix Flour, Sugar, Egg and Milk in a bowl.", recipe_id: 1},
         {step_number: 2, instructions: "Fry on a griddle until golden brown.", recipe_id: 1},
         {step_number: 3, instructions: "Serve warm with Real Maple Syrup.", recipe_id: 1},
         {step_number: 1, instructions: "Slice Potatoes.", recipe_id: 2},
