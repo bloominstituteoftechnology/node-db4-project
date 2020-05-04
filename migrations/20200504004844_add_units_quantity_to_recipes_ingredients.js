@@ -1,4 +1,5 @@
 exports.up = function(knex) {
+  
     return knex.schema.table("recipes_ingredients", tbl => {
       tbl.string("units", 255);
       tbl.float("quantity");
