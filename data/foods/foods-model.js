@@ -1,7 +1,7 @@
 const db = require("../data/db-config.js");
 
 module.exports = {
-  find,
+  getRecipes,
   findById,
   findSteps,
   add,
@@ -10,8 +10,9 @@ module.exports = {
   remove,
 };
 
-function find() {
-  return db("foods");
+// SELECT * FROM RECIPES;
+function getRecipes() {
+  return db("recipes").select("*");
 }
 
 function findById(id) {

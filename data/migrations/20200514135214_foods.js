@@ -6,19 +6,10 @@ exports.up = function (knex) {
 
       recipes.string("name", 255).notNullable().unique();
     })
-    .createTable("steps", (steps) => {
-      steps.increments();
-      steps.integer("step_number").notNullable();
-      steps.string("instruction", 255).notNullable().unique();
+    .createTable("ingredients", (ingredients) => {
+      ingredients.increments();
 
-      steps
-        .integer("recipes_id")
-        .unsigned()
-        .notNullable()
-        .references("id") // or .references('clients.id') then remove .inTable()
-        .inTable("recipes")
-        .onUpdate("CASCADE") // RESTRICT, DO NOTHING, SET NULL, CASCADE
-        .onDelete("RESTRICT");
+      ingredients.string("name", 255).notNullable().unique();
     })
     .createTable("recipes_ingredients", (recipes_ingredients) => {
       recipes_ingredients.increments();
@@ -43,17 +34,27 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("RESTRICT");
     })
-    .createTable("ingredients", (ingredients) => {
-      ingredients.increments();
 
-      ingredients.string("name", 255).notNullable().unique();
+    .createTable("steps", (steps) => {
+      steps.increments();
+      steps.integer("step_number").notNullable();
+      steps.string("instruction", 255).notNullable().unique();
+
+      steps
+        .integer("recipes_id")
+        .unsigned()
+        .notNullable()
+        .references("id") // or .references('clients.id') then remove .inTable()
+        .inTable("recipes")
+        .onUpdate("CASCADE") // RESTRICT, DO NOTHING, SET NULL, CASCADE
+        .onDelete("RESTRICT");
     });
 };
 
 exports.down = function (knex) {
   return knex.schema
-    .dropTableIfExists("ingredients")
-    .dropTableIfExists("recipes_ingredients")
     .dropTableIfExists("steps")
+    .dropTableIfExists("recipes_ingredients")
+    .dropTableIfExists("ingredients")
     .dropTableIfExists("recipes");
 };
