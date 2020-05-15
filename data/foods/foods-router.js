@@ -50,6 +50,24 @@ router.get("/:id/instruction", (req, res) => {
     });
 });
 
+router.get("/:id/recipes", (req, res) => {
+  const { id } = req.params;
+
+  Foods.getRecipesByIngredients(id)
+    .then((steps) => {
+      if (steps.length) {
+        res.json(steps);
+      } else {
+        res
+          .status(404)
+          .json({ message: "Could not find steps for given scheme" });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ message: "Failed to get steps" });
+    });
+});
+
 router.post("/", (req, res) => {
   const foodData = req.body;
 
