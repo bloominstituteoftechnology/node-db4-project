@@ -5,14 +5,16 @@ module.exports = {
   getShoppingList,
   getInstructions,
   add,
+  findById,
   addStep,
   update,
   remove,
 };
 
 // SELECT * FROM RECIPES;
+//.references('id').inTable('rec')
 function getRecipes() {
-  return db("recipes").select("*");
+  return db("recipes as r").select("*");
 }
 //SELECT  i.name, ri.quantity FROM recipes_ingredients as ri
 // INNER JOIN ingredients as i ON ri.ingredients_id = i.id
@@ -64,8 +66,12 @@ function getInstructions(id) {
 
 //   /*
 
+function findById(id) {
+  return db("recipes").where("id", id).first();
+}
+
 function add(foods) {
-  return db("foods")
+  return db("recipes")
     .insert(foods, "id")
     .then((ids) => {
       return findById(ids[0]);

@@ -8,6 +8,7 @@ exports.up = function (knex) {
     })
     .createTable("ingredients", (ingredients) => {
       ingredients.increments();
+      ingredients.integer("fresh").defaultTo(0);
 
       ingredients.string("name", 255).notNullable().unique();
     })

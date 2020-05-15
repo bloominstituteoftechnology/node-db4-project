@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id/shoppingList", (req, res) => {
   const { id } = req.params;
 
   Foods.getShoppingList(id)
