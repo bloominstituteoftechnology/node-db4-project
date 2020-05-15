@@ -1,11 +1,11 @@
 const express = require("express");
 
-const Foods = require("./foods-model.js");
+const Foods = require("./foods-model");
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  Foods.find()
+  Foods.getRecipes()
     .then((foods) => {
       res.json(foods);
     })
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   const { id } = req.params;
 
-  Foods.findById(id)
+  Foods.getShoppingList(id)
     .then((food) => {
       if (food) {
         res.json(food);
@@ -32,10 +32,10 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.get("/:id/steps", (req, res) => {
+router.get("/:id/instruction", (req, res) => {
   const { id } = req.params;
 
-  Foods.findSteps(id)
+  Foods.getInstructions(id)
     .then((steps) => {
       if (steps.length) {
         res.json(steps);

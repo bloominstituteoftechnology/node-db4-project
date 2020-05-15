@@ -1,9 +1,9 @@
-const db = require("../data/db-config.js");
+const db = require("../../db-config");
 
 module.exports = {
   getRecipes,
-  findById,
-  findSteps,
+  getShoppingList,
+  getInstructions,
   add,
   addStep,
   update,
@@ -14,13 +14,29 @@ module.exports = {
 function getRecipes() {
   return db("recipes").select("*");
 }
-
-function findById(id) {
-  return db("foods").where("id", id).first();
+//SELECT  i.name, ri.quantity FROM recipes_ingredients as ri
+// INNER JOIN ingredients as i ON ri.ingredients_id = i.id
+// INNER JOIN recipes as r ON ri.recipes_id = r.id
+// where r.id = 2;
+function getShoppingList(id) {
+  return db
+    .select("i.name", "ri.quantity")
+    .from("recipes_ingredients as ri")
+    .join("ingredients as i", "ri.ingredients_id", "=", "i.id")
+    .join("recipes as r", "ri.recipes_id", "=", "r.id")
+    .where({ recipes_id: id });
 }
 
-function findSteps(id) {
-  return db("foods");
+//SELECT  s.step_number, s.instruction from steps as s
+//INNER JOIN recipes as r on s.recipes_id = r.id
+//where s.recipes_id = 1;
+
+function getInstructions(id) {
+  return db
+    .select("s.step_number", "s.instruction")
+    .from("steps as s")
+    .join("recipes as r", "s.recipes_id", "=", "r.id")
+    .where({ recipes_id: id });
 }
 // function all() {
 //     /*
