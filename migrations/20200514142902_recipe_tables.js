@@ -6,7 +6,7 @@ exports.up = function (knex) {
 
             tbl.string("name", 128);
         })
-        .createTable("recipe_ingredients", tbl => {
+        .createTable("ingredients", tbl => {
             tbl.increments();
 
             tbl.string("name", 128);

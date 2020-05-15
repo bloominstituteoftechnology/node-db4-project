@@ -6,7 +6,7 @@ module.exports = {
     getRecipes,
     getShoppingList,
     getInstructions
-}
+};
 
 function getRecipes() {
     return db("recipes")
@@ -20,7 +20,7 @@ function getShoppingList(recipe_id) {
 }
 
 function getInstructions(recipe_id) {
-    return db("steps")
+    return db('steps')
         .join('recipes', 'steps.recipe_id', 'recipes.id')
         .select('recipes.name', 'steps.step_number', 'steps.instructions')
         .where({ recipe_id: recipe_id })
