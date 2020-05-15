@@ -1,17 +1,17 @@
 exports.up =  function(knex) {
   return knex.schema
-    .createTable('measurments', tbl => {
+    .createTable('measurements', tbl => {
       tbl.increments();
       tbl.decimal('quantity')
-        .unsigned)
+        .unsigned()
         .notNullable();
-
       tbl.integer("recipe_id")
-        .references("recipe_id")
+        .references("id")
         .inTable("recipes")
         .onUpdate("CASCADE")
         .onDelete("RESTRICT")
-        .references("ingredients_id")
+      tbl.integer("ingredients_id")
+        .references("id")
         .inTable("ingredients")
         .onUpdate("CASCADE")
         .onDelete("RESTRICT")

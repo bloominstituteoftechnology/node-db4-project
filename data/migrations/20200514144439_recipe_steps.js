@@ -8,6 +8,11 @@ exports.up =  function(knex) {
       tbl.integer('step_count')
         .unsigned()
         .notNullable();
+      tbl.integer("recipe_id")
+        .references("id")
+        .inTable("recipes")
+        .onUpdate("CASCADE")
+        .onDelete("RESTRICT")
     })
 
 };
