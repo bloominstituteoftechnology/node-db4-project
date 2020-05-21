@@ -5,7 +5,7 @@ const ingredientRouter = require("./ingredients/ingredient-router")
 const stepRouter = require("./steps/step-router")
 
 const server = express()
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 4000
 
 server.use(helmet())
 server.use(express.json())

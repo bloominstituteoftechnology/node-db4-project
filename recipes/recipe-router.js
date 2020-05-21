@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 // return a list of all ingredients and quantities for a given recipe
-router.get('/:id/ShoppingList', (req, res) => {
+router.get('/:id/shoppingList', (req, res) => {
   const { id } = req.params;
   Recipes.getShoppingList(id)
     .then(ingredients => {
@@ -29,7 +29,7 @@ router.get('/:id/ShoppingList', (req, res) => {
 });
 
 // return a list of step by step instructions for preparing a recipe 
-router.get('/:id/getInstructions', (req, res) => {
+router.get('/:id/instructions', (req, res) => {
   const { id } = req.params;
 
   Recipes.getInstructions(id)
