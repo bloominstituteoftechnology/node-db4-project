@@ -1,0 +1,27 @@
+{
+  "name": "node-db4-project",
+  "version": "1.0.0",
+  "description": "## Topics",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamidAzizy/node-db4-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HamidAzizy/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/HamidAzizy/node-db4-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "nodemon": "^2.0.4",
+    "sqlite3": "^4.2.0"
+  }
+}
