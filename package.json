@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"scripts": {
+		"server": "nodemon index.js",
+		"start": "node index"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"helmet": "^3.22.0",
+		"knex": "^0.21.1",
+		"sqlite3": "^4.2.0"
+	}
+}
