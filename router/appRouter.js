@@ -24,7 +24,7 @@ server.get("/recipes", async (req, res, next) => {
  }
 })
 
-//GET All Ingredients
+//GET All Ingredients ✅
 server.get("/ingredients", async (req, res, next) => {
     try {
         const data = await Recipe.getAllIngredients()
@@ -33,6 +33,22 @@ server.get("/ingredients", async (req, res, next) => {
         next(error)
     }
    })
+
+//GET Ingredients for Recipie ID
+server.get("/shoppinglist/:id", async (req, res, next) => {
+    try {
+        const list = await Recipe.getShoppingList(req.params.id)
+        if(list.length === 0) {
+            return res.status(404).json({
+                message:"Recipe Does Not Exist"
+            })
+        } else {
+            res.json(list)
+        }
+    } catch (error) {
+        next(error)
+    }
+})
 
 //export your router
 module.exports = server
