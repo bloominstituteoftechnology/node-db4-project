@@ -34,7 +34,7 @@ server.get("/ingredients", async (req, res, next) => {
     }
    })
 
-//GET Ingredients for Recipie ID
+//GET Ingredients for Recipie ID ✅
 server.get("/shoppinglist/:id", async (req, res, next) => {
     try {
         const list = await Recipe.getShoppingList(req.params.id)
@@ -44,6 +44,21 @@ server.get("/shoppinglist/:id", async (req, res, next) => {
             })
         } else {
             res.json(list)
+        }
+    } catch (error) {
+        next(error)
+    }
+})
+
+server.get('/instructions/:id', async (req, res, next) => {
+    try {
+        const steps = await Recipe.getInstructions(req.params.id)
+        if(steps.length === 0) {
+            return res.status(400).json({
+                message:"Recipe Does Not Exist"
+            })
+        } else {
+            res.json(steps)
         }
     } catch (error) {
         next(error)
