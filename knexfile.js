@@ -3,9 +3,12 @@
 module.exports = {
   development: {
     client: "sqlite3",
-    useNullAsDefault: true,
     connection: {
-      filename: "./dev.db3",
+      filename: "./migrations/dev.db3",
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: "./migrations",
     },
 
     pool: {
