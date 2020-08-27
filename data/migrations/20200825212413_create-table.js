@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('instructions', tbl => {
-        tbl.increments('Id');
+        tbl.increments('id');
         tbl.text('instructions', 500).notNullable();
     })
     .createTable('ingredients', tbl => {
@@ -16,14 +16,14 @@ exports.up = function(knex) {
         tbl.integer('instructionId')
             .unsigned()
             .notNullable()
-            .references('Id')
+            .references('id')
             .inTable('instructions')
             .onUpdate('CASCADE')
             .onDelete('CASCADE');
         tbl.integer('ingredientId')
             .unsigned()
             .notNullable()
-            .references('Id')
+            .references('id')
             .inTable('ingredients')
             .onUpdate('CASCADE')
             .onDelete('CASCADE');
