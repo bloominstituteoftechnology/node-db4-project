@@ -12,4 +12,11 @@ field: primary key, auto generates
 field: recipe name, not nullable
 field: recipe instructions, not nullable 
 11.) ran 'knex migrate:make latest' to create recipes.db3 
+12.) Tested that the table was made SQLiteStudio - a table with my fields was there
+13.) Ran 'knex seed:make 001-recipes' to generate a seed file to prepopulate the server with 3 recipes (for now)
+14.) Ran 'knex migrate:make ingredients-table' a file was generated in the migrations folder -> set this file up to create the ingredients table: 
+field: primary key 
+field: ingredient_name, not nullable
+field: type, not nullable
+15.) Ran 'knex migrate:latest' to add the ingredients table to the database, checked in SQLiteStudio to confirm it was there. 
 
