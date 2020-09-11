@@ -7,4 +7,9 @@
 7.) Create a data folder with a db-config file in it - set up Knex inside 
 8.) Run knex init in root, update the development object
 9.) Set up db-config.js with knex, imported into server.js
-10.) 
+10.) Ran 'knex migrate:make recipes-table' a file was generated in the migrations folder -> set this up to create the recipes table: 
+field: primary key, auto generates 
+field: recipe name, not nullable
+field: recipe instructions, not nullable 
+11.) ran 'knex migrate:make latest' to create recipes.db3 
+
