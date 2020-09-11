@@ -13,8 +13,8 @@ exports.seed = function(knex) {
         {id: 6, ingredient_name: 'bread', type: 'slices'},
         {id: 7, ingredient_name: 'peanut butter', type: 'ounces'},
         {id: 8, ingredient_name: 'jelly', type: 'ounces'}, 
-        {id: 1, ingredient_name: 'ramen noodles', type: 'each'}, 
-        {id: 1, ingredient_name: 'water', type: 'ounces'}
+        {id: 9, ingredient_name: 'ramen noodles', type: 'each'}, 
+        {id: 10, ingredient_name: 'water', type: 'ounces'}
       ]);
     });
 };
