@@ -19,4 +19,10 @@ field: primary key
 field: ingredient_name, not nullable
 field: type, not nullable
 15.) Ran 'knex migrate:latest' to add the ingredients table to the database, checked in SQLiteStudio to confirm it was there. 
+16.) Ran 'knex migrate:make recipes_ingredients-table' to make the 'joining' table (third table?) This table will reference the the other two tables and have a quantity field. 
+17.) Set up the new migration file - recipes_ingredients-table:
+field: primary key
+field: recipe_id references recipes table
+field: ingredients_id references ingredients table
+field: quantity, integer, not nullable 
 
