@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet'); 
 
 const server = express(); 
+const db = require('../data/db-config'); 
 
 //! server.use statements REMEMBER ORDER MATTERS !// 
 server.use(express.json()); 
