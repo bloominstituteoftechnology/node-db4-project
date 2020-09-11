@@ -27,9 +27,11 @@ field: ingredients_id references ingredients table
 field: quantity, integer, not nullable 
 18.) Ran 'knex seed:make 002-ingredients' and added seed data to the function
 19.) Ran 'knex seed:make 003-recipes_ingredients and added seed data for the intermediary (joining)(third) table
-20.) ADD THE SEEDS! Now that we have TRIPLE CHECKED the seed files, the command 'knex seed:run' 
+20.) ADD THE SEEDS! Now that we have TRIPLE CHECKED the seed files, run the command 'knex seed:run' 
 21.) There's now data in the database, now it's time to made a model and build a router to GET PUT DELETE and POST! 
 
 22.) Created a recipes folder to hold the recipes-router.js and recipes-model.js
 23.) Created the model structure and added find function to the model, exported
 24.) Created the router structure, imported into the server, and added the GET end point
+25.) Added findById, findShoppingList, and made the GET end points to GET by id and GET shopping list by recipe
+26.) 
