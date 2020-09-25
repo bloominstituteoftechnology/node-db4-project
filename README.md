@@ -1,13 +1,18 @@
-# Recipe Book
+# Node DB4 Module Project
 
-## Topics
+## Instructions
 
-- database modeling.
-- migration scripts.
-- seeding.
-- knex.
+### Task 1: Set Up The Project With Git
 
-## Assignment
+Follow these steps to set up and work on your project:
+
+- [ ] Create a forked copy of this project.
+- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [ ] Push commits: git push -u origin `<firstName-lastName>`.
+
+### Task 2: Minimum Viable Product
 
 Design the **data model** for a _recipe book_ application, then use `Knex migrations and seeding` functionality to build a `SQLite3` database based on the model and seed it with test data.
 
@@ -36,7 +41,7 @@ In addition to the `migrations` and `seeding` scripts, write a data access file 
 
 Organize and name your files anyway you see fit.
 
-## Stretch Problem
+### Task 3: Stretch Goals
 
 Build the following endpoints. Write any additional data access helpers as needed.
 
@@ -44,3 +49,9 @@ Build the following endpoints. Write any additional data access helpers as neede
 - `GET /api/recipes/:id/shoppingList`: a list of ingredients and quantites for a single recipe
 - `GET /api/recipes/:id/instructions`: a correctly ordered list of how to prepare a single recipe
 - `GET /api/ingredients/:id/recipes`: all recipes in the system that utilize a single ingredient 
+
+## Submission format
+
+Follow these steps for completing your project.
+
+- [ ] Submit a pull request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
