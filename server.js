@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const server = express();
 
 server.use(helmet());
+server.use(express.json())
 
 const PORT = process.env.PORT || 5000;
 
