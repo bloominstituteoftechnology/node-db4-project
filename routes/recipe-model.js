@@ -6,6 +6,7 @@ module.exports = {
   update,
   remove,
   addRecipe,
+  getShoppingList,
 };
 //This returns only the recipes name nothing else
 function getRecipes() {
@@ -31,4 +32,34 @@ function addRecipe(recipe) {
       const id = res[0];
       return findById(id);
     });
+}
+
+// select recipes.name,
+// ingredients_list.ingredient_amount,
+// ingredients.name as Ingredient
+// from recipes
+// join instructions on instructions.recipe_id = recipes.id
+// join ingredients_list on instructions.id = ingredients_list.instruction_id
+// join ingredients on ingredients_list.ingredient_id = ingredients.id
+// Where recipes.id =  2
+function getShoppingList(id) {
+  return db("recipes")
+    .join("instructions", "instructions.recipe_id", "=", "recipes.id")
+    .join(
+      "ingredients_list",
+      "instructions.id",
+      "=",
+      "ingredients_list.instruction_id"
+    )
+    .join(
+      "ingredients",
+      "ingredients_list.ingredient_id",
+      "=",
+      "ingredients.id"
+    )
+    .select(
+      "recipes.name",
+      "ingredients_list.ingredient_amount",
+      "ingredients.name as Ingredient"
+    )
 }

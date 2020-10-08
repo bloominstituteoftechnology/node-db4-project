@@ -27,6 +27,17 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id/ingredients", (req, res) => {
+  const id = req.params.id;
+  Recipes.getShoppingList(id)
+    .then((resp) => {
+      res.status(200).json(resp);
+    })
+    .catch((err) => {
+      res.status(500).json({ ErrorMessage: err.message });
+    });
+});
+
 router.get("/:id", idCheck, (req, res) => {
   Recipes.findById(req.params.id)
     .then((resp) => {
@@ -59,12 +70,10 @@ router.post("/", bodyCheck, (req, res) => {
     });
 });
 
-router.delete("/:id",idCheck, (req, res) => {
+router.delete("/:id", idCheck, (req, res) => {
   Recipes.remove(req.params.id)
     .then((resp) => {
-      res
-        .status(200)
-        .json(resp);
+      res.status(200).json(resp);
     })
     .catch((err) => {
       res.status(500).json({ ErrorMessage: err.message });
