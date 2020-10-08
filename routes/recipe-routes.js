@@ -38,6 +38,16 @@ router.get("/:id/ingredients", (req, res) => {
     });
 });
 
+router.get("/:id/instructions", (req, res) => {
+  Recipes.getInstructions(req.params.id)
+    .then((resp) => {
+      res.status(200).json(resp);
+    })
+    .catch((err) => {
+      res.status(500).json({ ErrorMessage: err.message });
+    });
+});
+
 router.get("/:id", idCheck, (req, res) => {
   Recipes.findById(req.params.id)
     .then((resp) => {

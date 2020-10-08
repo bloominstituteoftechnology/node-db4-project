@@ -7,6 +7,7 @@ module.exports = {
   remove,
   addRecipe,
   getShoppingList,
+  getInstructions
 };
 //This returns only the recipes name nothing else
 function getRecipes() {
@@ -42,6 +43,7 @@ function addRecipe(recipe) {
 // join ingredients_list on instructions.id = ingredients_list.instruction_id
 // join ingredients on ingredients_list.ingredient_id = ingredients.id
 // Where recipes.id =  2
+
 function getShoppingList(id) {
   return db("recipes")
     .join("instructions", "instructions.recipe_id", "=", "recipes.id")
@@ -62,4 +64,10 @@ function getShoppingList(id) {
       "ingredients_list.ingredient_amount",
       "ingredients.name as Ingredient"
     )
+    .where({ "recipes.id": id });
+}
+
+function getInstructions(id){
+    return db("instructions").select("instructions.instructions").where({id})
+
 }
