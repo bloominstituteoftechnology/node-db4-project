@@ -4,7 +4,9 @@
   "description": "## Instructions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+		"start": "node index"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/Dodgers-42/node-db4-project#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "knex": "^0.21.6",
     "sqlite3": "^5.0.0"
   }
