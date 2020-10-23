@@ -1,0 +1,27 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "## Instructions",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "knex": "^0.21.6",
+    "nodemon": "^2.0.6",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahn84/node-db4-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noahn84/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/noahn84/node-db4-project#readme"
+}
