@@ -1,5 +1,5 @@
 express = require("express")
-const db = require("../data/config")
+const db = require("../config")
 const router = express.Router()
 
 // router.get("/", async (req, res, next)=> {

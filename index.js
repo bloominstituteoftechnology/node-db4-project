@@ -1,6 +1,6 @@
 const express = require("express")
-const rR = require("./routers/recipeRouter")
-const iR = require("./routers/ingredientsRouter")
+const rR = require("./data/routers/recipeRouter")
+const iR = require("./data/routers/ingredientsRouter")
 
 const server = express()
 
