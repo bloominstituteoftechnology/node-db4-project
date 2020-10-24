@@ -1,0 +1,27 @@
+{
+  "name": "node-db4-project",
+  "version": "1.0.0",
+  "description": "## Instructions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+		"start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dodgers-42/node-db4-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dodgers-42/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/Dodgers-42/node-db4-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "sqlite3": "^5.0.0"
+  }
+}
