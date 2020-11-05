@@ -7,6 +7,7 @@ exports.up = function (knex) {
     .createTable("recipes", (tbl) => {
       tbl.increments();
       tbl.string("recipe_title", 128).notNullable();
+      tbl.string("instructions", 1024).notNullable();
       tbl
         .integer("recipe_book_id")
         .unsigned()
