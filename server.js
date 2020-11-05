@@ -32,3 +32,6 @@ server.get('/api/ingredients', (req, res) => {
       res.status(500).json(error);
     });
   });
+
+
+  module.exports = server;
