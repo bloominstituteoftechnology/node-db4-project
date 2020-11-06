@@ -1,0 +1,28 @@
+exports.seed = async function(knex) {
+  await knex("steps").insert([
+    { instruction: "I should be in this Poof.", recipe_id: 1 },
+    { instruction: "Fun and failure both start out the same way.", recipe_id: 1 },
+    { instruction: "We need a name.", recipe_id: 1 },
+    { instruction: "Maybe 'Operation Hot Mother'.", recipe_id: 2 },
+    { instruction: "I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.", recipe_id: 2 },
+    { instruction: "Way to plant, Ann!", recipe_id: 2 },
+    { instruction: "Ah, it is a rock, though", recipe_id: 3 },
+    { instruction: "Should beat everything.", recipe_id: 3 },
+    { instruction: "Gob: There's not a lot of logic to it.", recipe_id: 3 },
+    { instruction: "No one was making fun of Andy Griffith", recipe_id: 4 },
+    { instruction: "I can't emphasize that enough.", recipe_id: 4 },
+    { instruction: "No, Pop-pop does not get a treat. I just bought you a f**king pizza.", recipe_id: 4 },
+    { instruction: "This show was cancelled.", recipe_id: 4 },
+    { instruction: "I mean, COME ON.", recipe_id: 4 },
+    { instruction: "I've used one adjective to describe myself", recipe_id: 4 },
+    { instruction: "What is it?", recipe_id: 4 },
+    { instruction: "Who?", recipe_id: 5 },
+    { instruction: "i just dont want him to point out my cracker ass in front of ann.", recipe_id: 5 },
+    { instruction: "Heyyyy Uncle Father Oscar.", recipe_id: 5 },
+    { instruction: "I shall hide behind the couch. (Guy's a pro.)", recipe_id: 5 },
+    { instruction: "Wow, this is the best free scrapbooking class I've ever taken!", recipe_id: 5 },
+    { instruction: "ps This one really cracks me up for some reason.", recipe_id: 5 },
+    { instruction: "Come on, this is a Bluth family celebration!", recipe_id: 5 },
+    { instruction: "It's no place for children. If this tableau I recreate, perhaps I can re-snare my mate.", recipe_id: 5 },
+  ])
+}
