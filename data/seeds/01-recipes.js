@@ -1,8 +1,12 @@
-const cleaner = require("knex-cleaner");
-
 exports.seed = function (knex) {
-  return cleaner.clean(knex, {
-    mode: "truncate", // resets ids
-    ignoreTables: ["knex_migrations", "knex_migrations_lock"], // don't empty migration tables
-  });
+  // Deletes ALL existing entries
+  return knex("recipes")
+    .truncate()
+    .then(function () {
+      // Inserts seed entries
+      return knex("recipes").insert([
+        { name: "Grilled Cheese" },
+        { name: "Spaghetti" },
+      ]);
+    });
 };
