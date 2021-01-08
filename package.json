@@ -1,0 +1,29 @@
+{
+  "name": "node-db4-project",
+  "version": "1.0.0",
+  "description": "db4-project",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jet110390/node-db4-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jet110390/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/Jet110390/node-db4-project#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.15",
+    "sqlite3": "^5.0.0"
+  }
+}
