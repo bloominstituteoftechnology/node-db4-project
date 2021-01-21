@@ -2,11 +2,11 @@ exports.up = function (knex) {
   return knex.schema
     .createTable("recipes", tbl => {
         tbl.increments("recipe_id")
-        tbl.string("recipe", 128).notNullable()
+        tbl.string("recipe_name", 128).notNullable()
     })
     .createTable("ingredients", tbl => {
         tbl.increments("ingredient_id")
-        tbl.string("ingredient", 128).notNullable()
+        tbl.string("ingredient_name", 128).notNullable()
     })
     .createTable("recipe_ingredients", tbl => {
         tbl.increments("id")
