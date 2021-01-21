@@ -41,9 +41,15 @@ In addition to the `migrations` and `seeding` scripts, write a data access file 
             ingredient_name as Ingredient, quantity as Quantity
         from recipe_ingredients as r
         join ingredients as i
-        on r.ingredient_id = i.ingredient_id
+            on r.ingredient_id = i.ingredient_id
         where recipe_id = 1
 - `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
+        select
+            step_number as Steps, instruction_text as Instructions
+        from instructions as i
+        join recipes as r
+            on i.recipe_id = r.recipe_id
+        where r.recipe_id = 1
 
 Organize and name your files anyway you see fit.
 
