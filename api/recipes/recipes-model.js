@@ -22,7 +22,7 @@ function getShoppingList(recipe_id){
 function getInstructions(recipe_id){
     return db('recipe_steps')
         .join('recipes', 'recipes.recipe_id', 'recipe_steps.recipe_id')
-        .select('recipe_steps.step_id', 'recipes.recipe', 'recipe_steps.step_number', 'recipe_steps.step_description')
+        .select('recipes.recipe', 'recipe_steps.step_number', 'recipe_steps.step_description')
         .where('recipes.recipe_id', recipe_id)
         .orderBy('recipe_steps.step_number')
 }
