@@ -2,13 +2,13 @@ const db = require("../../data/db-config.js");
 
 module.exports = {
   getIngredients,
-  getbyId,
+  getById,
 };
 
 function getIngredients() {
   return db("ingredients");
 }
 
-function getbyId(id) {
+function getById(id) {
   return db("ingredients").where("id", id).first();
 }
