@@ -24,9 +24,9 @@ function getShoppingList(id) {
     .select(
       "r.recipe_name",
       "r.description",
+      "i.ingredient_name",
       "m.qty_amount",
-      "mu.measurement_description",
-      "i.ingredient_name"
+      "mu.measurement_description"
     )
     .where({ recipe_id: id });
 }
