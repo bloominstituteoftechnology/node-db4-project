@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id/shoppingList", async (req, res) => {
+router.get("/:id/shoppingList", async (req, res, next) => {
   try {
     const shoppingList = await Recipes.getShoppingList(req.params.id);
     res.status(200).json(shoppingList);

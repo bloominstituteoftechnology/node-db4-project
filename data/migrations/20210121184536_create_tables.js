@@ -7,12 +7,12 @@ exports.up = function (knex) {
     })
     .createTable("ingredients", (tbl) => {
       tbl.increments();
-      tbl.integer("recipe_id").references("id").inTable("recipes");
+
       tbl.string("ingredient_name", 128).notNullable().unique();
     })
     .createTable("measurement_units", (tbl) => {
       tbl.increments();
-      tbl.integer("ingredient_id").references("id").inTable("ingredients");
+
       tbl.string("measurement_description", 128).notNullable();
     })
     .createTable("measurement_qty", (tbl) => {
