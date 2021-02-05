@@ -24,6 +24,22 @@ The requirements for the system, as stated by the client are:
 - when saving the ingredients for a **recipe** capture the quantity required for that **ingredient** as a floating number.
 - have a way to save step by step instructions for preparing a recipe.
 
+Need a recipes table
+Need an ingredients table
+Need bridge table to connect recipes and ingridents
+Need to add quantity to recipes and possibly create a table to connect to ingredients
+Need an instructions table that connects to theses recipes table
+
+
+Simple Schema
+
+recipe seed
+ingredients
+
+
+
+
+
 **Hint**: Before writing any code, write out all desired tables in the data model and determine all relationships between tables. 
 
 ### Migrations and Seeds
