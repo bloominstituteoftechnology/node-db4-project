@@ -26,9 +26,11 @@ The requirements for the system, as stated by the client are:
 
 Need a recipes table
 Need an ingredients table
-Many to many bridge table needed
+Need bridge table to connect recipes and ingridents
 Need to add quantity to recipes and possibly create a table to connect to ingredients
 Need an instructions table that connects to theses recipes table
+Need bridge table to connect recipes and instructions
+
 Simple Schema
 
 
