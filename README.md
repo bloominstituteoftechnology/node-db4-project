@@ -33,6 +33,9 @@ Need an instructions table that connects to theses recipes table
 
 Simple Schema
 
+recipe seed
+ingredients
+
 
 
 
