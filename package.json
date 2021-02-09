@@ -1,0 +1,29 @@
+{
+  "name": "db4-project",
+  "version": "1.0.0",
+  "description": "Follow these steps to set up and work on your project:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Regbmiller/node-db4-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Regbmiller/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/Regbmiller/node-db4-project#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "gitignore": "^0.6.0",
+    "helmet": "^4.4.1",
+    "knex": "^0.21.17",
+    "node": "^15.8.0",
+    "sqlite3": "^5.0.1"
+  }
+}
