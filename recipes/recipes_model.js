@@ -1,28 +1,23 @@
 const db = require("../data/config")
 
 function getRecipes() {
-    return db("*").from("Recipes")
-        .leftJoin("Recipe_Details", "Recipes.id", "RecipeDetails.Recipe_Id")
-        .groupBy("Recipes.id")
-        .orderBy("Recipes.id")
-        .leftJoin("Ingredients", "Recipe_Details.Ingredient_id", "Ingredients.Id")
-        .groupBy("RecipeDetails.RecipeId")
-        .orderBy("RecipeDetails.RecipeId")
-        .leftJoin("Instructions", "Recipes.id", "Instructions.Recipe_Id")
-        .groupBy("Recipes.id")
-        .orderBy("Recipes.id")
+    return db("Recipe_Details.Recipe_Id", "Recipe", "Ingredient", "Ingredient_Qty", "Unit",  "Step_Number", "Instruction").from("Recipe_Details")
+        .join("Recipes", "Recipes.id", "Recipe_Details.Recipe_Id")
+        .join("Ingredients", "Recipe_Details.Ingredient_id", "Ingredients.Id")
+        .join("Instructions", "Recipe_Details.Recipe_Id", "Instructions.Recipe_Id")
+        .orderBy("Recipe_Details.Recipe_Id")
 }
 
 function getShoppingList(recipe_id) {
     return db("Ingredient", "Ingredient_Qty").from("Ingredients")
         .join("Recipe_Details", "Ingredients.id", "Ingredient_Id")
-        .where("Ingredients.id", recipe_id)
+        .where("Recipe_Details.Recipe_Id", recipe_id)
 }
 
 function getInstructions(recipe_id) {
     return db("Instruction").from("Instructions")
-        .where("Instructions.Recipe_Id", recipe_id)
-        .orderBy("Instructions.Step_Number")
+        .where("Recipe_Id", recipe_id)
+        .orderBy("Step_Number")
 }
 
 module.exports = {
