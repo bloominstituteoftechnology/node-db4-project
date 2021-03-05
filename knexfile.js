@@ -4,14 +4,15 @@ module.exports = {
 //d{cc{f}up{a;(con,don)}mdsd}
   development: {
     client: 'sqlite3',
+    useNullAsDefault:true,
     connection: {
       filename: "./conf/cookbook.db3" //here goes db3
-    }
-  },
-useNullAsDefault:true,
+    },
+  
+
 pool:{
-  afterCreate:(con,don)=>{
-    con.run("PRAGMA foreign_keys=ON",don)
+  afterCreate:(conn,done)=>{
+    conn.run("PRAGMA foreign_keys=ON",done)
   }
 },
 migrations:{
@@ -23,4 +24,5 @@ seeds:{
 }
  
 
-};
+}
+}
