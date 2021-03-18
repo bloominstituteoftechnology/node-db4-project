@@ -78,7 +78,7 @@ Write a data access file that exports an object with the following function:
 
 #### Endpoint
 
-Write an endpoint to fetch a recipe by its id.
+Write an endpoint to fetch a recipe by its id, using the `getRecipeById(recipe_id)` function.
 
 ### Task 3: Stretch Goals
 
