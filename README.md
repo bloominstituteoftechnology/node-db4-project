@@ -72,14 +72,14 @@ Before writing any code, write out all desired tables in the data model and dete
 Write a data access file that exports an object with the following function:
 
 - `getRecipeById(recipe_id)`
-  - Should resolve a representation of the recipe similar to the one described in the **Data Model** above.
-  - The function will pull information from several tables using Knex and then hammer all the data into shape using JavaScript.
-  - There are many possible implementations you could write, but from a performance standpoint the fewer calls to the database the better!
+  - Should resolve a representation of the recipe similar to the one shown in the **Data Model** above.
+  - The function will pull information from several tables using Knex and then create a response object using loops, objects, array methods etc.
+  - There are many ways to solve this, but from a performance standpoint the fewer trips to the database the better!
 
 ### Task 3: Stretch Goals
 
 - Write an endpoint to create a new recipe using ingredients that already exist in the database.
-- Build a form in React that allows to create a new recipe using ingredients that already exist in the database.
+- Build a form in React that allows to create a new recipe selecting ingredients that already exist in the database.
 - Research **transactions** in SQL and Knex: POSTing a recipe involves inserts to several tables, and the operation needs to completely succeed or be rolled back if any of the inserts fail.
 
 The representation **sent to the server** _could_ look like the following:
