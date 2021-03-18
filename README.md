@@ -78,9 +78,9 @@ Write a data access file that exports an object with the following function:
 
 ### Task 3: Stretch Goals
 
-- Write an endpoint to create a new recipe using ingredients that already exist in the database.
-- Build a form in React that allows to create a new recipe selecting ingredients that already exist in the database.
-- Research **transactions** in SQL and Knex: POSTing a recipe involves inserts to several tables, and the operation needs to completely succeed or be rolled back if any of the inserts fail.
+- [ ] Write an endpoint to create a new recipe using ingredients that already exist in the database.
+- [ ] Build a form in React that allows to create a new recipe selecting ingredients that already exist in the database.
+- [ ] Research **transactions** in SQL and Knex: POSTing a recipe involves inserts to several tables, and the operation needs to completely succeed or be rolled back if any of the inserts fail.
 
 The representation **sent to the server** _could_ look like the following:
 
