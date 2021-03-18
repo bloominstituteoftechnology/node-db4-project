@@ -2,56 +2,104 @@
 
 ## Instructions
 
-### Task 1: Set Up The Project With Git
+### Task 1: Project Setup
 
-Follow these steps to set up and work on your project:
-
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push -u origin `<firstName-lastName>`.
+- [ ] Fork and clone the repository.
+- [ ] Implement your project in a `firstname-lastname` branch.
+- [ ] Create a pull request of `firstname-lastname` against your `main` branch.
+- [ ] Open the assignment in Canvas and submit your pull request.
 
 ### Task 2: Minimum Viable Product
 
-Design the **data model** for a _recipe book_ application, then use `Knex migrations and seeding` functionality to build a `SQLite3` database based on the model and seed it with test data.
+Design the **data model** for a _recipe book_ application and use Knex migrations and seeding functionality to build a **SQLite database** based on the model and seed it with test data. Then, build an **endpoint** to fetch a recipe by its id.
 
-The requirements for the system, as stated by the client are:
+The requirements for the system as stated by the client are:
 
-- have a way to manage recipes.
-- have a way to manage ingredients.
-- a **recipe** could have more than one **ingredient** and the same **ingredient** can be used in multiple recipes. Examples are _"cup of corn flour"_ or _"gram of butter"_.
-- when saving the ingredients for a **recipe** capture the quantity required for that **ingredient** as a floating number.
-- have a way to save step by step instructions for preparing a recipe.
+- Recipes have a name that must be unique (e.g. "Spaghetti Bolognese").
+- Recipes contain an ordered list of steps (e.g. "Preheat the oven", "Roast the squash").
+- Each step contains some instructions (e.g. "Preheat the oven").
+- Steps might involve any number of ingredients (zero, one or more).
+- If a step involves one or more ingredients, each ingredient is used in a certain quantity.
+- Ingredients can be used in different recipes, in different quantities.
 
-**Hint**: Before writing any code, write out all desired tables in the data model and determine all relationships between tables. 
+#### Data Model
 
-### Migrations and Seeds
+After brainstorming with the team it is suggested that a **JSON representation** of a recipe _could_ look like the following:
+
+```json
+{
+  "recipe_id" : 1,
+  "recipe_name": "Spaghetti Bolognese",
+  "created_at": "2021-01-01 08:23:19.120",
+  "steps": [
+    {
+      "step_id": 11,
+      "step_number": 1,
+      "step_instructions": "Put a large saucepan on a medium heat",
+      "ingredients": []
+    },
+    {
+      "step_id": 12,
+      "step_number": 2,
+      "step_instructions": "Add 1 tbsp olive oil",
+      "ingredients": [
+        { "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 }
+      ]
+    },
+  ]
+}
+```
+
+The JSON representation above is the result of querying data from several tables using SQL joins, and then using JavaScript to hammer the data into that particular shape.
+
+Note that it's unlikely all the fields `{ "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 }` come from the same table. Otherwise an ingredient could only ever be used in a fixed quantity!
+
+Before writing any code, write out all desired tables in the data model and determine the relationships between tables.
+
+**Try to keep your design to FOUR tables**. With three tables it will be hard to meet all requirements, and more than 5 is likely overkill.
+
+#### Project Scaffolding
+
+- Put an Express application together starting with the `package.json` and a `knexfile.js`. Use existing projects as reference if needed.
+
+#### Migrations and Seeds
 
 - Write a migration file that creates all tables necessary to model this data
-- Write seed files to populate the tables with test data. **Hint**: Keep your recipes *very* simple or this step could become extremely time consuming.
+- Write seed files to populate the tables with test data. **Hint**: Keep your recipes simple or this step could become extremely time consuming.
 
-### Data Access
+#### Data Access
 
-In addition to the `migrations` and `seeding` scripts, write a data access file that **exports** an object with the following functions:
+Write a data access file that exports an object with the following function:
 
-- `getRecipes()`: should return a list of all recipes in the database.
-- `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
-- `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
-
-Organize and name your files anyway you see fit.
+- `getRecipeById(recipe_id)`
+  - Should resolve a representation of the recipe similar to the one described in the **Data Model** above.
+  - The function will pull information from several tables using Knex and then hammer all the data into shape using JavaScript.
+  - There are many possible implementations you could write, but from a performance standpoint the fewer calls to the database the better!
 
 ### Task 3: Stretch Goals
 
-Build the following endpoints. Write any additional data access helpers as needed.
+- Write an endpoint to create a new recipe using ingredients that already exist in the database.
+- Build a form in React that allows to create a new recipe using ingredients that already exist in the database.
+- Research **transactions** in SQL and Knex: POSTing a recipe involves inserts to several tables, and the operation needs to completely succeed or be rolled back if any of the inserts fail.
 
-- `GET /api/recipes/`: all recipes (without details about ingredients or steps)
-- `GET /api/recipes/:id/shoppingList`: a list of ingredients and quantites for a single recipe
-- `GET /api/recipes/:id/instructions`: a correctly ordered list of how to prepare a single recipe
-- `GET /api/ingredients/:id/recipes`: all recipes in the system that utilize the defined ingredient 
+The representation sent to the server could look like the following:
 
-## Submission format
-
-Follow these steps for completing your project.
-
-- [ ] Submit a pull request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+```json
+{
+  "recipe_name": "Spaghetti Bolognese",
+  "steps": [
+    {
+      "step_number": 1,
+      "step_instructions": "Put a large saucepan on a medium heat",
+    },
+    {
+      "step_number": 2,
+      "step_instructions": "Mix eggs and ham",
+      "ingredients": [
+        { "ingredient_id": 27, "quantity": 2 },
+        { "ingredient_id": 48, "quantity": 0.1 }
+      ]
+    },
+  ]
+}
+```
