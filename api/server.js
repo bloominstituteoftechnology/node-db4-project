@@ -10,7 +10,7 @@ server.use('/api/ingredients', ingredientsRouter);
 server.use('/api/recipes', recipeRouter);
 
 server.get('/', (req, res) => {
-  res.send('<h1>Hello World</h1>');
+  res.send('<h1>Hello Worlddd</h1>');
 });
 
 module.exports = server;
