@@ -76,6 +76,10 @@ Write a data access file that exports an object with the following function:
   - The function will pull information from several tables using Knex and then create a response object using loops, objects, array methods etc.
   - There are many ways to solve this, but from a performance standpoint the fewer trips to the database the better!
 
+#### Endpoint
+
+Write an endpoint to fetch a recipe by its id.
+
 ### Task 3: Stretch Goals
 
 - [ ] Write an endpoint to create a new recipe using ingredients that already exist in the database.
