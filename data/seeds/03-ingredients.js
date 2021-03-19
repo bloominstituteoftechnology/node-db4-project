@@ -1,5 +1,5 @@
 exports.seed = function(knex) {
-  return knex('step_ingredients').truncate()
+  return knex('ingredients').truncate()
   .then(function () {
     return knex('ingredients').insert([   
       { ingredient_name: 'Water' },
