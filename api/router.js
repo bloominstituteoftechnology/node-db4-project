@@ -5,7 +5,7 @@ router.get("/", async (req, res) => {
   console.log("inside router");
 
   try {
-    const recipes = await helpers.getRecipeById();
+    const recipes = await helpers.getRecipeById(1);
     if (recipes) {
       res.status(200).json(recipes);
     } else {
