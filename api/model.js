@@ -6,8 +6,8 @@ const getRecipeById = async (id) => {
   const steps = await db("step_ingredients as si")
     .join("steps as s", "s.step_id", "si.step_id")
     .join("ingredients as i", "i.ingredient_id", "si.ingredient_id")
-    .select("s.step_id", "s.step_number", "s.step_instructions")
-    .where({ recipe_id: id });
+    .select("s.step_id", "s.step_number", "s.step_instructions", 'i.ingredient_name')
+    .where({ recipe_id: id })
 
   const ing = await db("step_ingredients as si")
     .join("steps as s", "s.step_id", "si.step_id")
@@ -16,13 +16,11 @@ const getRecipeById = async (id) => {
     "i.ingredient_name",
     "si.quantity"
     )
-    .where({ recipe_id: id });
+    .where({ recipe_id: id })
 
-  // console.log(ing);
   return({
     ...recipes,
-    steps: [...steps],
-    ingredients: [...ing],
+    steps: [...steps]
   });
 };
 
