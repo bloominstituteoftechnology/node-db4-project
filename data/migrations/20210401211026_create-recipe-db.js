@@ -2,12 +2,11 @@ exports.up = function (knex) {
 	return knex.schema
 		.createTable('steps', (tbl) => {
 			tbl.increments('step_id');
-			tbl.string('step_number', 128).notNullable().unique();
 			tbl.string('step_instructions', 256).notNullable();
 		})
 		.createTable('ingredients', (tbl) => {
 			tbl.increments('ingredient_id');
-			tbl.string('ingredient_name', 128).notNullable().unique();
+			tbl.string('ingredient_name', 128).unique();
 		})
 		.createTable('recipes', (tbl) => {
 			tbl.increments('recipe_id');
@@ -20,7 +19,8 @@ exports.up = function (knex) {
 		})
 		.createTable('rec_step_ingr', (tbl) => {
 			tbl.increments('rec_step_ingr_id');
-			tbl.string('ingredient_qty').notNullable();
+			tbl.integer('step_number').notNullable();
+			tbl.string('ingredient_qty');
 			tbl.bigint('recipe_id')
 				.unsigned()
 				.references('recipes.recipe_id')
