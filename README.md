@@ -2,25 +2,25 @@
 
 ## Instructions
 
-### Task 1: Project Setup
+<!-- ### Task 1: Project Setup -->
 
-- [ ] Fork and clone the repository.
-- [ ] Implement your project in a `firstname-lastname` branch.
-- [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+<!-- - [ ] Fork and clone the repository. -->
+<!-- - [ ] Implement your project in a `firstname-lastname` branch. -->
+<!-- - [ ] Create a pull request of `firstname-lastname` against your `main` branch. -->
+<!-- - [ ] Open the assignment in Canvas and submit your pull request. -->
 
 ### Task 2: Minimum Viable Product
 
 Design the **data model** for a _recipe book_ application and use Knex migrations and seeding functionality to build a **SQLite database** based on the model and seed it with test data. Then, build an **endpoint** to fetch a recipe by its id.
 
-The requirements for the system as stated by the client are:
+<!-- The requirements for the system as stated by the client are: -->
 
-- Recipes have a name that must be unique (e.g. "Spaghetti Bolognese").
-- Recipes contain an ordered list of steps (e.g. "Preheat the oven", "Roast the squash").
-- Each step contains some instructions (e.g. "Preheat the oven") and belongs to a single recipe.
-- Steps might involve any number of ingredients (zero, one or more).
-- If a step involves one or more ingredients, each ingredient is used in a certain quantity.
-- Ingredients can be used in different recipes, in different quantities.
+<!-- - Recipes have a name that must be unique (e.g. "Spaghetti Bolognese"). -->
+<!-- - Recipes contain an ordered list of steps (e.g. "Preheat the oven", "Roast the squash"). -->
+<!-- - Each step contains some instructions (e.g. "Preheat the oven") and belongs to a single recipe. -->
+<!-- - Steps might involve any number of ingredients (zero, one or more). -->
+<!-- - If a step involves one or more ingredients, each ingredient is used in a certain quantity. -->
+<!-- - Ingredients can be used in different recipes, in different quantities. -->
 
 #### Data Model
 
@@ -64,8 +64,8 @@ Before writing any code, write out all desired tables in the data model and dete
 
 #### Migrations and Seeds
 
-- Write a migration file that creates all tables necessary to model this data
-- Write seed files to populate the tables with test data. **Hint**: Keep your recipes simple or this step could become extremely time consuming.
+<!-- - Write a migration file that creates all tables necessary to model this data -->
+<!-- - Write seed files to populate the tables with test data. **Hint**: Keep your recipes simple or this step could become extremely time consuming. -->
 
 #### Data Access
 
@@ -77,8 +77,24 @@ Write a data access file that exports an object with the following function:
   - There are many ways to solve this, but from a performance standpoint the fewer trips to the database the better!
 
 #### Endpoint
-
 Write an endpoint to fetch a recipe by its id, using the `getRecipeById(recipe_id)` function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Task 3: Stretch Goals
 

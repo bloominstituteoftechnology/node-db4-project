@@ -1,0 +1,6 @@
+SELECT ingredients.ingredient_id, ingredients.ingredient_name, step_ingredients.quantity FROM steps
+JOIN step_ingredients
+ON steps.step_id = step_ingredients.step_id
+JOIN ingredients
+ON ingredients.ingredient_id = step_ingredients.ingredient_id
+WHERE steps.step_id = 1

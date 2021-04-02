@@ -1,0 +1,6 @@
+select s.step_id, s.step_number, s.step_instructions, i.ingredient_name
+from step_ingredients as si
+join steps as s
+on s.step_id = si.step_id
+join ingredients as i
+on i.ingredient_id = si.ingredient_id
