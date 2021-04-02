@@ -7,8 +7,8 @@ const router = express.Router();
 // ?? Get all recipes
 router.get('/', (req, res, next) => {
 	Recipes.findAll()
-		.then((Recipes) => {
-			res.json(schemes);
+		.then((recipes) => {
+			res.json(recipes);
 		})
 		.catch(next);
 });
@@ -24,4 +24,10 @@ router.get('/:recipe_id', checkRecipeId, (req, res, next) => {
 		.catch(next);
 });
 
+router.use((err, req, res, next) => {
+	res.status(500).json({
+		error: err.message,
+		stack: err.stack,
+	});
+});
 module.exports = router;

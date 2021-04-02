@@ -9,22 +9,16 @@ exports.seed = function (knex) {
 		},
 		{
 			recipe_id: 1,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 2,
 			step_id: 2,
 		},
 		{
 			recipe_id: 1,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 3,
 			step_id: 4,
 		},
 		{
 			recipe_id: 1,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 4,
 			step_id: 9,
 		},
@@ -37,8 +31,6 @@ exports.seed = function (knex) {
 		},
 		{
 			recipe_id: 2,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 2,
 			step_id: 2,
 		},
@@ -51,8 +43,6 @@ exports.seed = function (knex) {
 		},
 		{
 			recipe_id: 2,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 4,
 			step_id: 4,
 		},
@@ -86,8 +76,6 @@ exports.seed = function (knex) {
 		},
 		{
 			recipe_id: 2,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 9,
 			step_id: 9,
 		},
@@ -121,22 +109,16 @@ exports.seed = function (knex) {
 		},
 		{
 			recipe_id: 3,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 5,
 			step_id: 14,
 		},
 		{
 			recipe_id: 3,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 6,
 			step_id: 15,
 		},
 		{
 			recipe_id: 3,
-			ingredient_id: null,
-			ingredient_qty: null,
 			step_number: 7,
 			step_id: 9,
 		},

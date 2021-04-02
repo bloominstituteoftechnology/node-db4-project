@@ -5,7 +5,7 @@ const ExpressError = require('../ExpressError');
 
 const checkRecipeId = async (req, res, next) => {
 	try {
-		const recipe = await Recipes.findById(req, params.recipe_id);
+		const recipe = await Recipes.findById(req.params.recipe_id);
 		if (recipe) {
 			req.recipe = recipe;
 			next();
@@ -22,4 +22,4 @@ const checkRecipeId = async (req, res, next) => {
 	}
 };
 
-module.exports = checkRecipeId;
+module.exports = { checkRecipeId };
