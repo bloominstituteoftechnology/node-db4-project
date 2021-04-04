@@ -1,6 +1,6 @@
 # Node DB4 Module Project
 
-## Instructions
+## Instruction
 
 ### Task 1: Project Setup
 
