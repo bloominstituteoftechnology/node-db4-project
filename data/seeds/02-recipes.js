@@ -1,5 +1,6 @@
 exports.seed = function(knex,Promise){
     return knex('recipes').insert([
+        
         {recipe_id:1,recipe_name:"Brownies",  created_at:"2020-09-01 09:45:19.120"},
         {recipe_id:2,recipe_name:"Potato Soup",  created_at:"2010-05-10 02:30:56.125"},
         {recipe_id:3,recipe_name:"Tomato Soup",  created_at:"2000-11-13 07:12:36.122"},

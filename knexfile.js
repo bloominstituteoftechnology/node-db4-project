@@ -3,7 +3,7 @@ module.exports = {
         client:'sqlite3',
         useNullAsDefault: true,
         connection:{
-            filename:'.data/recipes.db3'
+            filename:'data/recipes.db3'
         },
         migrations:{
             directory: './data/migrations'
@@ -16,6 +16,5 @@ module.exports = {
                 conn.run("PRAGMA foreign_keys = ON",done)
             }
         }
-        
     },
 };
