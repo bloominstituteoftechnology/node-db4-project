@@ -1,0 +1,34 @@
+CREATE TABLE `Ingredients` (
+	`ingredient_id` INT NOT NULL AUTO_INCREMENT,
+	`ingredient_name` VARCHAR(255),
+	PRIMARY KEY (`ingredient_id`)
+);
+
+CREATE TABLE `StepIngredients` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`ingredient_id` BINARY NOT NULL,
+	`step_id` VARCHAR(255),
+	`amount` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Recipes` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`recipe_name` VARCHAR(255) UNIQUE,
+	`created_at` DATE NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Steps` (
+	`step_id` INT NOT NULL AUTO_INCREMENT,
+	`step_number` INT NOT NULL,
+	`instructions` VARCHAR(255) NOT NULL,
+	`recipe` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`step_id`)
+);
+
+ALTER TABLE `StepIngredients` ADD CONSTRAINT `StepIngredients_fk0` FOREIGN KEY (`ingredient_id`) REFERENCES `Ingredients`(`ingredient_id`);
+
+ALTER TABLE `StepIngredients` ADD CONSTRAINT `StepIngredients_fk1` FOREIGN KEY (`step_id`) REFERENCES `Steps`(`step_id`);
+
+ALTER TABLE `Steps` ADD CONSTRAINT `Steps_fk0` FOREIGN KEY (`recipe`) REFERENCES `Recipes`(`id`);
