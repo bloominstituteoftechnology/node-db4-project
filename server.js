@@ -1,9 +1,9 @@
 const express = require("express")
-
 const server = express()
+const recipeRouter = require("./routers/recipe-router")
 
 server.use(express.json())
-
+server.use(recipeRouter)
 
 
 server.use((err, req, res, next) => {
