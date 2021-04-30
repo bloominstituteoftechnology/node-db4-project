@@ -13,7 +13,21 @@ router.get("/", async (req, res, next) => {
 	}
 })
 
+router.get("/recipes/:id", async (req, res, next) => {
+	try {
+		const recipe = await db.getByID(req.params.id)
+		if (!recipe) {
+			return res.status(404).json({
+				message: "Recipe not found!",
+			})
+		}
 
+		res.json(recipe)
+    
+	} catch(err) {
+		next(err)
+	}
+})
 
 
 module.exports = router
