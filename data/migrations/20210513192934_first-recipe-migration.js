@@ -3,11 +3,12 @@ exports.up = function (knex) {
     .createTable("recipes", (table) => {
       table.increments("recipe_id");
       table.string("recipe_name").unique().notNullable();
-      table.datetime("created_at");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("steps", (table) => {
       table.increments("step_id");
       table.string("step_instruction");
+      table.integer("step_number");
       table
         .integer("recipe_id")
         .unsigned()
