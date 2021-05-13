@@ -5,7 +5,8 @@ created_at | string
 
 steps
 step_id | primary key
-step_instruction | string
+step_instruction | string, required
+step_number | integer, required
 recipe_id | integer,foreign key 
 
 ingredients
