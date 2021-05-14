@@ -1,0 +1,26 @@
+recipes
+recipe_id | primary key
+recipe_name | string, unique
+created_at | string  
+
+steps
+step_id | primary key
+step_instruction | string, required
+step_number | integer, required
+recipe_id | integer,foreign key 
+
+ingredients
+ingredient_id | primary key
+ingredient_name | string, unique
+units | string
+
+step_ingredients
+step_ingredient_id | primary key
+step_id | integer, foreign key
+ingredient_id | integer, foreign key
+quantity | integer
+
+
+
+
+
