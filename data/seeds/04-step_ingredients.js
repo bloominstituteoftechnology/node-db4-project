@@ -18,6 +18,26 @@ exports.seed = function (knex) {
           ingredient_id: 3,
           quantity: 3.5,
         },
+        {
+          step_id: 1,
+          ingredient_id: 4,
+          quantity: 1,
+        },
+        {
+          step_id: 2,
+          ingredient_id: 5,
+          quantity: 8,
+        },
+        {
+          step_id: 3,
+          ingredient_id: 5,
+          quantity: 8,
+        },
+        {
+          step_id: 5,
+          ingredient_id: 6,
+          quantity: 20,
+        },
       ]);
     });
 };

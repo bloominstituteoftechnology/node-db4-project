@@ -18,6 +18,16 @@ exports.seed = function (knex) {
           step_instruction: "parboil chicken thighs",
           step_number: 1,
         },
+        {
+          recipe_id: 1,
+          step_instruction: "start grill",
+          step_number: 2,
+        },
+        {
+          recipe_id: 1,
+          step_instruction: "wash lettuce",
+          step_number: 3,
+        },
       ]);
     });
 };

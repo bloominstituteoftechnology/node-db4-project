@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "server": "nodemon index.js",
-    "migrate": "knex migrate:latest",
+    "latest": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run"
   },

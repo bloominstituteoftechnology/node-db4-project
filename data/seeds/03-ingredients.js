@@ -15,6 +15,18 @@ exports.seed = function (knex) {
           ingredient_name: "chicken thighs",
           units: "lbs",
         },
+        {
+          ingredient_name: "soy sauce",
+          units: "cups",
+        },
+        {
+          ingredient_name: "water",
+          units: "cups",
+        },
+        {
+          ingredient_name: "lettuce",
+          units: "leaves",
+        },
       ]);
     });
 };

@@ -6,6 +6,7 @@ exports.seed = function (knex) {
         { recipe_name: "Korean BBQ" },
         { recipe_name: "Pho" },
         { recipe_name: "Japanese Chicken Curry" },
+        { recipe_name: "KFC(Korean Fried Chicken)" },
       ]);
     });
 };
