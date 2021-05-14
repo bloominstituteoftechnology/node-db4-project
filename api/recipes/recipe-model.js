@@ -12,8 +12,6 @@ async function getRecipeByID(recipe_id) {
     .where("r.recipe_id", recipe_id);
 
   const final = await results.reduce(async (acc, step) => {
-    const accP = await acc;
-
     const { recipe_name, created_at, step_id, step_number, step_instruction } =
       step;
 
