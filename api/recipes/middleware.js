@@ -1,6 +1,5 @@
 const Recipes = require('./models')
 
-
 const checkRecipeId = (req, res, next) => {
     Recipes.getRecipeById(req.params.id) 
         .then(recipe => {
@@ -17,4 +16,4 @@ const checkRecipeId = (req, res, next) => {
         .catch(next)
 }
 
-module.exports = checkRecipeId
+module.exports = { checkRecipeId }
