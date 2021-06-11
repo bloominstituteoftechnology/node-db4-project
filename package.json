@@ -1,9 +1,30 @@
 {
-  "name": "node-db4-project",
-  "version": "1.0.0",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
-  }
+	"name": "node-db4-project",
+	"version": "1.0.0",
+	"description": "node-db4-project",
+	"main": "index.js",
+	"scripts": {
+		"server": "nodemon index.js",
+		"start": "node index"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Jesse-Tingle/node-db4-project.git"
+	},
+	"keywords": [],
+	"author": "Jesse Tingle",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Jesse-Tingle/node-db4-project/issues"
+	},
+	"homepage": "https://github.com/Jesse-Tingle/node-db4-project#readme",
+	"dependencies": {
+		"express": "^4.17.1",
+		"helmet": "^3.21.3",
+		"knex": "^0.20.11",
+		"sqlite3": "^4.1.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.2"
+	}
 }
