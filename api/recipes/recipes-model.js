@@ -30,7 +30,26 @@ async function getRecipeById(recipe_id){
                     step_text: row.step_text,
                 })
             }
-            if(row.ing)
+            if(row.ingredient_id && !acc.find(step => step.step_id === row.step_id)){
+                return acc.concat({
+                    step_id: row.step_id,
+                    step_number:row.step_number,
+                    step_text: row.step_text,
+                    ingredients:[
+                        {
+                            ingredient_id:row.ingredient_id,
+                            ingredient_name: row.ingredient_name,
+                            quantity : row.quantity
+                        }
+                    ]
+                })
+            }
+            const currentStep = acc.find(step => step.step_id === row.step_id)
+            currentStep.ingredients.push({
+                ingredient_id: row.ingredient_id,
+                ingredient_name: row.ingredient_name,
+                quantity: row.quantity,
+            })
 
 
             return acc
