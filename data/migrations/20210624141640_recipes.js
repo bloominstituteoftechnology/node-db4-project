@@ -44,7 +44,7 @@ exports.up = function (knex) {
         .integer("step_id")
         .unsigned()
         .notNullable()
-        .references("steps_id")
+        .references("step_id")
         .inTable("steps")
         .onDelete("RESTRICT");
       tbl
