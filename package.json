@@ -16,7 +16,8 @@
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "knex": "^0.95.6",
-    "sqlite": "^4.0.23"
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "eslint": "^7.29.0",
