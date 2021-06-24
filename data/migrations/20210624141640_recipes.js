@@ -50,11 +50,10 @@ exports.up = function (knex) {
       tbl
         .integer("ingredient_id")
         .unsigned()
-        .notNullable()
         .references("ingredient_id")
         .inTable("ingredients")
         .onDelete("RESTRICT");
-      tbl.decimal("quantity").notNullable();
+      tbl.decimal("quantity");
     });
 };
 

@@ -33,7 +33,8 @@ exports.seed = function (knex) {
         },
         {
           step_number: 1,
-          step_instructions: "Spread mayo and mustard on both sides of bread",
+          step_instructions:
+            "Spread mayonnaise and mustard on both sides of bread",
           recipe_id: 4,
         },
         {
