@@ -4,14 +4,17 @@
 
 ### Task 1: Project Setup
 
-- [ ] Fork and clone the repository.
-- [ ] Implement your project in a `firstname-lastname` branch.
-- [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+- [ x] Fork and clone the repository.
+- [ x] Implement your project in a `firstname-lastname` branch.
+- [x ] Create a pull request of `firstname-lastname` against your `main` branch.
+- [ x] Open the assignment in Canvas and submit your pull request.
 
 ### Task 2: Minimum Viable Product
 
 Design the **data model** for a _recipe book_ application and use Knex migrations and seeding functionality to build a **SQLite database** based on the model and seed it with test data. Then, build an **endpoint** to fetch a recipe by its id.
+[x]created a test database in GUI 
+[x]created the, knex, db-config, and migration and seed files 
+[x]create the api files (server, router, model, middleware)
 
 The requirements for the system as stated by the client are:
 
@@ -54,18 +57,19 @@ The JSON representation above is the result of querying data from several tables
 
 Note that it's unlikely all the fields `{ "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 }` come from the same table. Otherwise an ingredient could only ever be used in a fixed quantity!
 
-Before writing any code, write out all desired tables in the data model and determine the relationships between tables.
+[x]Before writing any code, write out all desired tables in the data model and determine the relationships between tables.
 
 **Try to keep your design to FOUR tables**. With three tables it will be hard to meet all requirements, and more than 5 is likely overkill.
 
 #### Project Scaffolding
 
-- Put an Express application together starting with the `package.json` and a `knexfile.js`. Use existing projects as reference if needed.
+- [x]Put an Express application together starting with the `package.json` and a `knexfile.js`. Use existing projects as reference if needed.
+  ----MAKE SURE I DO ALL THE PROPER INSTALLS OF DEPENDENCIES 
 
 #### Migrations and Seeds
 
-- Write a migration file that creates all tables necessary to model this data
-- Write seed files to populate the tables with test data. **Hint**: Keep your recipes simple or this step could become extremely time consuming.
+- [X]Write a migration file that creates all tables necessary to model this data
+- [X]Write seed files to populate the tables with test data. **Hint**: Keep your recipes simple or this step could become extremely time consuming.
 
 #### Data Access
 
