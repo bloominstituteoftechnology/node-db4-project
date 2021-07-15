@@ -15,9 +15,23 @@ async function findById(recipe_id) {
 
 
 async function findSteps(recipe_id) {
-    return await db('steps')
+    let returnSteps = await db('steps')
     .where( { recipe_id })
     .orderBy('step_number', 'asc');
+
+    let ingredientSteps = await db('ingredient_steps');
+    for (let i=0; i < returnSteps.length; i++) {
+      returnSteps[i].ingredients=[];
+      const checkFor = returnSteps[i].step_id;
+  
+      ingredientSteps.forEach((item) => {
+        if (item.step_id === checkFor) {
+          returnSteps[i].ingredients.push(item);
+        }
+      })
+    }
+  
+    return returnSteps;
 }
 
 module.exports = {
