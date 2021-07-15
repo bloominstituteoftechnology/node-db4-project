@@ -7,9 +7,9 @@ module.exports = {
       // UPDATE FILENAME
       filename: './dev.sqlite3'
     },
-    // migrations: {
-    //   directory: 
-    // },
+    migrations: {
+      directory: './data/migrations'
+    },
     // seeds: {
     //   directory: 
     // },
