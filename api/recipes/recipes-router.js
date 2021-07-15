@@ -14,6 +14,10 @@ router.get('/', (req, res, next) => {
 
 router.get('/:recipe_id', (req, res, next) => {
     console.log('GET by id endpoint connected')
+    Recipes.getRecipeById(req.params.recipe_id)
+        .then(recipe => {
+            res.json(recipe)
+        })
 })
 
 module.exports = router;
