@@ -1,23 +1,22 @@
 const express = require('express')
+const Recipe = require('./recipes-model')
 
 const router = express.Router()
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
-        res.json({
-            message: 'getAll endpoint wired!'
-        })
-    } catch (err) {
+        const recipes = await Recipe.getAll()
+        res.json(recipes)
+      } catch (err) {
         next(err)
     }
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     try {
-        res.json({
-            message: 'getById endpoint wired!'
-        })
-    } catch (err) {
+        const recipe = await Recipe.getById()
+        res.json(recipe)
+      } catch (err) {
         next(err)
     }
 })
