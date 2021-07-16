@@ -12,9 +12,10 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:recipe_id', async (req, res, next) => {
     try {
-        const recipe = await Recipe.getById()
+        const { recipe_id } = req.params
+        const recipe = await Recipe.getById(recipe_id)
         res.json(recipe)
       } catch (err) {
         next(err)
@@ -23,7 +24,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.use((err, req, res, next) => { // eslint-disable-line
     res.status(err.status || 500).json({
-      sageAdvice: 'Work for 20 min, take a break',
+      sageAdvice: 'Work for 25 min, take a break',
       message: err.message,
       stack: err.stack,
     })
