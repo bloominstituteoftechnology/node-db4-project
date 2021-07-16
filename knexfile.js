@@ -7,7 +7,6 @@ const sharedConfig = {
     seeds: {
       directory: './data/seeds',
     },
-    // this enables foreign keys in SQLite
     pool: {
       afterCreate: (conn, done) => {
         conn.run('PRAGMA foreign_keys = ON', done)
