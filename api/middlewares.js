@@ -1,4 +1,4 @@
-const helpers = require("./model");
+const helpers = require("./data/helpers");
 
 const checkRecipesExists = async (req, res, next) => {
   const recipes = await helpers.getRecipesById(req.params.recipes_id);

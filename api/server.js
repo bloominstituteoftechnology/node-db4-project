@@ -8,6 +8,7 @@ server.use(helmet());
 server.use(express.json());
 server.use("/api", router);
 
+// eslint-disable-next-line
 server.use((err, req, res, next) => {
   res.status(500).json({
     message: err.message,

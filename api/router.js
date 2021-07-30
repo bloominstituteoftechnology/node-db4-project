@@ -1,39 +1,52 @@
-const express = require("express");
-const helpers = require("./model");
+const router = require("express").Router();
 
-const { checkRecipesExists } = require("./middlewares");
+// const helpers = require("./data/helpers");
 
-const router = express.Router();
+// const { checkRecipesExists } = require("./middlewares");
+// const Recipe = require("./model");
 
-router.get("/recipes", (req, res, next) => {
-  helpers
-    .getRecipes()
-    .then((recipes) => {
-      res.status(200).json(recipes);
-    })
-    .catch(next);
-});
+// GET
+// router.get("/", async (req, res, next) => {
+//   try {
+//     const recipes = await Recipe.getAll();
+//     res.json(recipes);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
-router.post("/recipes", (req, res, next) => {
-  helpers
-    .createRecipes(req.body)
-    .then((recipe) => {
-      res.status(201).json(recipe);
-    })
-    .catch(next);
-});
+// // GET
+// router.get("/recipes", (req, res, next) => {
+//   helpers
+//     .getRecipes()
+//     .then((recipes) => {
+//       res.status(200).json(recipes);
+//     })
+//     .catch(next);
+// });
 
-router.delete("/recipes/:recipes_id", checkRecipesExists, (req, res, next) => {
-  helpers
-    .deleteRecipes(req.params.recipes_id)
-    .then((count) => {
-      if (count > 0) {
-        res.status(204).end();
-      } else {
-        res.status(404).json({ message: "Recipe not found" });
-      }
-    })
-    .catch(next);
-});
+// POST
+// router.post("/recipes", (req, res, next) => {
+//   helpers
+//     .createRecipes(req.body)
+//     .then((recipe) => {
+//       res.status(201).json(recipe);
+//     })
+//     .catch(next);
+// });
+
+// DELETE
+// router.delete("/recipes/:recipes_id", checkRecipesExists, (req, res, next) => {
+//   helpers
+//     .deleteRecipes(req.params.recipes_id)
+//     .then((count) => {
+//       if (count > 0) {
+//         res.status(204).end();
+//       } else {
+//         res.status(404).json({ message: "Recipe not found" });
+//       }
+//     })
+//     .catch(next);
+// });
 
 module.exports = router;
