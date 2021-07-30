@@ -6,7 +6,7 @@ const router = require("express").Router();
 // const helpers = require("./data/helpers");
 
 // const { checkRecipesExists } = require("./middlewares");
-const Recipe = require("./recipes/model");
+const Recipe = require("../recipes/model");
 
 router.get("/:recipe_id", (req, res, next) => {
   Recipe.getRecipeById(req.params.recipe_id)

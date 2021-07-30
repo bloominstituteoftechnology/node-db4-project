@@ -1,6 +1,4 @@
-// const knex = require("knex");
-// const db_config = require("./knexfile");
-// const db = knex(db_config.development);
+const db = require("../../data/db-config");
 
 // get dishes
 // function getDishes() {
@@ -29,8 +27,10 @@
 //   return db("recipes").insert(recipe);
 // }
 // get recipe by id
-function getRecipeById(recipe_id) {
-  return Promise.resolve("awesome");
+async function getRecipeById(recipe_id) {
+  const recipeRows = await db("recipes as r").where("recipe_id", recipe_id);
+
+  return recipeRows;
 }
 // create recipe
 // async function createRecipe(recipe) {
