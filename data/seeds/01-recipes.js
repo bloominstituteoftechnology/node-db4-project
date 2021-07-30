@@ -1,4 +1,4 @@
-exports.seed = function (knex, Promise) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex("recipes")
     .del()
@@ -8,6 +8,7 @@ exports.seed = function (knex, Promise) {
         { recipes: "mums recipe", dish_id: 1 },
         { recipes: "cookbook1 recipe", dish_id: 2 },
         { recipes: "cookbook73 recipe", dish_id: 3 },
+        { recipes: "cookbook74 recipe", dish_id: 4 },
       ]);
     });
 };

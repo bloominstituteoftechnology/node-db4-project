@@ -1,9 +1,29 @@
 const router = require("express").Router();
+// const knex = require("knex");
+// const db_config = require("./knexfile");
+// const db = knex(db_config.development);
 
 // const helpers = require("./data/helpers");
 
 // const { checkRecipesExists } = require("./middlewares");
-// const Recipe = require("./model");
+const Recipe = require("./recipes/model");
+
+router.get("/:recipe_id", (req, res, next) => {
+  Recipe.getRecipeById(req.params.recipe_id)
+    .then((resource) => {
+      res.status(200).json(resource);
+    })
+    .catch(next);
+});
+
+// eslint-disable-next-line
+router.use((err, req, res, next) => {
+  res.status(500).json({
+    customMessage: "something went wrong inside the recipe router",
+    message: err.message,
+    stack: err.stack,
+  });
+});
 
 // GET
 // router.get("/", async (req, res, next) => {
