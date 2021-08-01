@@ -35,7 +35,7 @@ router.use((err, req, res, next) => {
 //   }
 // });
 
-// // GET
+// GET
 // router.get("/recipes", (req, res, next) => {
 //   helpers
 //     .getRecipes()

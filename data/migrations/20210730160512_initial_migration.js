@@ -1,11 +1,10 @@
-exports.up = function (knex) {
-  return knex.schema
+exports.up = async function (knex) {
+  await knex.schema
     .createTable("recipes", (tbl) => {
       tbl.increments("recipe_id");
       tbl.string("recipe_name", 128).notNullable().unique();
       // foreign keys
       tbl.integer("dish_id").unsigned();
-      //   tbl.foreign("dish_id").references("dish_id").on("dishes");
     })
     .createTable("ingredients", (tbl) => {
       tbl.increments("ingredients_id");
@@ -24,7 +23,6 @@ exports.up = function (knex) {
         .inTable("recipes")
         .onDelete("RESTRICT")
         .onUpdate("RESTRICT");
-      //   tbl.foreign("steps_id").references("steps_id").on("steps");
     })
     .createTable("step_ingredients", (tbl) => {
       tbl.increments("step_ingredient_id");
@@ -48,10 +46,10 @@ exports.up = function (knex) {
     });
 };
 
-exports.down = function (knex) {
-  return knex.schema
-    .dropTableIfExists("recipes")
-    .dropTableIfExists("ingredients")
+exports.down = async function (knex) {
+  await knex.schema
+    .dropTableIfExists("step_ingredients")
     .dropTableIfExists("steps")
-    .dropTableIfExists("steps_ingredients");
+    .dropTableIfExists("ingredients")
+    .dropTableIfExists("recipes");
 };

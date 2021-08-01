@@ -1,8 +1,7 @@
 const recipes = [
-  { recipe_name: "mums recipe", dish_id: 1 },
-  { recipe_name: "cookbook1 recipe", dish_id: 2 },
-  { recipe_name: "cookbook73 recipe", dish_id: 3 },
-  // { recipes: "cookbook74 recipe", dish_id: 4 },
+  { recipe_name: "Brocoli Pesto Pasta" },
+  { recipe_name: "Lemon Chicken" },
+  { recipe_name: "Salmon en Papillote" },
 ];
 
 const ingredients = [
@@ -44,6 +43,6 @@ const steps = [
 exports.seed = async function (knex) {
   await knex("recipes").insert(recipes);
   await knex("ingredients").insert(ingredients);
-  await knex("steps").insert(steps);
   await knex("step_ingredients").insert(step_ingredients);
+  await knex("steps").insert(steps);
 };
