@@ -1,7 +1,16 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+        "scripts": {
+          "server": "nodemon index.js",
+          "start": "node index.js",
+          "migrate": "knex migrate:latest",
+          "rollback": "knex migrate:rollback",
+          "seed": "knex seed:run",
+          "resetdb": "npm run rollback && npm run migrate && npm run seed",
+          "cleanup":"knex seed:run --specific=01-cleanup.js"
+          
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
