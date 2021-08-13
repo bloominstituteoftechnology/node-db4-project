@@ -43,7 +43,7 @@ After brainstorming with the team it is suggested that a **JSON representation**
       "step_number": 2,
       "step_instructions": "Add 1 tbsp olive oil",
       "ingredients": [
-        { "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 }
+        { "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 } 
       ]
     },
   ]
