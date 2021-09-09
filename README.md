@@ -1,7 +1,12 @@
 # Node DB4 Module Project
 
 ## Instructions
-
+scripts
+npm i
+npm i -D knex-cleaner nodemon
+npm i eslint
+npm i express sqlite3 knex
+npm i dotenv
 ### Task 1: Project Setup
 
 - [x] Fork and clone the repository.
