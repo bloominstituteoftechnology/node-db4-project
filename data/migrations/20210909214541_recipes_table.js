@@ -3,7 +3,7 @@ exports.up = function (knex) {
     table.increments('recipe_id')
     table.string('recipe_name')
       .notNullable()
-    table.timestamps(true, true)
+    table.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }
 

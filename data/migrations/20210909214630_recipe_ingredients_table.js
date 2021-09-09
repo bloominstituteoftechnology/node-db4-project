@@ -10,7 +10,7 @@ exports.up = function (knex) {
       .index()
       .references('ingredient_id')
       .inTable('ingredients')
-    table.integer('quantity')
+    table.float('quantity')
       .notNullable()
   })
 }
