@@ -14,9 +14,9 @@ module.exports = {
       afterCreate: (conn, done) => {
         conn.run("PRAGMA foreign_keys = ON", done);
       },
-      connection: {
-        filename: "./data/recipes.db3",
-      },
+    },
+    connection: {
+      filename: "./data/recipes.db3",
     },
   },
 
@@ -33,9 +33,9 @@ module.exports = {
       afterCreate: (conn, done) => {
         conn.run("PRAGMA foreign_keys = ON", done);
       },
-      connection: {
-        filename: "./data/testing.db3",
-      },
+    },
+    connection: {
+      filename: "./data/testing.db3",
     },
   },
 };
