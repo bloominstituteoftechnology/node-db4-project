@@ -1,7 +1,7 @@
 //Imports
 const express = require('express');
 const helmet = require('helmet');
-const helper = require('./recipe-model')
+const Helper = require('./recipe-model')
 
 
 //Instance Of Express App
@@ -14,8 +14,14 @@ server.use(express.json());
 
 
 //Endpoints
-server.get('/', (req, res, next) => {
-    
+server.get('/:recipe_id', (req, res, next) => {
+  const { recipe_id } = req.params
+
+  Helper.getRecipeById(recipe_id)
+    .then(recipe => {
+      res.json(recipe)
+    })
+    .catch(next)
 })
 
 //Error-Handling Middleware

@@ -2,13 +2,13 @@ exports.up = async function(knex) {
   await knex.schema
     .createTable('recipes', table => {
       table.increments('recipe_id') //PK
-      table.string('recipe_name', 138).notNullable().unique()
+      table.string('recipe_name', 256).notNullable().unique()
       table.timestamps(true)
     })
     .createTable('steps', table => {
       table.increments('step_id') //PK
       table.integer('step_number').notNullable()
-      table.string('step_instructions', 138).notNullable()
+      table.string('step_instructions', 256).notNullable()
       table.integer('recipe_id') //FK
         .unsigned()
         .notNullable()
@@ -19,7 +19,7 @@ exports.up = async function(knex) {
     })
     .createTable('ingredients', table => {
       table.increments('ingredient_id') //PK
-      table.string('ingredient_name', 138).notNullable()
+      table.string('ingredient_name', 140).notNullable()
       table.integer('step_id') //FK
         .unsigned()
         .notNullable()
