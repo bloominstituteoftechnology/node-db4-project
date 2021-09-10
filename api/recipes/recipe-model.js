@@ -16,11 +16,6 @@ async function getRecipeById(recipe_id) {
     .orderBy("st.step_number", "asc");
 
   if (recipes) {
-    console.log(
-      "🚀 ~ file: recipe-model.js ~ line 30 ~ getRecipeById ~ recipes",
-      recipes
-    );
-
     const finalObj = {
       recipe_id: recipes[0].recipe_id,
       recipe_name: recipes[0].recipe_name,
