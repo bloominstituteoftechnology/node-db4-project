@@ -23,7 +23,7 @@ const steps = [
   },
   {
     step_number: 2,
-    instructions: "Place the bread in the oven, bake for 5-10 minutes",
+    instructions: "Place the toast in the oven, bake for 5-10 minutes",
     recipe_id: 3,
   },
   {
