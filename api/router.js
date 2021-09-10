@@ -11,13 +11,22 @@ router.get('/', (req, res, next) => {
     .catch(next); 
 });
 
-router.get('/:id', (req, res, next) => {
-    helpers.getById()
+router.get('/:recipe_id', async (req, res, next) => {
+    const { recipe_id } = await req.params
+    helpers.getById(recipe_id)
       .then(recipes => {
         res.status(200).json(recipes);
       })
       .catch(next); 
   });
+
+  router.use((err, req,res, next) => {
+      res.status(err.status || 500).json({
+          customMessage: 'something wrong in the router',
+          message: err.message,
+          stack: err.stack,
+      })
+  })
   
 
 

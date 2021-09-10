@@ -6,5 +6,6 @@ exports.seed = function(knex, Promise){
         {ingredient_name: 'cold milk'},
         {ingredient_name: 'strawberry syrup'},
         {ingredient_name: 'ice'},
+        {ingredient_name: 'sugar'}
     ])
 }
