@@ -4,10 +4,10 @@
 
 ### Task 1: Project Setup
 
-- [ ] Fork and clone the repository.
-- [ ] Implement your project in a `firstname-lastname` branch.
-- [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+- [x] Fork and clone the repository.
+- [x] Implement your project in a `firstname-lastname` branch.
+- [x] Create a pull request of `firstname-lastname` against your `main` branch.
+- [x] Open the assignment in Canvas and submit your pull request.
 
 ### Task 2: Minimum Viable Product
 
@@ -45,7 +45,7 @@ After brainstorming with the team it is suggested that a **JSON representation**
       "ingredients": [
         { "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 }
       ]
-    },
+    }
   ]
 }
 ```
@@ -94,7 +94,7 @@ The representation **sent to the server** _could_ look like the following:
   "steps": [
     {
       "step_number": 1,
-      "step_instructions": "Put a large saucepan on a medium heat",
+      "step_instructions": "Put a large saucepan on a medium heat"
     },
     {
       "step_number": 2,
@@ -103,7 +103,7 @@ The representation **sent to the server** _could_ look like the following:
         { "ingredient_id": 27, "quantity": 2 },
         { "ingredient_id": 48, "quantity": 0.1 }
       ]
-    },
+    }
   ]
 }
 ```

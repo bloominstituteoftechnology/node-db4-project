@@ -7,4 +7,12 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
+router.get('/:recipe_id', (req, res, next) => {
+  const {recipe_id} = req.params
+
+  Recipe.getById(recipe_id)
+    .then(recipe => res.json(recipe))
+    .catch(next)
+})
+
 module.exports = router
