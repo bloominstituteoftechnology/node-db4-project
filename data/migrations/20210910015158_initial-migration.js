@@ -22,7 +22,7 @@ exports.up = async function(knex) {
             .onUpdate('RESTRICT')
     })
     .createTable('step_ingredients', table => {
-        table.increments('quantity_id')
+        table.increments('step_ingredient_id')
         table.string('quantity', 200).notNullable().unique()
         table.integer('ingredient_id')
             .unsigned()
