@@ -1,9 +1,35 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "resetdb": "npm run rollback && npm run migrate && npm run seed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.25.1",
+    "nodemon": "^2.0.12",
+    "knex-cleaner": "^1.3.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.7",
+    "sqlite3": "^5.0.2"
+  },
+  "description": "- [ ] Fork and clone the repository.\r - [ ] Implement your project in a `firstname-lastname` branch.\r - [ ] Create a pull request of `firstname-lastname` against your `main` branch.\r - [ ] Open the assignment in Canvas and submit your pull request.",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/node-db4-project#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
