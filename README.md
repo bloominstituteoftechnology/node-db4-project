@@ -2,12 +2,9 @@
 
 ## Instructions
 
-### Task 1: Project Setup
+### Task 1: Project Setup and Submission
 
-- [ ] Fork and clone the repository.
-- [ ] Implement your project in a `firstname-lastname` branch.
-- [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+Your assignment page on Canvas should contain instructions for submitting this project. If you are still unsure, reach out to Lambda Staff.
 
 ### Task 2: Minimum Viable Product
 
