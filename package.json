@@ -1,9 +1,19 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "latest": "npx knex migrate:latest",
+    "down": "npx knex migrate:down",
+    "seedmake": "npx knex seed:make",
+    "run": "npx knex seed:run"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "sqlite3": "^5.0.2"
   }
 }
