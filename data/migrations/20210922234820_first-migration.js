@@ -22,6 +22,9 @@ exports.up = function(knex) {
               .onDelete('RESTRICT')
               .onUpdate('RESTRICT')
           })
+          .createTable("recipe_steps", tbl => {
+              
+          })
 };
 
 exports.down = function(knex) {
