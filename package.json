@@ -1,7 +1,13 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+      "start": "node index.js",
+      "server": "nodemon index.js",
+      "mup": "knex migrate:up",
+      "mdown": "knex migrate:down",
+      "mlatest": "knex migrate:rollback"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
