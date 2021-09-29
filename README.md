@@ -1,5 +1,7 @@
 # Node DB4 Module Project
 
+## Initializing
+
 ## Instructions
 
 ### Task 1: Project Setup and Submission
