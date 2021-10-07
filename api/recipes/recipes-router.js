@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-server.use("/", (req, res, next) => {
+router.use("/", (req, res, next) => {
   res.json("inside router");
 });
 
