@@ -1,0 +1,184 @@
+<mxfile host="65bd71144e">
+    <diagram id="RYwVOCHSDsJSRrlu3T-F" name="Page-1">
+        <mxGraphModel dx="1298" dy="690" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="15" value="Ingredients Table" style="shape=table;childLayout=tableLayout;rowLines=0;columnLines=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="10" width="370" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Actor 1" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1" vertex="1" parent="15">
+                    <mxGeometry y="40" width="370" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Ingredients_id" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="16">
+                    <mxGeometry x="40" width="110" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Ingredients_Name" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="16">
+                    <mxGeometry x="150" width="110" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Ingredient_Units" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="16">
+                    <mxGeometry x="260" width="110" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Actor 2" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="15">
+                    <mxGeometry y="117" width="370" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="20">
+                    <mxGeometry x="40" width="110" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="20">
+                    <mxGeometry x="150" width="110" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="20">
+                    <mxGeometry x="260" width="110" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Actor 3" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="15">
+                    <mxGeometry y="193" width="370" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="24">
+                    <mxGeometry x="40" width="110" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="24">
+                    <mxGeometry x="150" width="110" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="24">
+                    <mxGeometry x="260" width="110" height="77" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Recipies Table" style="shape=table;childLayout=tableLayout;rowLines=0;columnLines=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="20" width="350" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Actor 1" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1" vertex="1" parent="28">
+                    <mxGeometry y="40" width="350" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Recipe_Id" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="29">
+                    <mxGeometry x="40" width="103" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Recipie_Name" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="29">
+                    <mxGeometry x="143" width="104" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="29">
+                    <mxGeometry x="247" width="103" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Actor 2" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="28">
+                    <mxGeometry y="109" width="350" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="33">
+                    <mxGeometry x="40" width="103" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="33">
+                    <mxGeometry x="143" width="104" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="33">
+                    <mxGeometry x="247" width="103" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Actor 3" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="28">
+                    <mxGeometry y="181" width="350" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="37">
+                    <mxGeometry x="40" width="103" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="37">
+                    <mxGeometry x="143" width="104" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="37">
+                    <mxGeometry x="247" width="103" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Steps Table" style="shape=table;childLayout=tableLayout;rowLines=0;columnLines=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="290" width="380" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Actor 1" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1" vertex="1" parent="41">
+                    <mxGeometry y="40" width="380" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="Step_id" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="42">
+                    <mxGeometry x="40" width="70" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Step_text" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="42">
+                    <mxGeometry x="110" width="80" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Step_Number" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="42">
+                    <mxGeometry x="190" width="80" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="Recipie_ID (FK)" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="42">
+                    <mxGeometry x="270" width="110" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="Actor 2" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="41">
+                    <mxGeometry y="153" width="380" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="46">
+                    <mxGeometry x="40" width="70" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="46">
+                    <mxGeometry x="110" width="80" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="46">
+                    <mxGeometry x="190" width="80" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="46">
+                    <mxGeometry x="270" width="110" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Actor 3" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="41">
+                    <mxGeometry y="267" width="380" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="50">
+                    <mxGeometry x="40" width="70" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="50">
+                    <mxGeometry x="110" width="80" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="50">
+                    <mxGeometry x="190" width="80" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="50">
+                    <mxGeometry x="270" width="110" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="Steps_Ingredients Table" style="shape=table;childLayout=tableLayout;rowLines=0;columnLines=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="290" width="440" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="Actor 1" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;fontStyle=1" vertex="1" parent="58">
+                    <mxGeometry y="40" width="440" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="Step_Ing_id" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="59">
+                    <mxGeometry x="40" width="100" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Quantity" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="59">
+                    <mxGeometry x="140" width="80" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="Step_id (FK)" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="59">
+                    <mxGeometry x="220" width="100" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="Ingredient_ID (FK" style="swimlane;connectable=0;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="59">
+                    <mxGeometry x="320" width="120" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="Actor 2" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="58">
+                    <mxGeometry y="153" width="440" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="64">
+                    <mxGeometry x="40" width="100" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="64">
+                    <mxGeometry x="140" width="80" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="64">
+                    <mxGeometry x="220" width="100" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="64">
+                    <mxGeometry x="320" width="120" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="Actor 3" style="swimlane;horizontal=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;startSize=40;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="58">
+                    <mxGeometry y="267" width="440" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="69">
+                    <mxGeometry x="40" width="100" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="69">
+                    <mxGeometry x="140" width="80" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="69">
+                    <mxGeometry x="220" width="100" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="swimlane;connectable=0;startSize=0;collapsible=0;recursiveResize=0;expand=0;pointerEvents=0;" vertex="1" parent="69">
+                    <mxGeometry x="320" width="120" height="113" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
