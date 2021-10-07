@@ -1,8 +1,10 @@
 const express = require("express");
+const router = require("./recipes/recipes_router");
 
 const server = express();
 
 server.use(express.json());
+server.use("/api/recipes", router);
 
 server.use("*", (req, res, next) => {
   next({ status: 404, message: "sorry not found" });
