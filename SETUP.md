@@ -56,3 +56,13 @@ Here you are scafolding the base Express aplication then worry about database it
 13. index.js
 14. server.js
 15. router.js
+
+## Set Up Debugger
+16. start debugger
+    1.  select "Creat a launch.json file."
+    2.  selctt node.js from the drop down list
+    3.  review line 14 is \\index.js or appropriate for project
+    4.  add debugger to gitignore file
+        1.  on last line of .gitignore add ".vscode"
+    5.  press f5 to start debugger
+    6.  remember to restart it after each code change. 
