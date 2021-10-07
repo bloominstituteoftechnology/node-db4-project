@@ -22,6 +22,11 @@ exports.seed = function(knex, Promise) {
       recipe_id: 2
     },
     {
+      step_num: 5,
+      step_text: "After simmering, discard the onion and salt to taste",
+      recipe_id: 2
+    },
+    {
       step_num: 1,
       step_text: "Prepare 2 tomatoes into 1/2 inch slices, 8 oz of mozzarella into 1/2 inch slices, and plucking the leaves off 3 sprigs of basil.",
       recipe_id: 1
