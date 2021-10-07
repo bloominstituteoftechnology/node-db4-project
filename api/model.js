@@ -31,7 +31,13 @@ const getRecipeById = async (recipe_id) => {
                 step_id: row.step_id,
                 step_number: row.step_number,
                 step_instructions: row.step_instructions,
-                ingredients: []
+                ingredients: [
+                    {
+                        ingredient_id: row.ingredient_id,
+                        ingredient_name: row.ingredient_name,
+                        qauntity_oz: row.qauntity_oz
+                    }
+                ]
             }))
             : []
     }
