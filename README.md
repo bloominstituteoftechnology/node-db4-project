@@ -10,6 +10,7 @@
       - [Data Access](#data-access)
       - [Endpoint](#endpoint)
     - [Task 3: Stretch Goals](#task-3-stretch-goals)
+  - [Rick Mansfield's pull request](#rick-mansfields-pull-request)
 
 ## Instructions
 
@@ -115,3 +116,5 @@ The representation **sent to the server** _could_ look like the following:
   ]
 }
 ```
+## Rick Mansfield's pull request
+[link](https://github.com/LambdaSchool/node-db4-project/pull/174)

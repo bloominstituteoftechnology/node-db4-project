@@ -1,9 +1,35 @@
 {
-  "name": "node-db4-project",
+  "name": "db4-project",
   "version": "1.0.0",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
+    "url": "git+https://github.com/LambdaSchool/node-db4-project.git",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "reset": "npm run rollback && npm run migrate && npm run seed",
+    "cleanup": "knex seed:run --specific=01-cleanup.js",
+    "seed": "knex seed run"
+  },
+  "description": "- [Node DB4 Module Project](#node-db4-module-project)\r   - [Instructions](#instructions)\r     - [Task 1: Project Setup and Submission](#task-1-project-setup-and-submission)\r     - [Task 2: Minimum Viable Product](#task-2-minimum-viable-product)\r       - [Data Model](#data-model)\r       - [Project Scaffolding](#project-scaffolding)\r       - [Migrations and Seeds](#migrations-and-seeds)\r       - [Data Access](#data-access)\r       - [Endpoint](#endpoint)\r     - [Task 3: Stretch Goals](#task-3-stretch-goals)",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/node-db4-project#readme",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.13"
   }
 }
