@@ -85,13 +85,31 @@ module.exports = {getRecipeById};
 4. Go to the newly create migrations js file and build it out. They can be huge. take your time
 5. creat __seeds__ folder in the __data__ folder
 6. inside __seeds__ add __01-cleanup.js__ (should match package.json) & build it out
+    ```javascript
+    const {clean} = require('knex-cleaner');
+
+    exports.seed = function (knex) {
+        return clean(knex, {
+            mode:'truncate',
+            ignoreTables: ['knex_migrations', 'knex_migrations_lock']
+        });
+    };
+    ```
 7. add __02-make-<resourceName>.js__ to __seeds__ 
    1. example 02-make-recipes.js
-   2. example 02-make=cars.js 
-8. migrate
-   1. knex migrate:rollback
-   2. npm run migrate
-   3. npm run seed
-   4. open sqlite3 and use it to open the db3 data file. In the case of this project is was recipes.db3
+   2. example 02-make=cars.js
+   3. stub it out & test
+   ```javascript
+    exports.seed = function (knex) {
+    };
+   ```
+   4. run npm rollback
+      1. save file if needed
+      2. npm run migrate (to capture changes)
+      3. npm run seed (no seeds will be inserted if the file is not built out yet, which it shouldn't be)
+      4. npm run cleanup (to test truncating)
+8.  Check Tables in SQLite3
+    1.  open sqlite3 and use it to open the db3 data file. In the case of this project is was recipes.db3
+    2.  verify each table's columns have the appropriate constraints, keys, columns etc. desired. 
    
    ## use sql editor to build out the Model Functions. 
