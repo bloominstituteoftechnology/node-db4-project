@@ -110,6 +110,9 @@ module.exports = {getRecipeById};
       4. npm run cleanup (to test truncating)
 8.  Check Tables in SQLite3
     1.  open sqlite3 and use it to open the db3 data file. In the case of this project is was recipes.db3
-    2.  verify each table's columns have the appropriate constraints, keys, columns etc. desired. 
+    2.  verify each table's columns have the appropriate constraints, keys, columns etc. desired.
+9.  Add seeds... if you want... or wait until the end and add them. 
    
    ## use sql editor to build out the Model Functions. 
+
+10. 
