@@ -1,9 +1,11 @@
 const express = require('express');
 const { checkRecipeId, checkRecipeName } = require('./recipe-middleware');
-const Recipes = require('./recipe-model');
+const Recipes = require('./models/recipe-model');
+const Steps = require('./models/steps-model');
 
 const router = express.Router();
 
+/******** RECIPES ENDPOINTS! *******/
 // //[GET] /api/recipes
 router.get('/', (req, res, next) => {
     Recipes.getRecipes()
@@ -44,6 +46,17 @@ router.delete('/:recipe_id', checkRecipeId, (req, res, next) => {
     Recipes.deleteRecipe(req.params.recipe_id)
         .then(() => {
             res.json(req.recipe)
+        })
+        .catch(next)
+})
+
+/******** STEPS ENDPOINTS! *******/
+
+//[GET] /api/:recipe_id/steps
+router.get('/:recipe_id/steps', (req, res, next) => {
+    Steps.getSteps(req.params.recipe_id)
+        .then(steps => {
+            res.json(steps)
         })
         .catch(next)
 })
