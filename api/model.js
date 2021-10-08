@@ -40,15 +40,17 @@ const getRecipeById = async (recipe_id) => {
             })
         }
     })
-    
-    recipe.steps.forEach(row => {
-        if(row.ingredient_id) {
-            recipe.steps.ingredients.push({
-                ingredient_id: row.ingredient_id,
-                ingredient_name: row.ingredient_name,
-                quantity_oz: row.quantity_oz
-            })
-        }
+
+    recipe.steps.forEach(step => {
+        rows.forEach(row => {
+            if(row.step_number === step.step_number && row.ingredient_id !== null) {
+                step.ingredients.push({
+                    ingredient_id: row.ingredient_id,
+                    ingredient_name: row.ingredient_name,
+                    quantity_oz: row.quantity_oz
+                })
+            }
+        })
     })
     
  return recipe
@@ -59,4 +61,3 @@ module.exports = {
     getRecipes,
     getRecipeById
 }
-
