@@ -80,7 +80,11 @@ module.exports = {getRecipeById};
 ```
 ## Adding DATA & knex Migrations
 1. Create data folder in root folder
-2. Add & build out db-config.js in data folder
+2. Add & build out __db-config.js__ in __data__ folder
 3. npx knex migrate:make initial-migration
 4. Go to the newly create migrations js file and build it out. They can be huge. take your time
-5. 
+5. creat __seeds__ folder in the __data__ folder
+6. inside __seeds__ add __01-cleanup.js__ & build it out
+7. add __02-make-<resourceName>.js__ to __seeds__ 
+   1. example 02-make-recipes.js
+   2. example 02-make=cars.js 
