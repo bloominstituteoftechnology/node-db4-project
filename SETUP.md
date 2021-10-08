@@ -91,5 +91,7 @@ module.exports = {getRecipeById};
 8. migrate
    1. knex migrate:rollback
    2. npm run migrate
-   3. knex migrate latest
-   4. npm run seed
+   3. npm run seed
+   4. open sqlite3 and use it to open the db3 data file. In the case of this project is was recipes.db3
+   
+   ## use sql editor to build out the Model Functions. 
