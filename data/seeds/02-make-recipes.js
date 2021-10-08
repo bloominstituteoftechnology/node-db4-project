@@ -1,6 +1,6 @@
 const recipes = [
-    {recipe_name: 'Broccoli Pasta'},
-    {recipe_name: 'Chicken'},
+    {recipe_name: 'Broccoli Pesto Pasta'},
+    {recipe_name: 'Lemon Chicken'},
     {recipe_name: 'Salmon'}
 ];
 
@@ -22,14 +22,14 @@ const step_ingredients = [
 ];
 
 const steps = [
+    //Broccoli
     {step_text: 'Heat pan', step_number: 1, recipe_id: 1},
     {step_text: 'Add broccoli', step_number: 2, recipe_id: 1},
     {step_text: 'Add pasta', step_number: 3, recipe_id: 1},
-
-    
+    //Chicken
     {step_text: 'Heat oven', step_number: 1, recipe_id: 2},
     {step_text: 'Put in oven', step_number: 2, recipe_id: 2},
-
+    //Salmon
     {step_text: 'Prepare Salmon', step_number: 1, recipe_id: 3},
     {step_text: 'Bake salmon', step_number: 2, recipe_id: 3},
 ];
