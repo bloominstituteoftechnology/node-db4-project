@@ -23,19 +23,21 @@
 9. npm i sqlite3
 
 ## KNEX files
-10.  npm i knex or npm i -g knex (for globla)
-    1.  in package.json add 
-        1.  "cleanup": "knex seed:run --specific=01-cleanup.js",
-        2.  "migrate": "knex migrate:latest",
-        3.  "rollback": "knex migrate:rollback",
-        4.  "reset": "npm run rollback && npm run migrate && npm run seed",
-        5.  "seed": "knex seed run"
-    2.  npm i -D knex-cleaner
-    3.  knex init
-    4.  knex migrate:make create-<name>-table
-    5.  knex migrate latest (later user "knex migrate:rollback" as needed)
-    6.  knex seed:make <01-users> put your name choice inside <...>
-    7.  knex seed:run
+10.  npm i knex or npm i -g knex (for globlal)
+    1.  in package.json add  
+        ```json
+        1."cleanup": "knex seed:run --specific=01-cleanup.js",
+        1.  "migrate": "knex migrate:latest",
+        2.  "rollback": "knex migrate:rollback",
+        3.  "reset": "npm run rollback && npm run migrate && npm run seed",
+        4.  "seed": "knex seed run"
+        ```
+     2.  npm i -D knex-cleaner
+     3.  knex init
+     4.  knex migrate:make create-<name>-table
+     5.  knex migrate latest (later user "knex migrate:rollback" as needed)
+     6.  knex seed:make <01-users> put your name choice inside <...>
+     7.  knex seed:run
 
 ## Install base FILES & FOLDERS
 Here you are scafolding the base Express aplication then worry about database items
@@ -55,7 +57,7 @@ Here you are scafolding the base Express aplication then worry about database it
 ## Build out base files guts
 13. index.js
 14. server.js
-15. router.js
+15. router.js (stubb at first then start debugger and server to test)
 
 ## Set Up Debugger
 16. start debugger
@@ -66,3 +68,13 @@ Here you are scafolding the base Express aplication then worry about database it
         1.  on last line of .gitignore add ".vscode"
     5.  press f5 to start debugger
     6.  remember to restart it after each code change. 
+
+## TEST Server working with stubbed router & model
+17. stub out model.js file with something simple example:
+```javascript
+async function getRecipeById(recipe_id){
+    return Promise.resolve(`Here's your recipe id ${recipe_id}`);//stubb
+}
+module.exports = {getRecipeById};
+```
+## Add knex
