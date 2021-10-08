@@ -78,6 +78,8 @@ async function getRecipeById(recipe_id){
 }
 module.exports = {getRecipeById};
 ```
-## ADD DATA
+## ADD DATA & Migrations
 1. Create data folder in root folder
 2. Add & build out db-config.js in data folder
+3. npx knex migrate:make initial-migration
+4. Go to the newly create migrations js file and build it out. 
