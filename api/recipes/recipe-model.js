@@ -1,13 +1,14 @@
 const db = require('./../../data/db-config');
 
 async function getRecipeById(recipe_id){
-    const flatRecipe = await db('recipes as r')
+    const flatRecipe = 
+    await db('recipes as r')
         .leftJoin('steps as s', 'r.recipe_id', 's.recipe_id')
         .leftJoin('steps_ingredients as st', 'st.step_id', 's.step_id')
         .leftJoin('ingredients as i', 'i.ingredient_id', 'st.ingredient_id')
         .select('r.recipe_id', 'r.recipe_name', 'st.ingredient_amt','i.ingredient_name', 'i.ingredient_id', 's.step_num', 's.step_text', 's.step_id')
         .where('r.recipe_id', recipe_id)
-        .orderBy('s.step_num', 'asc');
+        .orderBy('s.step_num', 'asc')
 // helper functions for organizing the ingredients
     const filteredIngredients = flatRecipe.filter(recipe => {
         return recipe.ingredient_id !== null
@@ -21,8 +22,8 @@ async function getRecipeById(recipe_id){
         } 
     })
 //helper functions for organizing the steps
-    const allRecipeSteps = flatRecipe[0].step_id === null
-    ? [] 
+    const allRecipeSteps = !flatRecipe[0]
+    ? null 
     : flatRecipe.map(recipe => {
         return {
             step_id: recipe.step_id,
@@ -39,7 +40,9 @@ async function getRecipeById(recipe_id){
     });
 
 //final recipe format
-    const formattedRecipe = {
+    const formattedRecipe = flatRecipe[0] === undefined
+    ? null
+    : {
         recipe_id: flatRecipe[0].recipe_id,
         recipe_name: flatRecipe[0].recipe_name,
         steps: filteredSteps

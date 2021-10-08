@@ -1,5 +1,5 @@
 const express = require('express');
-// const { } = require('./recipe-middleware');
+const { checkRecipeId } = require('./recipe-middleware');
 const Recipes = require('./recipe-model');
 
 const router = express.Router();
@@ -13,7 +13,9 @@ router.get('/:recipe_id', (req, res, next) => {
         .then(recipe => {
             res.json(recipe)
         })
-        .catch(next);
+        .catch(err => {
+            next(err);
+        });
 });
 
 
