@@ -26,23 +26,33 @@ const getRecipeById = async (recipe_id) => {
     const recipe = {
         recipe_id: rows[0].recipe_id,
         recipe_name: rows[0].recipe_name,
-        steps: rows[0].step_id
-            ? rows.map(row => ({
-                step_id: row.step_id,
-                step_number: row.step_number,
-                step_instructions: row.step_instructions,
-                ingredients: [
-                    {
-                        ingredient_id: row.ingredient_id,
-                        ingredient_name: row.ingredient_name,
-                        qauntity_oz: row.qauntity_oz
-                    }
-                ]
-            }))
-            : []
+        created_at: rows[0].created_at,
+        steps: []
     }
 
-    return recipe
+    rows.forEach(row => {
+        if(row.step_id) {
+            recipe.steps.push({
+                step_id:row.step_id,
+                step_number: row.step_number,
+                step_instructions: row.step_instructions,
+                ingredients: []
+            })
+        }
+    })
+    
+    recipe.steps.forEach(row => {
+        if(row.ingredient_id) {
+            recipe.steps.ingredients.push({
+                ingredient_id: row.ingredient_id,
+                ingredient_name: row.ingredient_name,
+                quantity_oz: row.quantity_oz
+            })
+        }
+    })
+    
+ return recipe
+
 }
 
 module.exports = {
