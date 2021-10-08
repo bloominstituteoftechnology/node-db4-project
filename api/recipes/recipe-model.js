@@ -9,6 +9,7 @@ async function getRecipeById(recipe_id){
         .select('r.recipe_id', 'r.recipe_name', 'st.ingredient_amt','i.ingredient_name', 'i.ingredient_id', 's.step_num', 's.step_text', 's.step_id')
         .where('r.recipe_id', recipe_id)
         .orderBy('s.step_num', 'asc')
+
 // helper functions for organizing the ingredients
     const filteredIngredients = flatRecipe.filter(recipe => {
         return recipe.ingredient_id !== null
@@ -21,9 +22,10 @@ async function getRecipeById(recipe_id){
             ingredient_name: ingredients.ingredient_name
         } 
     })
+    
 //helper functions for organizing the steps
-    const allRecipeSteps = !flatRecipe[0]
-    ? null 
+    const allRecipeSteps = !flatRecipe[0] || !flatRecipe[0].step_id 
+    ? [] 
     : flatRecipe.map(recipe => {
         return {
             step_id: recipe.step_id,
@@ -38,6 +40,8 @@ async function getRecipeById(recipe_id){
         filteredStepsSet.add(step.step_id);
         return !duplicate;
     });
+
+    
 
 //final recipe format
     const formattedRecipe = flatRecipe[0] === undefined

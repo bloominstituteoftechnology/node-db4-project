@@ -8,7 +8,7 @@ const router = express.Router();
 // router.get('/', (req, res, next) => {})
 
 //[GET] /api/recipes/:id
-router.get('/:recipe_id', (req, res, next) => {
+router.get('/:recipe_id', checkRecipeId, (req, res, next) => {
     Recipes.getRecipeById(req.params.recipe_id)
         .then(recipe => {
             res.json(recipe)
