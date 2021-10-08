@@ -1,23 +1,40 @@
 const express = require('express');
-const { checkRecipeId } = require('./recipe-middleware');
+const { checkRecipeId, checkRecipeName } = require('./recipe-middleware');
 const Recipes = require('./recipe-model');
 
 const router = express.Router();
 
 // //[GET] /api/recipes
-// router.get('/', (req, res, next) => {})
+router.get('/', (req, res, next) => {
+    Recipes.getRecipes()
+        .then(recipes => res.json(recipes))
+        .catch(next)
+})
 
 //[GET] /api/recipes/:id
 router.get('/:recipe_id', checkRecipeId, (req, res, next) => {
-    Recipes.getRecipeById(req.params.recipe_id)
-        .then(recipe => {
-            res.json(recipe)
-        })
-        .catch(err => {
+        try{
+            res.json(req.recipe)
+        }
+        catch(err){
             next(err);
-        });
+        }
 });
 
+//[POST] /api/recipes
+router.post('/', checkRecipeName, (req,res, next) => {
+    Recipes.createRecipe(req.body)
+        .then(recipe => {
+            res.status(201).json(recipe)
+        })
+        .catch(next)
+})
+
+//[PUT] /api/recipes/:id
+router.put('/:recipe_id', checkRecipeId, (req, res, next) => {})
+
+//[DELETE] /api/recipes/:id
+router.delete('/:recipe_id', checkRecipeId, (req, res, next) => {})
 
 //error handling
 router.use((err, req, res, next) => {
