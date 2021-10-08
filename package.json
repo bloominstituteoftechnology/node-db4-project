@@ -1,9 +1,17 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "server": "nodemon index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "nodemon": "^2.0.12",
+    "sqlite3": "^5.0.2"
   }
 }
