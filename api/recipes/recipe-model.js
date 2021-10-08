@@ -57,12 +57,27 @@ async function getRecipeById(recipe_id){
 
 async function createRecipe(newRecipe){
     const newRecipeId = await db('recipes').insert(newRecipe)
-
     return getRecipeById(newRecipeId);
+}
+
+async function updateRecipe(recipe_id, updatedRecipe){
+    await db('recipes')
+        .update(updatedRecipe)
+        .where('recipe_id', recipe_id)
+    return getRecipeById(recipe_id);
+}
+
+function deleteRecipe(recipe_id){
+    return db('recipes')
+        .where('recipe_id', recipe_id)
+        .del()
+
 }
 
 module.exports = {
     getRecipes,
     getRecipeById,
-    createRecipe
+    createRecipe,
+    updateRecipe,
+    deleteRecipe
 };

@@ -31,10 +31,22 @@ router.post('/', checkRecipeName, (req,res, next) => {
 })
 
 //[PUT] /api/recipes/:id
-router.put('/:recipe_id', checkRecipeId, (req, res, next) => {})
+router.put('/:recipe_id', checkRecipeId, checkRecipeName, (req, res, next) => {
+    Recipes.updateRecipe(req.params.recipe_id, req.body)
+        .then(updatedRecipe => {
+            res.json(updatedRecipe);
+        })
+        .catch(next)
+})
 
 //[DELETE] /api/recipes/:id
-router.delete('/:recipe_id', checkRecipeId, (req, res, next) => {})
+router.delete('/:recipe_id', checkRecipeId, (req, res, next) => {
+    Recipes.deleteRecipe(req.params.recipe_id)
+        .then(() => {
+            res.json(req.recipe)
+        })
+        .catch(next)
+})
 
 //error handling
 router.use((err, req, res, next) => {
