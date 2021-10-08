@@ -84,7 +84,12 @@ module.exports = {getRecipeById};
 3. npx knex migrate:make initial-migration
 4. Go to the newly create migrations js file and build it out. They can be huge. take your time
 5. creat __seeds__ folder in the __data__ folder
-6. inside __seeds__ add __01-cleanup.js__ & build it out
+6. inside __seeds__ add __01-cleanup.js__ (should match package.json) & build it out
 7. add __02-make-<resourceName>.js__ to __seeds__ 
    1. example 02-make-recipes.js
    2. example 02-make=cars.js 
+8. migrate
+   1. knex migrate:rollback
+   2. npm run migrate
+   3. knex migrate latest
+   4. npm run seed
