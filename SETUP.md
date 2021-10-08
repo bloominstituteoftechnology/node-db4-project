@@ -57,7 +57,8 @@ Here you are scafolding the base Express aplication then worry about database it
 ## Build out base files guts
 13. index.js
 14. server.js
-15. router.js (stubb at first then start debugger and server to test)
+15. knexfile.js
+16. router.js (stubb at first then start debugger and server to test)
 
 ## Set Up Debugger
 16. start debugger
@@ -77,4 +78,6 @@ async function getRecipeById(recipe_id){
 }
 module.exports = {getRecipeById};
 ```
-## Add knex
+## ADD DATA
+1. Create data folder in root folder
+2. Add & build out db-config.js in data folder
