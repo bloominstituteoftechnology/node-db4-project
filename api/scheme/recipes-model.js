@@ -10,14 +10,16 @@ async function getRecipeById(id) {
     .where("r.recipe_id", id)
     .select("r.*", "st.step_id", "st.step_number", "st.step_instruction");
 
-  console.log(rows);
-
   const result = {
     recipe_id: id,
     recipe_name: rows[0].recipe_name,
-    // steps: rows.map((item) => {
-    //   item.step_id, item.step_number, item.step_instruction;
-    // }),
+    steps: rows.map((item) => {
+      return {
+        step_id: item.step_id,
+        step_number: item.step_number,
+        step_instruction: item.step_instruction,
+      };
+    }),
   };
   return result;
 }
