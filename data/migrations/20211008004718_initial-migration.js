@@ -40,7 +40,7 @@ exports.up = async function (knex) {
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT');
 
-        })
+        });
 };
 
 exports.down = async function (knex) {
