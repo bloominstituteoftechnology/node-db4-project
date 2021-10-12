@@ -115,4 +115,4 @@ module.exports = {getRecipeById};
    
    ## use sql editor to build out the Model Functions. 
 
-10. 
+10. [review of normalized data ](https://lambdaschool.instructure.com/courses/1692/pages/objective-1-explain-data-normalization?module_item_id=618670)
