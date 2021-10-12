@@ -1,5 +1,17 @@
 # Node DB4 Module Project
 
+- [Node DB4 Module Project](#node-db4-module-project)
+  - [Instructions](#instructions)
+    - [Task 1: Project Setup and Submission](#task-1-project-setup-and-submission)
+    - [Task 2: Minimum Viable Product](#task-2-minimum-viable-product)
+      - [Data Model](#data-model)
+      - [Project Scaffolding](#project-scaffolding)
+      - [Migrations and Seeds](#migrations-and-seeds)
+      - [Data Access](#data-access)
+      - [Endpoint](#endpoint)
+    - [Task 3: Stretch Goals](#task-3-stretch-goals)
+  - [Rick Mansfield's pull request](#rick-mansfields-pull-request)
+
 ## Instructions
 
 ### Task 1: Project Setup and Submission
@@ -104,3 +116,5 @@ The representation **sent to the server** _could_ look like the following:
   ]
 }
 ```
+## Rick Mansfield's pull request
+[link](https://github.com/LambdaSchool/node-db4-project/pull/174)
