@@ -1,4 +1,5 @@
 const cleaner = require('knex-cleaner');
+const test = 'test'
 
 exports.seed = function (knex) {
     return cleaner.clean(knex, {
