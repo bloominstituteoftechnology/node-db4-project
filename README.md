@@ -109,3 +109,7 @@ The representation **sent to the server** _could_ look like the following:
   ]
 }
 ```
+
+Submission method:
+
+Work on a firstname-lastname branch, and submit a pull request of firstname-lastname against main
