@@ -6,6 +6,7 @@
     "server": "nodemon index.js",
     "test": "cross-env NODE_ENV=testing jest --watch --verbose --runInBand",
     "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "cleanup": "knex seed:run --specific=00-cleanup.js",
     "up": "knex migrate:up",
     "down": "knex migrate:down",
     "latest": "knex migrate:latest",
