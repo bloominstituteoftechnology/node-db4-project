@@ -1,16 +1,15 @@
-// const express = require("express")
+const express = require("express");
+const recipesRouter = require("./recipes/recipes-router");
 
-// const server = express()
+const server = express();
 
-// const CarsRouter = require("./cars/cars-router");
+server.use(express.json());
 
-// server.use(express.json());
+server.use('/api/recipes', recipesRouter);
 
-// server.use('/api/cars', CarsRouter);
-
-// server.get('/', (req,res) => {
-//   res.status(200).json({ api: "Intro to Relational Databases" })
-// });
+server.get('/', (req,res) => {
+  res.status(200).json({ api: "Intro to Relational Databases" })
+});
 
 
-// module.exports = server
+module.exports = server
