@@ -1,44 +1,26 @@
-// Update with your config settings.
+const sharedConfig = {
+  client: 'sqlite3',
+  useNullAsDefault: true, //only for sqlite
+  migrations: {
+    directory: './data/migrations',
+  },
+  seeds: {
+    directory: './data/seeds',
+  },
+  pool: { //only for sqlite and important when u have multiple tables
+    afterCreate: (conn, done) => {
+      conn.run('PRAGMA foreign_keys = ON', done)
+    },
+  },
+}
 
 module.exports = {
-
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
-    }
+    ...sharedConfig,
+    connection: { filename: './data/recipes_book.db3' },
   },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+  testing: {
+    ...sharedConfig,
+    connection: { filename: './data/testing.db3' },
   },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
-};
+}
