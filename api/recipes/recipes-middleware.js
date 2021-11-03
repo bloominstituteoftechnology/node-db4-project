@@ -13,7 +13,7 @@ function handleError(err, req, res, next) { //eslint-disable-line
 async function checkRecipeId (req, res, next) {
   const { recipe_id } = req.params;
   try {
-    const possibleRecipe = await Recipe.getById(recipe_id)
+    const possibleRecipe = await Recipe.getRecipeById(recipe_id)
     if (!possibleRecipe){
       next({ status: 404, message: `recipe with id ${recipe_id} is not found`})
     } else {

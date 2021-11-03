@@ -1,24 +1,11 @@
 const db = require('../../data/db-config')
 
 module.exports = {
-  getAll,
-  getById,
-  create
+  getRecipeById,
 }
 
-async function getAll () {
-  const result = await db('recipes')
-  // console.log("getALL----",result)
+
+async function getRecipeById(recipe_id) {
+  const result = await db('recipes').where('recipe_id',recipe_id)
   return result
-}
-
-async function getById(id) {
-  const result = await db('recipes').where('id', id).first()
-  // console.log("getById---", result)
-  return result
-}
-
-async function create(newRecipe) {
-  const [id] = await db('recipe').insert(newRecipe)
-  return getById(id)
 }
