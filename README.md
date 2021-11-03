@@ -10,6 +10,8 @@ Your assignment page on Canvas should contain instructions for submitting this p
 
 Design the **data model** for a _recipe book_ application and use Knex migrations and seeding functionality to build a **SQLite database** based on the model and seed it with test data. Then, build an **endpoint** to fetch a recipe by its id.
 
+![tables Image](tables.png "Title")
+
 The requirements for the system as stated by the client are:
 
 - Recipes have a name that must be unique (e.g. "Spaghetti Bolognese").
@@ -25,7 +27,7 @@ After brainstorming with the team it is suggested that a **JSON representation**
 
 ```json
 {
-  "recipe_id" : 1,
+  "recipe_id": 1,
   "recipe_name": "Spaghetti Bolognese",
   "created_at": "2021-01-01 08:23:19.120",
   "steps": [
@@ -40,9 +42,13 @@ After brainstorming with the team it is suggested that a **JSON representation**
       "step_number": 2,
       "step_instructions": "Add 1 tbsp olive oil",
       "ingredients": [
-        { "ingredient_id": 27, "ingredient_name": "olive oil", "quantity": 0.014 }
+        {
+          "ingredient_id": 27,
+          "ingredient_name": "olive oil",
+          "quantity": 0.014
+        }
       ]
-    },
+    }
   ]
 }
 ```
@@ -53,7 +59,8 @@ Note that it's unlikely all the fields `{ "ingredient_id": 27, "ingredient_name"
 
 Before writing any code, write out all desired tables in the data model and determine the relationships between tables.
 
-**Try to keep your design to FOUR tables**. With three tables it will be hard to meet all requirements, and more than 5 is likely overkill.
+**Try to keep your design to FOUR tables**.
+With three tables it will be hard to meet all requirements, and more than 5 is likely overkill.
 
 #### Project Scaffolding
 
@@ -91,7 +98,7 @@ The representation **sent to the server** _could_ look like the following:
   "steps": [
     {
       "step_number": 1,
-      "step_instructions": "Put a large saucepan on a medium heat",
+      "step_instructions": "Put a large saucepan on a medium heat"
     },
     {
       "step_number": 2,
@@ -100,7 +107,11 @@ The representation **sent to the server** _could_ look like the following:
         { "ingredient_id": 27, "quantity": 2 },
         { "ingredient_id": 48, "quantity": 0.1 }
       ]
-    },
+    }
   ]
 }
 ```
+
+Submission method:
+
+Work on a firstname-lastname branch, and submit a pull request of firstname-lastname against main
