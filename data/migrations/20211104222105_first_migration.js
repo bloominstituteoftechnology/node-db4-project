@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  return knex.scheme
+  return knex.schema
     .createTable('recipes', table => {
         table.increments('recipe_id')
         table.string('recipe_name', 128).notNullable().unique()
@@ -39,11 +39,13 @@ exports.up = function(knex) {
             .inTable('ingredients')
             .onDelete('RESTRICT')
             .onUpdate('RESTRICT')
+        table.float('ingredient_quantity').notNullable()
+
     })
 };
 
 exports.down = function(knex) {
-  return knex.shema
+  return knex.schema
     .dropTableIfExists('steps_ingredients')
     .dropTableIfExists('recipe_steps')
     .dropTableIfExists('ingredients')

@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "up": "knex migrate: up",
+    "up": "knex migrate:up",
     "down": "knex migrate:down",
     "latest": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
