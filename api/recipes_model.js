@@ -31,6 +31,24 @@ async function getRecipeById(recipe_id) {
         } else {
             result.steps = []
         }
+
+        // const stepResult = {
+        //     step_id: rows[0].recipe_id.step_id,
+        //     step_name: rows[0].recipe_id.step_id,
+        //     ingredient_name: []
+        // }
+
+        // rows.forEach(row => {
+        //     if (row.ingredient_name) {
+        //         stepResult.ingredient_name.push({
+        //             ingredient_id: row.ingredient_id,
+        //             ingredient_name: row.ingredient_name,
+        //             quantity_amount: row.quantity_amount
+        //         })
+        //     } else {
+        //         result.ingredient_name = []
+        //     }
+        //     })
     })
 
     return result;
