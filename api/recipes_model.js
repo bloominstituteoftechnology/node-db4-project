@@ -28,6 +28,11 @@ async function getRecipeById(recipe_id) {
                 ingredient_name: row.ingredient_name,
                 quantity_amount: row.quantity_amount
             })
+            // result.steps.ingredient_name.push({
+            //     ingredient_id: row.ingredient_id,
+            //     ingredient_name: row.ingredient_name,
+            //     quantity_amount: row.quantity_amount
+            // })
         } else {
             result.steps = []
         }
