@@ -5,5 +5,24 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
-  }
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "knex": "^0.95.13",
+    "knex-cleaner": "^1.3.1",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "description": "Your assignment page on Canvas should contain instructions for submitting this project. If you are still unsure, reach out to School Staff.",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/node-db4-project#readme",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
