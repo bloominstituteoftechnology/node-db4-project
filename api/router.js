@@ -1,5 +1,14 @@
-const helpers = require('./model');
+const express = require('express')
+const { getRecipesById } = require('./model')
 
-const router = require('express').Router();
+const router = express.Router()
 
-module.exports = router;
+router.get('/recipes/:id', (req, res, next) => {
+  getRecipesById(req.params.id)
+    .then((recipes) => {
+      res.json(recipes)
+    })
+    .catch(next)
+})
+
+module.exports = router
