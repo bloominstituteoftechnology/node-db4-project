@@ -23,7 +23,7 @@ exports.up = function (knex) {
         .onUpdate("RESTRICT");
     })
     .createTable("ingredient_steps", (table) => {
-      table.increments("quantity_id");
+      table.increments("ingredient_step_id");
       table
         .integer("ingredient_id")
         .unsigned()
