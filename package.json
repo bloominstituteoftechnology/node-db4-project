@@ -5,5 +5,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.13",
+    "sqlite3": "^5.0.2"
   }
 }
