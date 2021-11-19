@@ -39,8 +39,8 @@ const steps = [
     { step_text: 'Cook salmon', step_number: 2, recipe_id: 3 },
 ]
 exports.seed = async function (knex) {
-    await knext('recipes').insert(recipes)
-    await knext('ingredients').insert(ingredients)
-    await knext('steps').insert(steps)
-    await knext('step_ingredients').insert(step_ingredients)
+    await knex('recipes').insert(recipes)
+    await knex('ingredients').insert(ingredients)
+    await knex('steps').insert(steps)
+    await knex('step_ingredients').insert(step_ingredients)
 }
