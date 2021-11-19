@@ -1,6 +1,6 @@
-const { ServerStyleSheets } = require('@material-ui/styles');
+require('dotenv').config()
 const server = require('./api/server')
 
-const PORT = process.env.PORT || 9000;
+const port = process.env.PORT || 9000;
 
-server.listen(`Listening on port ${PORT}!!`)
+server.listen(port, () => console.log(`\nAPI running on port ${port}!!`.bgBlue))
