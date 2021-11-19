@@ -37,7 +37,8 @@ exports.up = function(knex) {
             .inTable('ingredients')
             .onDelete('RESTRICT')
             .onUpdate('RESTRICT');
-        table.integer('quantity').notNullable();
+        table.decimal('quantity').notNullable();
+        table.string('measurement').notNullable();
     })
 };
 
