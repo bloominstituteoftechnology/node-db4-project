@@ -8,7 +8,8 @@
     "up": "knex migrate:up",
     "down": "knex migrate:down",
     "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
-    "create": "knex migrate:make create-recipes-table"
+    "create": "knex migrate:make create-recipes-table",
+    "seed": "knex seed:run"
   },
   "repository": {
     "type": "git",
