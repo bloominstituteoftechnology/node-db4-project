@@ -17,7 +17,7 @@ The requirements for the system as stated by the client are:
 - Each step contains some instructions (e.g. "Preheat the oven") and belongs to a single recipe.
 - Steps might involve any number of ingredients (zero, one or more).
 - If a step involves one or more ingredients, each ingredient is used in a certain quantity.
-- Ingredients can be used in different recipes, in different quantities.
+- Ingredients can be used in different recipes, in different quantities
 
 #### Data Model
 
