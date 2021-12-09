@@ -1,5 +1,6 @@
 exports.seed = function (knex, Promise) {
   return knex('ingredients').insert([
-    { ingredient_name: 'olive oil', ingredient_unit: '1lbs' },
+    { step_id: 1 },
+    { ingredient_name: 'olive oil', step_id: 2 },
   ]);
 };
