@@ -4,8 +4,11 @@ function getRecipes() {
   return db('recipes');
 }
 
-function getRecipesById() { // INCLUDING SPECIES NAME
-  
+async function getRecipesById(recipe_id) { // INCLUDING SPECIES NAME
+  const rows = await db('recipes')
+    .where('recipe_id', recipe_id)
+
+  return rows
 }
 
 
