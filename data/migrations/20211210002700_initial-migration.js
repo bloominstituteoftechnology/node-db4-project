@@ -33,7 +33,7 @@ exports.up =  async function(knex) {
       .inTable('steps')
       .onDelete('RESTRICT')
       .onUpdate('RESTRICT')
-      table.increments('ingredients_id')
+      table.integer('ingredients_id')
       .unsigned()
       .notNullable()
       .references('ingredients_id')
