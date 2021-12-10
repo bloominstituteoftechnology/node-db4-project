@@ -19,7 +19,6 @@ exports.up = async function (knex) {
     .createTable("ingredients", (table) => {
       table.increments("ingredient_id");
       table.integer("quantity").unsigned();
-
       table.string("ingredient_name", 40).notNullable().unique();
     })
     .createTable("step_ingredients", (table) => {
