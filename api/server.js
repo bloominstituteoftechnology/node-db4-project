@@ -1,4 +1,6 @@
-const server = require("express")();
+const express = require("express");
+const server = express();
+
 server.use(express.json());
 
 const recipiesRouter = require("./recipies/recipies-router");
