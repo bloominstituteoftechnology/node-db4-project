@@ -86,6 +86,7 @@ Write an endpoint to fetch a recipe by its id, using the `getRecipeById(recipe_i
 The representation **sent to the server** _could_ look like the following:
 
 ```json
+
 {
   "recipe_name": "Spaghetti Bolognese",
   "steps": [
