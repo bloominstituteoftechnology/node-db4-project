@@ -12,6 +12,12 @@ exports.up = async function(knex) {
             .notNullable()
         table.text('step_instructions', 200)
             .notNullable()
+        table.integer('recipe_id')
+            .unsigned()
+            .notNullable()
+                .references('recipe_id')
+                .inTable('recipes')
+                .onDelete('CASCADE')
     })
     .createTable('ingredients', table => {
         table.increments('ingredient_id')

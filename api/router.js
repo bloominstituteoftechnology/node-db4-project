@@ -11,8 +11,8 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        const ingredients = await RecipeBook.getIngredientsByRecipeId(req.params.id);
-        res.json(ingredients);
+        const recipe = await RecipeBook.getRecipeById(req.params.id);
+        res.json(recipe);
     } catch(e) { next(e) }
 })
 
