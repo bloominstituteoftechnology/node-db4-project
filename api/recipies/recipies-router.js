@@ -4,13 +4,12 @@ const Recipe = require('./recipies-model')
 router.get('/:recipe_id', (req, res, next) => {
     Recipe.getRecipeById(req.params.recipe_id)
         .then(resource => {
+            //throw new Error('ARGHHHH')
             res.status(200).json(resource)
         })
         .catch(next)
 })
-router.use("*", (req, res) => {
- res.json({ api: "up" });
-});
+
 
 router.use((err, req, res, next) => {
     //eslint-disable-line
