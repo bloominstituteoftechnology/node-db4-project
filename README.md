@@ -79,7 +79,7 @@ Write an endpoint to fetch a recipe by its id, using the `getRecipeById(recipe_i
 
 ### Task 3: Stretch Goals
 
-- [ ] Write an endpoint to create a new recipe using ingredients that already exist in the database.
+- [x] Write an endpoint to create a new recipe using ingredients that already exist in the database.
 - [ ] Build a form in React that allows to create a new recipe selecting ingredients that already exist in the database.
 - [ ] Research **transactions** in SQL and Knex: POSTing a recipe involves inserts to several tables, and the operation needs to completely succeed or be rolled back if any of the inserts fail.
 
