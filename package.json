@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
-    "forrest run": "nodemon index.js",
+    "forrest-run": "nodemon index.js",
     "migrate": "knex mmigrate:latest",
     "walmart": "knex migrate:rollback",
     "reset": "npm run walmart && npm run migrate && npm run seed",
