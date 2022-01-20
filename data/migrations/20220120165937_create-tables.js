@@ -5,17 +5,15 @@ exports.up = function(knex) {
     table.increments('recipe_id');
     table.string('recipe_name').notNullable().unique();
   })
-  .createTable('step', table => {
-    table.increments('step_id');
-    table.string('step_instructions').notNullable();
-  })
   .createTable('ingredient', table => {
     table.increments('ingredients_id');
-    table.string('ingredients_name').notNullable().unique();
+    table.string('ingredient_name').notNullable().unique();
+    table.string('ingredient_unit');
   })
-  .createTable('recipe_step_ingredient', table => {
-    table.increments('recipe_step_ingredient_id');
-    table.string('quantity').notNullable();
+  .createTable('step', table => {
+    table.increments('step_id');
+    table.string('step_instructions').notNullable()
+    table.integer('step_number').notNullable()
     table.integer('recipe_id')
     .unsigned()
     .notNullable()
@@ -23,6 +21,10 @@ exports.up = function(knex) {
     .inTable('recipe')
     .onUpdate('RESTRICT')
     .onDelete('RESTRICT');
+  })
+  .createTable('step_ingredient', table => {
+    table.increments('step_ingredient_id');
+    table.float('quantity').notNullable();
     table.integer('step_id')
     .unsigned()
     .notNullable()
@@ -39,12 +41,11 @@ exports.up = function(knex) {
     .onDelete('RESTRICT');
   })
 };
-// whoops forgot to do branch
 
 exports.down = function(knex) {
   return knex.schema
-  .dropTableIfExists('recipe_step_ingredient')
-  .dropTableIfExists('ingredient')
+  .dropTableIfExists('step_ingredient')
   .dropTableIfExists('step')
+  .dropTableIfExists('ingredient')
   .dropTableIfExists('recipe')
 };
