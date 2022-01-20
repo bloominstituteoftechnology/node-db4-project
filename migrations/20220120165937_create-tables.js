@@ -39,6 +39,7 @@ exports.up = function(knex) {
     .onDelete('RESTRICT');
   })
 };
+// whoops forgot to do branch
 
 exports.down = function(knex) {
   return knex.schema
