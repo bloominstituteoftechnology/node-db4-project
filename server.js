@@ -5,9 +5,10 @@ const recipeRouter = require('./router')
 
 server.use('/api/recipe', recipeRouter)
 
-server.use((err, req, res,next) => {
+server.use((err, req, res, next) => { // eslint-disable-line
   res.status(err.status || 500).json({
-    message: err
+    message: err.message,
+    stack: error.stack
   })
 })
 

@@ -1,24 +1,32 @@
-//const db = require('')
 const express = require('express')
 const router = express.Router()
+const Recipe = require('./model')
 
 router.get('/', (req, res, next) => {
-    res.json({ message: "Get!" })
+    Recipe.getRecipe()
+    .then(resource => {
+      res.status(200).json(resource)
+    })
+    .catch(next)
 })
 
-router.get('/:id', (req, res, next) => {
-  res.json({ message: "Get ID!" })
+router.get('/:recipe_id', (req, res, next) => {
+  Recipe.getRecipeById(req.params.recipe_id)
+  .then(resource => {
+    res.status(200).json(resource)
+  })
+  .catch(next)
 })
 
 router.post('/', (req, res, next) => {
   res.json({ message: "Post!" })
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:recipe_id', (req, res, next) => {
   res.json({ message: "Put!" })
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:recipe_id', (req, res, next) => {
   res.json({ message: "Delete!" })
 })
 
