@@ -2,6 +2,7 @@
   "name": "node-db4-project",
   "version": "1.0.0",
   "scripts": {
+    "cleanup": "knex seed:run --specific=01-cleanup.js",
     "server": "nodemon index.js",
     "start": "node index.js",
     "migrate": "knex migrate:latest",
