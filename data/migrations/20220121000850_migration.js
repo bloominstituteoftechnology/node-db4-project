@@ -7,7 +7,7 @@ exports.up = function(knex) {
         })
         .createTable('steps', table => {
             table.increments('step_id')
-            table.text('step_instructions').notNullable().unique()
+            table.text('step_instructions').unique()
             table.integer('step_number')
             table.integer('recipe_id')
                 .unsigned()
@@ -19,8 +19,8 @@ exports.up = function(knex) {
         })
         .createTable('ingredients', table => {
             table.increments('ing_id')
-            table.text('ingredient_name').notNullable()
-            table.text('ing_unit').notNullable()
+            table.text('ingredient_name')
+            table.text('ing_unit')
         })
         .createTable('step_ingredient', table => {
             table.integer('step_id')
@@ -33,7 +33,7 @@ exports.up = function(knex) {
                 .notNullable()
                 .references('ing_id')
                 .inTable('ingredients')
-            table.text('quantity').notNullable().unique()
+            table.decimal('quantity')
         })
 };
 

@@ -1,7 +1,7 @@
 const recipes = [
-  {recipe_name: 'Broccoli Pesto Pasta'},
-  {recipe_name: 'Lemon Chicken'},
-  {recipe_name: 'Salmon en Papillote'},
+  {recipe_name: 'Beef Pho'},
+  {recipe_name: 'Red Chicken Curry'},
+  {recipe_name: 'Pork Eggrolls'},
 ]
 
 exports.recipes = recipes 
