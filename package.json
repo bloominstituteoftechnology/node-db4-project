@@ -4,7 +4,7 @@
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
-    "migrate": "knex migrate:lastest",
+    "migrate": "knex migrate:latest",
     "resetdb": "npm run rollback && npm run migrate && npm run seed",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run"
@@ -21,7 +21,7 @@
   "dependencies": {
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
-    "knex": "^1.0.1",
+    "knex": "^0.95.14",
     "sqlite3": "^5.0.2"
   }
 }
