@@ -1,12 +1,14 @@
 const express = require('express');
+const router = require('./router');
 
 const server = express();
 
 server.use(express.json());
+server.use('/api', router)
 
-server.use('/', (req, res)=>{
-    res.send('Unit 4 Week 2 Module 4')
-})
+// server.use('/', (req, res)=>{
+//     res.send('Unit 4 Week 2 Module 4')
+// })
 
 server.use((err, req, res, next) => { // eslint-disable-line
     console.log('disaster!')
