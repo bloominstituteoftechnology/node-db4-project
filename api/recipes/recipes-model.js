@@ -5,5 +5,6 @@ module.exports = {
 }
 
 async function getRecipeById() {
-    return "getRecipeById"
+    // return "getRecipeById"
+    return db('recipes')
 }
