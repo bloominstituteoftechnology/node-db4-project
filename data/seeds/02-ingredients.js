@@ -1,10 +1,10 @@
 const ingredients = [
-  {ingredient_name: 'Scallion', ing_unit: 'lbs'},
-  {ingredient_name: 'Fish Sauce', ing_unit: 'oz'},
-  {ingredient_name: 'Rotesseri Chicken', ing_unit: 'lbs'},
+  {ingredient_name: 'Broccoli', ing_unit: 'lbs'},
+  {ingredient_name: 'Pesto', ing_unit: 'lbs'},
+  {ingredient_name: 'Pasta', ing_unit: 'lbs'},
   {ingredient_name: 'Lemon', ing_unit: 'slices'},
-  {ingredient_name: 'Beef', ing_unit: 'lbs'},
-  {ingredient_name: 'Rice Noodles', ing_unit: 'grams'}
+  {ingredient_name: 'Chicken', ing_unit: 'kilos'},
+  {ingredient_name: 'Salmon', ing_unit: 'grams'}
 ]
 
 exports.ingredients = ingredients
