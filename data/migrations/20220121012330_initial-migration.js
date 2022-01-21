@@ -7,7 +7,6 @@ exports.up = async function(knex) {
     })
     .createTable('ingredients',table =>{
         table.increments('ingredient_id')
-        table.string('ingredient_id', 128)
         table.string('ingredient_name', 128).notNullable().unique()
         table.string('ingredient_unit', 128)
     })
