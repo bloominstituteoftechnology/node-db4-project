@@ -8,6 +8,7 @@ Your assignment page on Canvas should contain instructions for submitting this p
 
 ### Task 2: Minimum Viable Product
 
+[comment]: <> (here)
 Design the **data model** for a _recipe book_ application and use Knex migrations and seeding functionality to build a **SQLite database** based on the model and seed it with test data. Then, build an **endpoint** to fetch a recipe by its id.
 
 The requirements for the system as stated by the client are:
