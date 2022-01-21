@@ -1,20 +1,23 @@
-const router = require('express').Router()
-const Recipe = require('./recipes-model.js')
+const express = require('express')
+const Recipes = require('./recipes-model')
 
-router.get('/:recipe_id', (req, res, next) => {
-    Recipe.getRecipeById(req.params.recipe_id)
-        .then(resource => {
-            res.status(200).json(resource)
+const router = express.Router()
+
+router.get("*", (req, res, next) => {
+    Recipes.getRecipes()
+        .then(recipes => {
+            res.status(200).json(recipes);
         })
-        .catch(next)
+        .catch(next);
 })
 
-router.use((err, req, res, next) => {
-    res.status(500).json({
-        customMessage: 'There is an issue with your recipes router',
-        message: err.message,
-        stack: err.stack
-    })
+router.get('/:id', async (req, res) => {
+    try {
+        const recipe = await Recipes.getRecipeById(req.params.id)
+        res.status(200).json(recipe)
+    } catch (err) {
+        res.status(500).json(err.message)
+    }
 })
 
 module.exports = router
