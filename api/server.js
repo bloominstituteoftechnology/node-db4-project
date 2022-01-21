@@ -1,9 +1,15 @@
 const express = require('express');
-//import router file here
+const recipeRouter = require('./recipe-router');
 const server = express();
 
 server.use(express.json());
-// server.use('/api/recipe', recipeRouter)
+server.use('/api/recipe', recipeRouter);
+
+server.get('*', (req, res) => {
+    res.send(`
+    <h1>hello world!</h>
+    `)
+});
 
 server.use((err, req, res, next) => {
     res.status(500).json({
