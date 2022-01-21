@@ -18,5 +18,9 @@
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "knex": "^0.95.15",
+    "sqlite3": "^5.0.2"
   }
 }
