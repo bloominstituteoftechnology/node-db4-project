@@ -19,8 +19,8 @@ exports.up = function(knex) {
         })
         .createTable('ingredients', table => {
             table.increments('ing_id')
-            table.text('ingredient_name').notNullable().unique()
-            table.text('ing_unit').notNullable().unique()
+            table.text('ingredient_name').notNullable()
+            table.text('ing_unit').notNullable()
         })
         .createTable('step_ingredient', table => {
             table.integer('step_id')
