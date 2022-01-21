@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d41bae45-5fc0-4359-b955-090a63d34981" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/api/recipes/recipes-middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/recipes/recipes-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/recipes/recipes-model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/recipes/recipes-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/recipes/recipes-router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cook_book.db3" beforeDir="false" afterPath="$PROJECT_DIR$/data/cook_book.db3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/migrations/20220120222945_initial-migration.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/migrations/20220120222945_initial-migration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/seeds/02-make-recipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/seeds/02-make-recipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints>
+      <file url="mock:///Body" />
+      <file url="mock:///Headers" />
+      <file url="mock:///Info" />
+      <file url="mock:///Params" />
+      <file url="mock:///Response" />
+    </disable_hints>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="23yWtHngIrjGP0BpwXBGSdgtOKR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RESTKit.sync" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="power.mode.ii" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Debugger" type="NodeJSConfigurationType" singleton="false" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d41bae45-5fc0-4359-b955-090a63d34981" name="Changes" comment="" />
+      <created>1642707026573</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642707026573</updated>
+      <workItem from="1642707028990" duration="9271000" />
+      <workItem from="1642717680320" duration="574000" />
+      <workItem from="1642718341062" duration="4515000" />
+      <workItem from="1642723112029" duration="6550000" />
+      <workItem from="1642729918250" duration="1542000" />
+    </task>
+    <task id="LOCAL-00001" summary="adding dependencies">
+      <created>1642712712097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642712712097</updated>
+    </task>
+    <task id="LOCAL-00002" summary="going to the carwash">
+      <created>1642714950425</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642714950425</updated>
+    </task>
+    <task id="LOCAL-00003" summary="boom">
+      <created>1642715867045</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642715867045</updated>
+    </task>
+    <task id="LOCAL-00004" summary="boom">
+      <created>1642720111146</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1642720111146</updated>
+    </task>
+    <task id="LOCAL-00005" summary="boom">
+      <created>1642721044858</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1642721044858</updated>
+    </task>
+    <task id="LOCAL-00006" summary="bam">
+      <created>1642721521609</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642721521609</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="adding dependencies" />
+    <MESSAGE value="going to the carwash" />
+    <MESSAGE value="boom" />
+    <MESSAGE value="bam" />
+    <option name="LAST_COMMIT_MESSAGE" value="bam" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
