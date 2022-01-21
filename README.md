@@ -111,4 +111,5 @@ npm install knex@0.95.15 sqlite3
 npx knex init
 npm i knex-cleaner
 npm i  express
+npx knex seed:make recipes
 ```
