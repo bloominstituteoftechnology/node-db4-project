@@ -21,7 +21,8 @@
     "@vscode/sqlite3": "^5.0.7",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "knex": "^1.0.2"
+    "knex": "^1.0.2",
+    "knex-migrate": "^1.7.4"
   },
   "devDependencies": {
     "eslint": "^8.8.0",
