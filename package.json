@@ -2,8 +2,7 @@
   "name": "node-db4-project",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon index.js",
-    "server": "node index.js",
+    "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "rollback": "knex rollback"
   },

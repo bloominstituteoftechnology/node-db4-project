@@ -1,5 +1,5 @@
 const express = require('express');
-const { validateRecipeID } = require('./recipes-middleware');
+const { validateRecipeId } = require('./recipes-middleware');
 const recipesModel = require('./recipes-model.js');
 
 const router = express.Router();
@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:id', validateRecipeID, (req, res, next) => {
+router.get('/:id', validateRecipeId, (req, res, next) => {
   const { id } = req.params;
   recipesModel
     .getRecipeById(id)
@@ -25,9 +25,7 @@ router.get('/:id', validateRecipeID, (req, res, next) => {
 
 router.use((err, req, res, next) => {
   res.status(err.status || 500).json({
-    sageAdvice: 'Server Error',
-    message: err.message,
-    stack: err.stack,
+    message: 'Server Error',
   });
 });
 
