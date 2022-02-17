@@ -1,6 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
-const router = require('../api/recipes/recipes-router');
+const router = require('../api/');
 
 const server = express();
 
