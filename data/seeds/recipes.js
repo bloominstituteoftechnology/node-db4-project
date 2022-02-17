@@ -3,11 +3,8 @@
  * @returns { Promise<void> } 
  */
 exports.seed = async function(knex) {
-  // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+  return knex('recipes').insert([   
+    { recipe_name: "Egg Sandwich", created_at: "2021-01-01 08:23:19.120"},
+    { recipe_name: "Spaghetti", created_at: "2021-02-08 10:16:25.110"}
   ]);
 };
