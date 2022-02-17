@@ -24,7 +24,15 @@ exports.up = function (knex) {
     })
     .createTable('step_ingredients', (tbl) => {
       tbl.increments();
-      tbl.decimal('quantity').notNullable();
+      tbl.string('quantity').notNullable();
+      tbl
+        .string('recipe_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('recipes')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE');
       tbl
         .string('step_id')
         .unsigned()
