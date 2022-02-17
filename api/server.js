@@ -1,6 +1,7 @@
 const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan');
+const cors = require('cors')
 const server = express()
 const recipesRouter = require('./recipes/recipes-router')
 
@@ -8,6 +9,7 @@ const recipesRouter = require('./recipes/recipes-router')
 server.use(express.json())
 server.use(helmet())
 server.use(morgan('dev'))
+server.use(cors())
 
 // link to recipe router
 server.use('/api/recipes', recipesRouter)
