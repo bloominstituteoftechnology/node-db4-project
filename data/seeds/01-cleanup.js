@@ -1,8 +1,8 @@
-const { cleaner } = require('knex-cleaner');
+const { clean } = require('knex-cleaner');
 
 exports.seed = function (knex) {
 
-    return cleaner(knex, {
+    return clean(knex, {
         mode: 'truncate',
         ignoreTables: ['knex_migrations', 'knex_migrations_lock']
     })
