@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "server": "nodemon index.js",
+    "ketchup": "git fetch && git reset --hard origin/lecture",
     "up": "npx knex migrate:up",
     "down": "npx knex migrate:down",
-    "rollback": "npx knex migrate:rollback",
+    "rollback": ""npx knex migrate:down""
     "seed":"npx knex see:run"
   },
   
