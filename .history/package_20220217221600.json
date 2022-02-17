@@ -1,0 +1,10 @@
+{
+  "name": "node-db4-project",
+  "version": "1.0.0",
+ 
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
+  }
+}
