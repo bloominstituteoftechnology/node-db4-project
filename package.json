@@ -17,7 +17,7 @@
   "dependencies": {
     "express": "^4.17.3",
     "helmet": "^5.0.2",
-    "knex": "^1.0.3",
+    "knex": "^0.95.15",
     "nodemon": "^2.0.15",
     "sqlite3": "^5.0.2"
   },
