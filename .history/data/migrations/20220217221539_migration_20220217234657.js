@@ -6,13 +6,13 @@ exports.up = async function (knex) {
 		})
 		.createTable('ingredients', (table) => {
 			table.increments('ing_id');
-			table.string('ing_name', 128).notNull().unique();
-			table.string('ing_units', 24).notNull();
+			table.string('ing_name').notNull().unique();
+			table.string('ing_units', ).notNull();
 		})
 		.createTable('steps', (table) => {
 			table.increments('step_id');
-			table.integer('step_number').notNull();
-			table.text('step_instructions', 512).notNull();
+			table.string('step_number').notNull().unique();
+			table.text('step_instructions').notNull();
 			table
 				.integer('recipe_id')
 				.unsigned()

@@ -7,7 +7,7 @@
     "down": "npx knex migrate:down",
     "rollback": "npx knex migrate:rollback",
     "seed": "npx knex see:run",
-    "cleanup": "knex seed:run --specific=00-cleanup.js"
+    "cleanup": "knex"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
