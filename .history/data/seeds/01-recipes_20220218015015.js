@@ -1,16 +1,12 @@
-exports.seed = function (knex) {
-	return knex('recipes').insert([
-		{ recipe_name: 'Mezze Maniche alla Carbonara' },
-		{ recipe_name: 'Spaghetti Cacio e Pepe' },
-		{ recipe_name: 'Spaghetti Puttanesca' },
-	]);
-};
+const recipes = [
+	{ recipe_name: 'Mezze Maniche alla Carbonara' },
+	{ recipe_name: 'Spaghetti Cacio e Pepe' },
+	{ recipe_name: 'Spaghetti Puttanesca' },
+];
 
-// const recipes = [
-// 	{ recipe_name: 'Mezze Maniche alla Carbonara' },
-// 	{ recipe_name: 'Spaghetti Cacio e Pepe' },
-// 	{ recipe_name: 'Spaghetti Puttanesca' },
-// ];
+exports.seed = function (knex) {
+	return knex('recipes').insert(
+};
 
 // const ingredients = [
 // 	{ ingredient_name: 'Mezze Maniche Pasta', ingredient_unit: 'grams' },

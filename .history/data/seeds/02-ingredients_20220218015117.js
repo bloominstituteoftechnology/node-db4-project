@@ -1,4 +1,4 @@
-exports.seed = function (knex) {
+exports.seed = function (knex, promise) {
 	return knex('ingredients').insert([
 		{
 			ingredient_name: 'Mezze Maniche',

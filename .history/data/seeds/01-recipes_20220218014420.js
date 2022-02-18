@@ -1,16 +1,8 @@
-exports.seed = function (knex) {
-	return knex('recipes').insert([
-		{ recipe_name: 'Mezze Maniche alla Carbonara' },
-		{ recipe_name: 'Spaghetti Cacio e Pepe' },
-		{ recipe_name: 'Spaghetti Puttanesca' },
-	]);
-};
-
-// const recipes = [
-// 	{ recipe_name: 'Mezze Maniche alla Carbonara' },
-// 	{ recipe_name: 'Spaghetti Cacio e Pepe' },
-// 	{ recipe_name: 'Spaghetti Puttanesca' },
-// ];
+const recipes = [
+	{ recipe_name: 'Mezze Maniche alla Carbonara' },
+	{ recipe_name: 'Spaghetti Cacio e Pepe' },
+	{ recipe_name: 'Spaghetti Puttanesca' },
+];
 
 // const ingredients = [
 // 	{ ingredient_name: 'Mezze Maniche Pasta', ingredient_unit: 'grams' },
@@ -80,9 +72,9 @@ exports.seed = function (knex) {
 // 	{ step_id: 19, ingredient_id: 7, quantity: 'add ' },
 // ];
 
-// exports.seed = async function (knex) {
-// 	await knex('recipes').insert(recipes);
-// 	await knex('ingredients').insert(ingredients);
-// 	await knex('steps').insert(steps);
-// 	await knex('step_ingredients').insert(step_ingredients);
-// };
+exports.seed = async function (knex) {
+	await knex('recipes').insert(recipes);
+	await knex('ingredients').insert(ingredients);
+	await knex('steps').insert(steps);
+	await knex('step_ingredients').insert(step_ingredients);
+};

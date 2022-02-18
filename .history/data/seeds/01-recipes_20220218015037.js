@@ -1,9 +1,11 @@
+
+
 exports.seed = function (knex) {
 	return knex('recipes').insert([
 		{ recipe_name: 'Mezze Maniche alla Carbonara' },
 		{ recipe_name: 'Spaghetti Cacio e Pepe' },
 		{ recipe_name: 'Spaghetti Puttanesca' },
-	]);
+	])
 };
 
 // const recipes = [
