@@ -1,5 +1,3 @@
-const { route } = require('../server');
-
 const router = require('express').Router()
 
 router.use('*', (req, res) => {
