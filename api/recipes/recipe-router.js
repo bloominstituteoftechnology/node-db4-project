@@ -4,7 +4,7 @@ const recipies = require("./recipe-model");
 const router = express.Router();
 const { validateId } = require("./recipe-middleware");
 
-router.get("/:id", validateId, async (req, res) => {
+router.get("/:id", async (req, res) => {
   const recipe = await recipies.getById(req.params.id);
   if (recipe) {
     res.json(recipe);

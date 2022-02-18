@@ -9,3 +9,5 @@ async function validateId(req, res, next) {
     res.status(404).json({ message: "Recipe not found" });
   }
 }
+
+module.exports = validateId;

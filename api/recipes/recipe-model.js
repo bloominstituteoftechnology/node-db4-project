@@ -5,6 +5,10 @@
   - There are many ways to solve this, but from a performance standpoint the fewer trips to the database the better!
 */
 
+const db = require("../../data/db-config");
+
 function getById(id) {
-  return db("steps").where({ recipe_id: id });
+  return db("recipeBook").where({ recipe_id: id }).first();
 }
+
+module.exports = getById;
