@@ -1,8 +1,8 @@
-
+const db = require('../../data/db-config')
 module.exports = {
     findById,
 }
 
-function findById(recipeId){
-    return Promise.resolve('GET recipe by recipeId')
+async function findById(id){
+    return db('recipes as r').where("recipe_id", id)
 }

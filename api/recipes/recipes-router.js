@@ -1,18 +1,22 @@
 const router = require('express').Router()
-const md  =require('./recipes-middleware')
+const mw = require('./recipes-middleware')
 
-router.get('/:recipeId', md.checkRecipesId, (req, res, next)=>{
+router.use("/:id",mw.checkRecipesId, async (req, res, next)=>{
     try{
+        // throw new Error('ARRRR')
         res.json(req.recipe)
     }catch(err){
         next(err)
     }
 })
 
-router.use('*', md.checkRecipesId, (req, res)=>{
-    res.json({
-        message: "work!"
+router.use("*", (req, res)=>{
+    res.json({api: "up"})
+})
+router.use((err, req, res, next)=>{ //eslint-disable-line
+    res.status(err.status||500).json({
+        message: err.message,
+        stack: err.stack
     })
 })
-
 module.exports = router
