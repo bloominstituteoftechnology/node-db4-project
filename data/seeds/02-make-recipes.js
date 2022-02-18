@@ -6,12 +6,12 @@ const recipes = [
 ]
 
 const ingredients = [
-    {ingredient_name: 'brocoli', ingredient_unit: 'lbs'}
-    {ingredient_name: 'pasta', ingredient_unit: 'kg'}
-    {ingredient_name: 'pesto', ingredient_unit: 'lbs'}
-    {ingredient_name: 'lemon pepper', ingredient_unit: 'lbs'}
-    {ingredient_name: 'chicken', ingredient_unit: 'oz'}
-    {ingredient_name: 'salmon', ingredient_unit: 'kg'}
+    {ingredient_name: 'brocoli', ingredient_unit: 'lbs'},
+    {ingredient_name: 'pasta', ingredient_unit: 'kg'},
+    {ingredient_name: 'pesto', ingredient_unit: 'lbs'},
+    {ingredient_name: 'lemon pepper', ingredient_unit: 'lbs'},
+    {ingredient_name: 'chicken', ingredient_unit: 'oz'},
+    {ingredient_name: 'salmon', ingredient_unit: 'kg'},
 ]
 
 const step_ingredients = [
