@@ -4,9 +4,13 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
+    "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
   },
   "dependencies": {
-    "knex": "^1.0.3"
+    "knex": "^1.0.3",
+    "nodemon": "^2.0.15",
+    "sqlite3": "^5.0.2"
   }
 }
