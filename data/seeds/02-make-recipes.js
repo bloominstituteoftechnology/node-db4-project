@@ -43,7 +43,7 @@ const steps = [
     { step_content: 'cook bacon', step_number: 4, recipe_id: 1},
     { step_content: 'wrap bacon around asparagus', step_number: 5, recipe_id: 1},
     //Pasta Carbonara
-    { step_content: 'bring 4cts water to bowl', step_number: 1, recipe_id: 2}
+    { step_content: 'bring 4cts water to bowl', step_number: 1, recipe_id: 2},
     { step_content: 'cook bacon on cooking sheet at 400 degrees', step_number: 2, recipe_id: 2},
     { step_content: 'wisk together eggs and cheese', step_number: 3, recipe_id: 2},
     { step_content: 'boil noodles and frozen peas', step_number: 4, recipe_id: 2},
