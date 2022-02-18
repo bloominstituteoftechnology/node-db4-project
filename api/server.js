@@ -7,4 +7,9 @@ server.use(express.json()); //teach server to parse JSON
 
 server.use("/api/recipes", recipesRouter);
 
+server.use("*", (req, res) => {
+  //test if routing working with catchall endpoint
+  res.json({ api: "up" });
+});
+
 module.exports = server;
