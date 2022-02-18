@@ -9,12 +9,4 @@ router.get('/:recipe_id', (req, res, next) => {
     .catch(next)
 })
 
-router.use((err, req, res, next) => {
-    res.status(500).json({
-        custom: 'something bad happened in router',
-        message: err.message,
-        stack: err.stack
-    })
-})
-
 module.exports = router;

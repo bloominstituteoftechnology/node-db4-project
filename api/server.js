@@ -17,6 +17,7 @@ server.use('*', (req, res, next) => {
 
 server.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
+    custom: 'something bad happened.. oops',
     message: err.message,
     stack: err.stack,
   });
