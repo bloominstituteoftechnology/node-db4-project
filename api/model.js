@@ -20,16 +20,16 @@ async function getById(recipe_id) {
       "i.quantity"
     )
     .where("r.recipe_id", recipe_id)
-    .orderBy("step_number", "asc");
+    .orderBy("step_number", "ingredient_id", "asc");
 
   const final = {
     recipe_id: result[0].recipe_id,
     recipe_name: result[0].recipe_name,
     steps: [],
   };
-  //   if (result[0].ingredient_id == null) {
-  //     return final.steps.ingredients == [];
-  //   }
+  if (result[0].step_id == null) {
+    return final;
+  }
 
   for (let step of result) {
     final.steps.push({
@@ -44,6 +44,14 @@ async function getById(recipe_id) {
         },
       ],
     });
+    // for (let step of result) {
+    //   stepOrganized.ingredients.push({
+    //     ingredient_id: step.ingredient_id,
+    //     ingredient_name: step.ingredient_name,
+    //     quantity: step.quantity,
+    //   });
+    // }
+    // final.steps.push(stepOrganized);
   }
 
   return final;
