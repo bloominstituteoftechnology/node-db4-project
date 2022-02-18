@@ -1,0 +1,1 @@
+constexports.seed = function (knex) {};
