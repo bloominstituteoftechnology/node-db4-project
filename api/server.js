@@ -11,7 +11,7 @@ server.use(logger('dev'));
 server.use(helmet());
 server.use(cors()) // cors() returns a (req, res, nex) => { // stuff and then next() }
 
-server.use('/api/users', router)
+server.use('/api', router)
 
 server.use('/', (req, res)=>{
     res.send('hello!')

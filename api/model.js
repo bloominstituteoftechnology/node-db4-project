@@ -1,7 +1,7 @@
-const db = require('../data/db-config');
+const db = require('../data/db-config.js');
 
 function getRecipes() {
-    return 'get wired';
+    return db('recipes');
   }
 
 module.exports = {
