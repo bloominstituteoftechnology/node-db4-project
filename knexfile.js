@@ -1,14 +1,13 @@
 // Update with your config settings.
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
+//  @type { Object.<string, import("knex").Knex.Config> }
+
 module.exports = {
   development: {
     client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: ".data/recipe.db3",
+      filename: "./data/recipe.db3",
     },
     migrations: {
       directory: "./data/migrations",

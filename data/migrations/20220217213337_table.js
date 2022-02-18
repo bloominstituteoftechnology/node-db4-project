@@ -1,12 +1,9 @@
-exports.up = function (knex) {
-  return knex.scheme
+exports.up = async function (knex) {
+  await knex.schema
     .createTable("recipes", (tbl) => {
-      tbl
-        .increments("recipe_id")
-        .tbl.string("recipe_name", 128)
-        .notNullable()
-        .unique()
-        .tbl.date("created_at");
+      tbl.increments("recipe_id");
+      tbl.string("recipe_name", 128).notNullable().unique();
+      tbl.date("created_at");
     })
     .createTable("steps", (tbl) => {
       tbl.increments("step_id");
@@ -39,13 +36,14 @@ exports.up = function (knex) {
         .references("step_id")
         .inTable("steps")
         .onDelete("CASCADE");
+      tbl.string("quantity");
       tbl.primary(["ingredient_id", "step_id"]);
     });
 };
 
 exports.down = function (knex) {
-  return knex.scheme
-    .dropTableIfExists("step_ingredients")
+  return knex.schema
+    .dropTableIfExists("step_ingredient")
     .dropTableIfExists("ingredients")
     .dropTableIfExists("steps")
     .dropTableIfExists("recipes");
