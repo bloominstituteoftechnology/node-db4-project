@@ -1,21 +1,21 @@
-module.exports = {
-  development: {
+const shareConfig = {
     client: 'sqlite3',
-    useNullAsDefault: true, // needed for sqlite
-    connection: {
-      filename: './data/recipes',
-    },
-    migrations: {
-      directory: './data/migrations'
-    },
-    seeds: {
-      directory: './data/seeds'
-    },
-    pool: {
-      afterCreate: (conn, done) => {
-        // runs after a connection is made to the sqlite engine
-        conn.run('PRAGMA foreign_keys = ON', done); // turn on FK enforcement
-      },
-    },
-  },
+    migration: { directory: './data/migration' },
+    seeds: { directory: './data/seeds' },
+    useNullAsDefault: true,
+    pool: { afterCreate: (conn, done) => conn.run('PRAGMA foreign_key = ON', done) }
+};
+
+module.exports = {
+    development: {
+        ...shareConfig,
+        connection: {
+            filename: './data/cook_book.db3',
+        },
+        testing: {
+            ...shareConfig,
+            connection: { filename: './data/cook_book.test.db3' },
+        },
+        production: {}
+    }
 };
