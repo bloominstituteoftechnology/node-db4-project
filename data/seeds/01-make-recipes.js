@@ -1,0 +1,5 @@
+
+exports.seed = function (knex)
+{
+
+};

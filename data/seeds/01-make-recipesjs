@@ -1,7 +1,0 @@
-
-exports.seed = function(knex, Promise) {
-  return knex('zoos').insert([   
-    { recipe_name: ''},
-    { recipe_name: '' }
-  ]);
-};
