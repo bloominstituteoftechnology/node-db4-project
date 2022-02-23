@@ -1,7 +1,4 @@
-const express = require('express');
-const helpers = require('./model');
-
-const router = express.Router();
+const router = require('express').Router();
 
 // router.get('/species', (req, res, next) => {
 //   helpers.getSpecies()
@@ -38,5 +35,19 @@ const router = express.Router();
 //     })
 //     .catch(next);
 // });
+
+router.use('*', (req, res) =>
+{
+    res.json({ api: 'UP' });
+});
+
+router.use((err, req, res, next) =>
+{
+    res.status(500).json({
+        customMessage: 'error in recipes router',
+        message: err.message,
+        stack: err.stack,
+    });
+});
 
 module.exports = router;

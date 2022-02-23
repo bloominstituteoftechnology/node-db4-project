@@ -1,4 +1,4 @@
-const db = require('../data/db-config.js');
+const db = require('../../data/db-config.js');
 
 // function getSpecies() {
 //   return db('species');
