@@ -5,7 +5,15 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
+
+
+
 server.use('/api/recipes', recipesRouter);
+
+server.use('*', (req, res) =>
+{
+    res.json({ api: 'UP' });
+});
 
 server.use((err, req, res, next) =>
 { // eslint-disable-line

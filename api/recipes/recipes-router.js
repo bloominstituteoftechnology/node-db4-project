@@ -1,12 +1,15 @@
 const router = require('express').Router();
+const Recipe = require('./recipes-model');
 
-// router.get('/species', (req, res, next) => {
-//   helpers.getSpecies()
-//     .then(species => {
-//       res.status(200).json(species);
-//     })
-//     .catch(next); // our custom err handling middleware in server.js will trap this
-// });
+router.get('/:recipe_id', (req, res, next) =>
+{
+    Recipe.getRecipeById(req.params.recipe_id)
+        .then(recipe =>
+        {
+            res.status(200).json(recipe);
+        })
+        .catch(next);
+});
 
 // router.get('/animals', (req, res, next) => {
 //   helpers.getAnimals() //INCLUDING SPECIES NAME
@@ -35,11 +38,6 @@ const router = require('express').Router();
 //     })
 //     .catch(next);
 // });
-
-router.use('*', (req, res) =>
-{
-    res.json({ api: 'UP' });
-});
 
 router.use((err, req, res, next) =>
 {
