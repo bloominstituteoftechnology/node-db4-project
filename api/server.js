@@ -5,6 +5,14 @@ const server = express()
 // trick out express
 server.use(express.json())
 
+
+
+
 server.use('/api/recipes', recipesRouter)
+
+// Global endpoint for testing
+server.use('*', (req, res) => {
+    res.json({api: 'up'})
+})
 
 module.exports = server 

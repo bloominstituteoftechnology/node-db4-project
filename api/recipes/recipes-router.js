@@ -1,9 +1,17 @@
 const router = require('express').Router()
+const Recipe = require('./recipes-model')
 
-// Global endpoint for testing
-router.use('*', (req, res) => {
-    res.json({api: 'up'})
+
+router.get('/:recipe_id', (req, res, next) => {
+    Recipe.getRecipeById(req.params.recipe_id)
+    .then(resource => {
+        throw new Error('ARRRGHHHH')
+        res.status(200).json(resource)
+    })
+    .catch(next)
 })
+
+
 
 // Error handling
 router.use((err, req, res, next) => {
