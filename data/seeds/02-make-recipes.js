@@ -1,0 +1,1 @@
+exports.seed = function (knex) {};
