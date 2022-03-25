@@ -5,10 +5,6 @@ const server = express();
 
 server.use(express.json());
 
-server.use("*", (req, res) => {
-  res.json({ api: "up" });
-});
-
 server.use("/api/recipes", recipesRouter);
 
 // eslint-disable-next-line no-unused-vars

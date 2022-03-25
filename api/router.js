@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/:recipe_id", (req, res, next) => {
   helpers
-    .getRecipesById(req.params.recipe_id)
+    .getRecipeById(req.params.recipe_id)
     .then((recipes) => {
       res.status(200).json(recipes);
     })
