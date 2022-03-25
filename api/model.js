@@ -1,33 +1,33 @@
 const db = require("../data/db-config.js");
 
-function getRecipes() {
-  return db("recipes");
-}
+async function getRecipeById(recipe_id) {
+  const rows = await db("recipes")
+    .select("recipe_id", "recipe_name", "created_at")
+    .leftJoin("steps as st", "sc.scheme_id", "st.scheme_id")
+    .leftJoin("ingredients as i", "sc.scheme_id", "i.scheme_id")
+    .where("recipe_id", recipe_id)
+    .orderBy("st.step_number");
 
-function getAnimals() {
-  // INCLUDING SPECIES NAME
-  return db("animals as a")
-    .leftJoin("species as s", "s.species_id", "a.species_id")
-    .select("a.animal_id", "a.name", "s.name as species");
-}
+  if (rows.length == 0) {
+    return null;
+  }
 
-function getZoos() {
-  return db("zoos");
-}
+  const result = {
+    recipe_id: rows[0].recipe_id,
+    recipe_name: rows[0].recipe_name,
+    created_at: rows[0].created_at,
+    steps: rows
+      .filter((e) => e.step_id != null)
+      .map((e) => ({
+        step_id: e.step_id,
+        step_number: e.step_number,
+        step_instructions: e.step_instructions,
+      })),
+  };
 
-async function createAnimal(animal) {
-  const [animal_id] = await db("animals").insert(animal);
-  return getAnimals().where({ animal_id }).first();
-}
-
-function deleteSpecies(species_id) {
-  return db("species").where({ species_id }).del();
+  return result;
 }
 
 module.exports = {
-  getZoos,
-  getRecipes,
-  getAnimals,
-  createAnimal,
-  deleteSpecies,
+  getRecipeById,
 };
