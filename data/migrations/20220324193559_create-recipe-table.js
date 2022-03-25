@@ -3,7 +3,7 @@ exports.up = function (knex) {
     .createTable("recipes", (tbl) => {
       tbl.increments("recipe_id");
       tbl.string("recipe_name", 100).notNullable().unique();
-      tbl.string("created_at", 100).notNullable().unique();
+      tbl.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("steps", (tbl) => {
       tbl.increments("step_id");
@@ -19,21 +19,10 @@ exports.up = function (knex) {
     .createTable("ingredients", (tbl) => {
       tbl.increments("ingredient_id");
       tbl.string("ingredient_name", 100).notNullable();
-      tbl.decimal("quantity").notNullable();
-      tbl
-        .integer("step_id")
-        .unsigned()
-        .notNullable()
-        .references("step_id")
-        .inTable("steps");
+      tbl.string("ingredient_unit").notNullable();
     })
-    .createTable("recipe_step_ingredients", (tbl) => {
-      tbl
-        .integer("recipe_id")
-        .unsigned()
-        .notNullable()
-        .references("recipe_id")
-        .inTable("recipes");
+    .createTable("step_ingredients", (tbl) => {
+      tbl.increments("step_ingredient_id");
       tbl
         .integer("step_id")
         .unsigned()
@@ -46,7 +35,8 @@ exports.up = function (knex) {
         .notNullable()
         .references("ingredient_id")
         .inTable("ingredients");
-      tbl.primary(["recipe_id", "step_id", "ingredient_id"]);
+      tbl.decimal("quantity").notNullable();
+      tbl.primary(["step_id", "ingredient_id"]);
     });
 };
 
