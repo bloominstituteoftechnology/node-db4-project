@@ -1,12 +1,15 @@
 const express = require("express");
-const helmet = require("helmet");
 const recipesRouter = require("./router");
 
 const server = express();
 
-server.use(helmet());
 server.use(express.json());
-server.use("/api", recipesRouter);
+
+server.use("*", (req, res) => {
+  res.json({ api: "up" });
+});
+
+server.use("/api/recipes", recipesRouter);
 
 // eslint-disable-next-line no-unused-vars
 server.use((err, req, res, next) => {
@@ -14,6 +17,10 @@ server.use((err, req, res, next) => {
     message: err.message,
     stack: err.stack,
   });
+});
+
+server.use("*", (req, res) => {
+  res.json({ api: "up" });
 });
 
 module.exports = server;

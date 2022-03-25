@@ -3,13 +3,9 @@ const helpers = require("./model");
 
 const router = express.Router();
 
-router.use("*", (req, res) => {
-  res.json({ api: "up" });
-});
-
-router.get("/recipes", (req, res, next) => {
+router.get("/:recipe_id", (req, res, next) => {
   helpers
-    .getRecipes()
+    .getRecipesById(req.params.recipe_id)
     .then((recipes) => {
       res.status(200).json(recipes);
     })
