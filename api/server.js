@@ -8,4 +8,8 @@ server.use(express.json());
 
 server.use('/api/recipes', recipesRouter)
 
+server.use('*', (req, res) => {
+  res.json({ message: 'it seems to be workin'})
+})
+
 module.exports = server;

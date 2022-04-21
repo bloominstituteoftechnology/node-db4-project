@@ -2,9 +2,18 @@ const express = require('express');
 
 const router = express.Router();
 
-router.use('*', (req, res) => {
-  res.json({ message: 'it seems to be workin'})
+const Recipe = require('./recipes-model');
+
+
+router.get('/:recipe_id', (req, res, next) => {
+  Recipe.getRecipeById(req.params.recipe_id)
+  .then(respo => {
+    res.status(200).json(respo)
+  })
+  .catch(next)
 })
+
+
 
 router.use((err, req, res, next) => { //eslint-disable-line
   res.status(500).json({

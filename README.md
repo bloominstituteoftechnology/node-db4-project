@@ -6,6 +6,16 @@
 
 Your assignment page on Canvas should contain instructions for submitting this project. If you are still unsure, reach out to School Staff.
 
+
+
+
+
+
+
+
+
+
+
 ### Task 2: Minimum Viable Product
 
 Design the **data model** for a _recipe book_ application and use Knex migrations and seeding functionality to build a **SQLite database** based on the model and seed it with test data. Then, build an **endpoint** to fetch a recipe by its id.
@@ -76,6 +86,17 @@ Write a data access file that exports an object with the following function:
 #### Endpoint
 
 Write an endpoint to fetch a recipe by its id, using the `getRecipeById(recipe_id)` function.
+
+
+
+
+
+
+
+
+
+
+
 
 ### Task 3: Stretch Goals
 

@@ -34,17 +34,27 @@ What commands and what to do to set up this project from scratch:
   npm i dotenv (Create a .env folder!!)
 
 4. Create Folders:
-  index.js
-  api
+  -index.js
+  -api
     recipes
       recipes-model.js
       recipes-router.js
       (possibly recipes-middleware.js)
     server.js
-  data
+  -data
+    db-config.js
+  -knexfile.js
 
-5. Build out your server inside of index.js
+5. Build out index.js. This is the entry point for your server.
 
 6. Build out server.js
 
 7. Build out Router
+
+9. Scaffol out your model
+
+10. Scaffol out your middleware if you are using it.
+
+11. Build your knexfile
+
+12. Build out your db-config file
