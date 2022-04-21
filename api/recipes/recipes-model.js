@@ -23,25 +23,57 @@ const db = require('../../data/db-config');
   ]
 }
 
-recipes as re
-steps as st
-ingredients as in
-quantities as q
-
-
-select steps that match recipe id
-    once you have steps, populate ingredients
-select ingredients that match 
-select quantities that match in-id and st-id
 
  */
 async function getRecipeById(recipe_id) {
+    const recipeQuery = await db('recipes as re')
+        .where('re.recipe_id', recipe_id)
+        .leftJoin('steps as st', 're.recipe_id', 'st.recipe_id')
+        .leftJoin('quantities as q', 'st.step_id', 'q.step_id')
+        .leftJoin('ingredients as in', 'q.ingredient_id', 'in.ingredient_id')
+        // .select('re.*', 'st.*', 'q.*', 'in.*')
+        // .where('recipe_id', recipe_id)
+        .select('re.*', 'st.step_id', 'st.*', 'q.*', 'in.*')
+        .orderBy('st.step_number', 'asc');
+
     const dummyRecipe = {
-        recipe_id: null,
-        recipe_name: "",
-        created_at: "",
+        recipe_id: recipeQuery[0].recipe_id,
+        recipe_name: recipeQuery[0].recipe_name,
         steps: [],
-    }
+    };
+/**
+ *  "ingredient_id": 1,
+        "ingredient_name": "bone broth",
+        "instructions": "Boil broth",
+        "quantity": 6,
+        "quantity_id": 1,
+        "recipe_id": 1,
+        "recipe_name": "Yummy Soup",
+        "step_id": 1,
+        "step_number": 1,
+        "unit_measurement": "cups"
+ * 
+ */
+    recipeQuery.forEach(ing => {
+        if (dummyRecipe.steps.length === 0) {
+            dummyRecipe.steps.push({
+                step_id: ing.step_id,
+                step_number: ing.step_number,
+                instructions: ing.instructions,
+                ingredients: [],
+            })
+        } else if (dummyRecipe.steps.filter(step => step.step_id === ing.step_id).length === 0) {
+            dummyRecipe.steps.push({
+                step_id: ing.step_id,
+                step_number: ing.step_number,
+                instructions: ing.instructions,
+                ingredients: [],
+            })
+        }
+    })
+    return dummyRecipe;
+
+
 }
 
 module.exports = { getRecipeById }
