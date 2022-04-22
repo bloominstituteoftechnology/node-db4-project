@@ -1,11 +1,12 @@
-const express = require('express')
-// const { checkSchemeId, validateScheme, validateStep } = require('./scheme-middleware')
-// const Schemes = require('./scheme-model.js')
+const router = require('express').Router()
+const Recipe = require('./recipes-model.js')
 
-const router = express.Router()
-
-router.use('*', (req, res) => {
-    res.json("you are now inside the recipes router")
+router.get('/:recipe_id', (req, res, next) => {
+    Recipe.getRecipeByID(req.params.recipe_id)
+        .then(resource => {
+            res.status(200).json(resource)
+        })
+        .catch(next)
 })
 
 router.use((err, req, res, next) => {
