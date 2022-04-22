@@ -6,9 +6,12 @@ const router = express.Router();
 router.get('/:id', (req, res, next) => {
     Model.getRecipeById(req.params.id)
         .then(recipe => {
-            res.json(recipe)
+            res.status(200).json(recipe)
         })
-        .catch()
+        .catch(err => {
+            console.log(err)
+            next(err)
+        })
 })
 
 module.exports = router
