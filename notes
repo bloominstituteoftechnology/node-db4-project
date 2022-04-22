@@ -1,0 +1,72 @@
+What commands and what to do to set up this project from scratch:
+
+1. Figure out what tables you will need:
+
+  TABLE 1: Recipies
+    Primary Key: recipe_id,
+    recipe_name
+  TABLE 2: Ingredients
+    Primary Key: ingredient_id,
+    ingredient_name,
+    ingredient_unit
+  TABLE 3: Steps
+    Primary Key: step_id,
+    step_text,
+    step_order,
+    Foriegn Key: recipe_id
+  TABLE 4: Step_Ingredients
+    Primary Key: step_ingredient_id,
+    quantity
+    Foriegn Key: step_id,
+    Foriegn Key: ingredient_id,
+
+2. Add scripts:
+  "start": "node index.js",
+  "server": "nodemon index.js",
+  "migrate": "knex migrate:latest",
+  "rollback": "knex migrate:rollback",
+  "seed": "knex seed: run",
+  "reset": "npm run rollback && npm run migrate && npm run seed"
+
+3. Install dependencies:
+  npm i -D knex-cleaner nodemon eslint
+  npm i express sqlite knex
+  npm i dotenv (Create a .env folder!!)
+
+4. Create Folders:
+  -index.js
+  -api
+    recipes
+      recipes-model.js
+      recipes-router.js
+      (possibly recipes-middleware.js)
+    server.js
+  -data
+    -migrations(made with npm)
+    -seeds
+      01-cleanup.js
+    db-config.js
+  -knexfile.js
+
+5. Build out index.js. This is the entry point for your server.
+
+6. Build out server.js
+
+7. Build out Router
+
+9. Scaffol out your model
+
+10. Scaffol out your middleware if you are using it.
+
+11. Build your knexfile
+
+12. Build out your db-config file
+
+13. Create a migrations folder by installing: 
+  npm install sqlite3 --save 
+  npx knex migrate:make initial-migration
+
+14. Create your up and down migrations to make/adjust your tables.
+    Remember, down your tables the opposite you created them, like sock then shoe/shoe then sock.
+
+15. Create a seed file, inside of your data folder.
