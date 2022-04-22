@@ -1,0 +1,27 @@
+* recipes
+    - recipe_id (PRIMARY_KEY, increments)
+    - recipe_name (text, unique, notNullable)
+    - created_at (TimeStamp)
+* steps
+    - step_id (PRIMARY_KEY, increments)
+    - step_number (increments)
+    - step_instructions (text, notNullable)
+    - recipe_id (FOREIGN_KEY{recipe.recipe_id}, integer)
+* ingredients
+    - ingredient_id (PRIMARY_KEY, increments)
+    - ingredient_name (text, notNullable)
+    - quantity (decimal)
+    - step_id (FOREIGN_KEY{steps.step_id})
+
+* function getRecipeById(id)
+    - QUERY: resultsRecipeSteps
+    SELECT *
+        FROM recipes as rec
+        LEFT JOIN steps on rec.recipe_id = steps.recipe_id
+    WHERE rec.recipe_id = id
+
+    - QUERY: resultsStepIngredients
+    SELECT *
+        FROM steps 
+        LEFT JOIN ingredients as i on i.step_id = steps.step_id
+    where steps.step_id = ?
