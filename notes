@@ -3,22 +3,22 @@ What commands and what to do to set up this project from scratch:
 1. Figure out what tables you will need:
 
   TABLE 1: Recipies
-    Primary Key: Recipe_id,
+    Primary Key: recipe_id,
     recipe_name
   TABLE 2: Ingredients
-    Primary Key: Ingredient_id,
+    Primary Key: ingredient_id,
     ingredient_name,
-    ingrediant_unit
+    ingredient_unit
   TABLE 3: Steps
     Primary Key: step_id,
     step_text,
     step_order,
     Foriegn Key: recipe_id
   TABLE 4: Step_Ingredients
-    Primary Key: Step_Ingredient_id,
+    Primary Key: step_ingredient_id,
+    quantity
     Foriegn Key: step_id,
     Foriegn Key: ingredient_id,
-    quantity
 
 2. Add scripts:
   "start": "node index.js",
@@ -42,6 +42,9 @@ What commands and what to do to set up this project from scratch:
       (possibly recipes-middleware.js)
     server.js
   -data
+    -migrations(made with npm)
+    -seeds
+      01-cleanup.js
     db-config.js
   -knexfile.js
 
@@ -58,3 +61,12 @@ What commands and what to do to set up this project from scratch:
 11. Build your knexfile
 
 12. Build out your db-config file
+
+13. Create a migrations folder by installing: 
+  npm install sqlite3 --save 
+  npx knex migrate:make initial-migration
+
+14. Create your up and down migrations to make/adjust your tables.
+    Remember, down your tables the opposite you created them, like sock then shoe/shoe then sock.
+
+15. Create a seed file, inside of your data folder.
