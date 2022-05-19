@@ -10,9 +10,9 @@ exports.up = async function(knex) {
     })
 
     .createTable('ingredients', tbl => {
-        tbl.increments('ingredients')
-        tbl.string('ingredients_name', 200).notNullable().unique()
-        tbl.string('ingredients_unit', 50)
+        tbl.increments('ingredient_id')
+        tbl.string('ingredient_name', 200).notNullable().unique()
+        tbl.string('ingredient_unit', 50)
     })
 
     .createTable('steps', tbl => {
