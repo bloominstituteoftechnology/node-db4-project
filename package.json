@@ -5,5 +5,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
+  },
+  "dependencies": {
+    "knex": "^2.1.0"
   }
 }
