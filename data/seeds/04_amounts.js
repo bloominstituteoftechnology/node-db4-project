@@ -4,7 +4,7 @@ exports.seed = function(knex) {
       return knex('amounts')
         .insert([
           { step_id: 1, ingredient_id: 6, amount: 2 },
-          { step_id: 1, ingredient_id: 1, amount: 2 },
+          { step_id: 1, ingredient_id: 3, amount: 2 },
           { step_id: 4, ingredient_id: 8, amount: 1 },
           { step_id: 4, ingredient_id: 1, amount: 1 },
           { step_id: 5, ingredient_id: 7, amount: 4 },
