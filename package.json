@@ -1,9 +1,17 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "server": "nodemon index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "nodemon": "^2.0.16",
+    "sqlite3": "^5.0.8"
   }
 }
