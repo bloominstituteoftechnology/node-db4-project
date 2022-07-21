@@ -1,0 +1,18 @@
+const router = require("express").Router();
+// const helpers = require('./model');
+
+router.use("*", (req, res) => {
+  //eslint-disable-line
+  res.json({ api: "up" });
+});
+
+router.use("*", (err, req, res, next) => {
+  //eslint-disable-line
+  res.status(500).json({
+    customMessage: "something went wrong inside the recipes router",
+    message: err.message,
+    stack: err.stack,
+  });
+});
+
+module.exports = router;
