@@ -5,7 +5,7 @@ exports.up = async function(knex) {
     tbl.string('recipe_name', 200).notNullable().unique()
   })
   .createTable('ingredients', tbl => {
-    tbl.increments('ingredients_id')
+    tbl.increments('ingredient_id')
     tbl.string('ingredient_name', 200).notNullable().unique()
     tbl.string('ingredient_unit', 50)
   })
@@ -21,7 +21,7 @@ exports.up = async function(knex) {
     .onDelete('RESTRICT')
     .onUpdate('RESTRICT')
   })
-  .createTable('step_indgredients', tbl => {
+  .createTable('step_ingredients', tbl => {
     tbl.increments('step_ingredient_id')
     tbl.float('quantity').notNullable()
     tbl.integer('step_id')
@@ -31,13 +31,20 @@ exports.up = async function(knex) {
     .inTable('steps')
     .onDelete('RESTRICT')
     .onUpdate('RESTRICT')
+    tbl.integer('ingredient_id')
+    .unsigned()
+    .notNullable()
+    .references('ingredient_id')
+    .inTable('ingredients')
+    .onDelete('RESTRICT')
+    .onUpdate('RESTRICT')
   })
 
 };
 
 exports.down = async function(knex) {
   await knex.schema
-  .dropTableIfExists('step_indgredients')
+  .dropTableIfExists('step_ingredients')
   .dropTableIfExists('steps')
   .dropTableIfExists('ingredients')
   .dropTableIfExists('recipes')
