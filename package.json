@@ -7,7 +7,8 @@
     "rollback": "knex migrate:rollback",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "resetdb": "npm run rollback && npm run migrate && npm run seed"
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
+    "cleanup": "knex seed:run --specific=01-cleanup.js"
   },
   "repository": {
     "type": "git",
