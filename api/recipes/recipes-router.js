@@ -5,7 +5,6 @@ const router = express.Router();
 router.get('/:recipe_id', (req, res, next) => {
     Recipes.getRecipeById(req.params.recipe_id)
         .then(recipe => {
-            console.log(recipe)
             res.status(200).json(recipe)
         })
         .catch(next)
