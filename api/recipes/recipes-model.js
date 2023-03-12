@@ -1,5 +1,7 @@
 const db = require(`../../data/db-config`)
 
+//model function
+
 const getRecipeById = async (recipe_id) => {
     const recipeRows = await db(`recipes as r`)
     .leftJoin(`steps as s`, `r.recipe_id`, `s.recipe_id`)
