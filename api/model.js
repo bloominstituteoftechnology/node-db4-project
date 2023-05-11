@@ -14,7 +14,7 @@ const getRecipes = async (id) => {
       step_id: step.id,
       step_number: step.step_number,
       step_instructions: step.step_instructions,
-      ingredients: ingredients.filter(ingredient => (ingredient.step_id = step.id))
+      ingredients: ingredients.filter(ingredient => (ingredient.step_id === step.id))
     })),
 
 
