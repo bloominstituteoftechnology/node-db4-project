@@ -1,10 +1,11 @@
 const express = require("express");
-const helpers = require("./model");
+const Helpers = require("./model");
 
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  console.log("made it to get");
+  Helpers.getRecipes();
+  //   console.log("made it to get");
 });
 
 module.exports = router;
