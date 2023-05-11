@@ -24,6 +24,7 @@ The requirements for the system as stated by the client are:
 After brainstorming with the team it is suggested that a **JSON representation** of a recipe _could_ look like the following:
 
 ```json
+recipes, step, ingredients
 {
   "recipe_id" : 1,
   "recipe_name": "Spaghetti Bolognese",
@@ -33,7 +34,9 @@ After brainstorming with the team it is suggested that a **JSON representation**
       "step_id": 11,
       "step_number": 1,
       "step_instructions": "Put a large saucepan on a medium heat",
-      "ingredients": []
+      "ingredients": [
+
+      ]
     },
     {
       "step_id": 12,
