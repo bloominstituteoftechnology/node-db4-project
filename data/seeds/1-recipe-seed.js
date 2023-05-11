@@ -4,7 +4,7 @@
  */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex("recipe").insert([
+  await knex("recipes").insert([
     { recipe_name: "Speghetti Bolognese" },
     { recipe_name: "Rice" },
     { recipe_name: "Sandwich" },

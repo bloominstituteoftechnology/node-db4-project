@@ -11,16 +11,28 @@ exports.up = async function (knex) {
     })
     .createTable("steps", (tbl) => {
       tbl.increments("id");
+      tbl
+        .integer("recipe_id")
+        .notNullable()
+        .references("id")
+        .inTable("recipes");
       tbl.integer("step_number").notNullable();
       tbl.string("step_instructions").notNullable();
-      tbl.foreign("recipe_id").references("id").inTable("recipes");
     })
     .createTable("ingredients", (tbl) => {
       tbl.increments("id");
+      tbl
+        .integer("recipe_id")
+        .notNullable()
+        .references("id")
+        .inTable("recipes");
+      tbl
+        .integer("step_id")
+        .notNullable()
+        .references("id")
+        .inTable("steps");
       tbl.string("ingredient_name").notNullable();
       tbl.integer("quantity").notNullable();
-      tbl.foreign("recipe_id").references("id").inTable("recipes");
-      tbl.foreign("step_id").references("id").inTable("steps");
     });
 };
 
