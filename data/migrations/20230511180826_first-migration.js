@@ -17,9 +17,11 @@ exports.up = async function (knex) {
     })
     .createTable("ingredients", (tbl) => {
       tbl.increments("id");
-      tbl.foreign("");
-    })
-    .createTable("", () => {});
+      tbl.string("ingredient_name").notNullable();
+      tbl.integer("quantity").notNullable();
+      tbl.foreign("recipe_id").references("id").inTable("recipes");
+      tbl.foreign("step_id").references("id").inTable("steps");
+    });
 };
 
 /**
@@ -28,10 +30,9 @@ exports.up = async function (knex) {
  */
 exports.down = async function (knex) {
   await knex.schema
-    .dropTableIfExists("", () => {})
-    .dropTableIfExists("", () => {})
-    .dropTableIfExists("", () => {})
-    .dropTableIfExists("", () => {});
+    .dropTableIfExists("ingredients")
+    .dropTableIfExists("steps")
+    .dropTableIfExists("recipes");
 };
 
 // {
