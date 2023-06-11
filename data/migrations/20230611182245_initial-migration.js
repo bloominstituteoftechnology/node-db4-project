@@ -12,12 +12,12 @@ exports.up = async function (knex) {
         .createTable('ingredients', table => {
             table.increments('ingredient_id')
             table.string('ingredient_name', 200).notNullable().unique()
-            table.string('ingredient_units', 50)
+            table.string('ingredient_unit', 50)
         })
 
         .createTable('steps', table => {
             table.increments('step_id')
-            table.string('step_name', 200).notNullable().unique()
+            table.string('step_text', 200).notNullable().unique()
             table.integer('step_number').notNullable()
             table.integer('recipe_id')
                 .unsigned()
@@ -30,7 +30,7 @@ exports.up = async function (knex) {
 
         .createTable('step_ingredients', table => {
             table.increments('step_ingredients_id')
-            table.float('quanity').notNullable()
+            table.float('quantity').notNullable()
             table.integer('step_id').notNullable()
                 .unsigned()
                 .notNullable()
