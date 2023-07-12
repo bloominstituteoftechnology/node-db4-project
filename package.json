@@ -8,7 +8,9 @@
     "rollback": "knex migrate:rollback",
     "reset": "npm run rollback && npm run migrate && npm run seed",
     "cleanup": "knex seed:run --specific=01-cleanup.js",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "up": "knex migrate:up",
+    "down": "knex migrate:down"
   },
   "repository": {
     "type": "git",
