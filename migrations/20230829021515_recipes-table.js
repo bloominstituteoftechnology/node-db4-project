@@ -6,12 +6,12 @@ exports.up = async function (knex) {
   await knex.schema
     .createTable("recipes", (tbl) => {
       tbl.increments("recipe_id");
-      tbl.string("recipe_name").unique().notNullable();
+      tbl.string("recipe_name", 30).unique().notNullable();
     })
 
     .createTable("ingredients", (tbl) => {
       tbl.increments("ingredient_id");
-      tbl.string("ingredient_name", 128).notNullable();
+      tbl.string("ingredient_name", 128).notNullable().unique();
     })
     .createTable("steps", (tbl) => {
       tbl.increments("step_id");
@@ -22,6 +22,14 @@ exports.up = async function (knex) {
         .notNullable()
         .references("ingredient_id")
         .inTable("ingredients");
+      tbl
+        .integer("recipe_id")
+        .notNullable()
+        .unsigned()
+        .references("recipe_id")
+        .inTable("recipes")
+        .onDelete("RESTRICT")
+        .onUpdate("RESTRICT");
     })
     .createTable("step-ingredients", (tbl) => {
       tbl.increments("step-ingredients-id");
@@ -30,13 +38,17 @@ exports.up = async function (knex) {
         .unsigned()
         .notNullable()
         .references("step_id")
-        .inTable("steps");
+        .inTable("steps")
+        .onDelete("RESTRICT")
+        .onUpdate("RESTRICT");
       tbl
         .integer("ingredient_id")
         .unsigned()
         .notNullable()
         .references("ingredient_id")
-        .inTable("ingredients");
+        .inTable("ingredients")
+        .onDelete("RESTRICT")
+        .onUpdate("RESTRICT");
     });
 };
 
@@ -44,4 +56,10 @@ exports.up = async function (knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {};
+exports.down = async function (knex) {
+  await knex.schema
+    .dropTableIfExists("tep-ingredients")
+    .dropTableIfExists("ingredient_id")
+    .dropTableIfExists("steps")
+    .dropTableIfExists("singredients");
+};
