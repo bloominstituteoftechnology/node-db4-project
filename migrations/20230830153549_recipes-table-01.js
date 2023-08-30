@@ -16,12 +16,7 @@ exports.up = async function (knex) {
     .createTable("steps", (tbl) => {
       tbl.increments("step_id");
       tbl.string("step_text", 128).notNullable();
-      tbl
-        .integer("ingredient_id")
-        .unsigned()
-        .notNullable()
-        .references("ingredient_id")
-        .inTable("ingredients");
+      tbl.integer("step_number").notNullable();
       tbl
         .integer("recipe_id")
         .notNullable()
@@ -44,7 +39,7 @@ exports.up = async function (knex) {
       tbl
         .integer("ingredient_id")
         .unsigned()
-        .notNullable()
+
         .references("ingredient_id")
         .inTable("ingredients")
         .onDelete("RESTRICT")
@@ -58,8 +53,8 @@ exports.up = async function (knex) {
  */
 exports.down = async function (knex) {
   await knex.schema
-    .dropTableIfExists("tep-ingredients")
-    .dropTableIfExists("ingredient_id")
+    .dropTableIfExists("step-ingredients")
     .dropTableIfExists("steps")
-    .dropTableIfExists("singredients");
+    .dropTableIfExists("ingredients")
+    .dropTableIfExists("recipes");
 };
