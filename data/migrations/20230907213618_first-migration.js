@@ -2,11 +2,18 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.up = function(knex) {
-    return knex.schema.createTable('recipes',tbl=>{
+exports.up = async function(knex) {
+    await knex.schema.createTable('recipes',tbl=>{
         tbl.increments('recipe_id');
         tbl.string('recipe_name',128).notNullable().unique();
-        tbl.string('created_at').notNullable()
+       // tbl.string('created_at').notNullable()
+    })
+    .createTable('ingredients', tbl => {
+        tbl.increments("ingredient_id");
+        tbl.string('ingredient_name', 200).notNullable().unique();
+        tbl.string('ingredient_unit',50)
+       
+        
     })
     .createTable('steps',tbl=>{
         tbl.increments("step_id");
@@ -14,14 +21,19 @@ exports.up = function(knex) {
         tbl.string('step_instructions',255).notNullable();
         tbl.integer('recipe_id').unsigned().notNullable()
                                 .references('recipe_id').inTable('recipes')
+                                .onDelete('RESTRICT').onUpdate("RESTRICT")
     })
-    .createTable('ingredients', tbl => {
-        tbl.increments("ingredient_id");
-        tbl.string('ingredient_name', 128).notNullable();
-        tbl.decimal('quantity', 128).notNullable();
+    .createTable('step_ingredients', tbl => {
+        tbl.increments("step_ingredient_id");
+        tbl.float('quantity', 128).notNullable();
         tbl.integer('step_id').unsigned().notNullable()
-            .references('step_id').inTable('steps')
+                              .references('step_id').inTable('steps')
+                              .onDelete('RESTRICT').onUpdate("RESTRICT")
+        tbl.integer('ingredient_id').unsigned().notNullable()
+                              .references('ingredient_id').inTable('ingredients')
+                              .onDelete('RESTRICT').onUpdate("RESTRICT")
     })
+    
   
 };
 
@@ -29,9 +41,11 @@ exports.up = function(knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('ingredients')
-                      .dropTableIfExists('steps')
-                      .dropTableIfExists('recipes')
+exports.down = async function(knex) {
+    await knex.schema
+        .dropTableIfExists('step_ingredients')
+        .dropTableIfExists('steps')
+        .dropTableIfExists('ingredients')
+        .dropTableIfExists('recipes')
   
 };
