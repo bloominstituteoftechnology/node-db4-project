@@ -5,5 +5,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0"
+  },
+  "dependencies": {
+    "knex": "^3.0.1",
+    "sqlite3": "^5.1.6"
   }
 }
