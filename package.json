@@ -2,8 +2,8 @@
   "name": "node-db4-project",
   "version": "1.0.0",
   "scripts": {
-    "start": "node app.js", // replace app.js with your entry file if it's different
-    "dev": "nodemon app.js", // replace app.js with your entry file if it's different
+    "start": "node index.js",
+    "dev": "nodemon index.js", 
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "resetdb": "npm run rollback && npm run migrate"
