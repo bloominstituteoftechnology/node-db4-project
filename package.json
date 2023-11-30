@@ -1,13 +1,20 @@
 {
   "name": "node-db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "start": "node app.js", // replace app.js with your entry file if it's different
+    "dev": "nodemon app.js", // replace app.js with your entry file if it's different
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "resetdb": "npm run rollback && npm run migrate"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
   },
   "devDependencies": {
-    "eslint": "^8.54.0"
+    "eslint": "^8.54.0",
+    "nodemon": "^x.x.x" // x.x.x will be your installed version
   },
   "dependencies": {
     "express": "^4.18.2",
