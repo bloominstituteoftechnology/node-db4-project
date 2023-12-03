@@ -12,20 +12,25 @@ async function getRecipeById(recipe_id) {
         const ingredientRows = await knex('step_ingredients')
             .join('ingredients', 'step_ingredients.ingredient_id', 'ingredients.ingredient_id')
             .where({ step_id: step.step_id })
-            .select('ingredients.ingredient_id', 'ingredient_name', 'quantity');
+            .select('ingredients.ingredient_id', 'quantity');
         
         step.ingredients = ingredientRows.map(row => ({
             ingredient_id: row.ingredient_id,
-            ingredient_name: row.ingredient_name,
             quantity: row.quantity
         }));
+
+        // Remove unwanted properties from step object
+        delete step.recipe_id;
+        delete step.step_id;
     }
 
     return {
-        recipe_id: recipe.recipe_id,
         recipe_name: recipe.recipe_name,
-        created_at: recipe.created_at,
-        steps
+        steps: steps.map(({ step_number, step_instructions, ingredients }) => ({
+            step_number,
+            step_instructions,
+            ingredients
+        }))
     };
 }
 
