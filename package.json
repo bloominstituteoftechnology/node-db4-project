@@ -1,9 +1,31 @@
 {
-  "name": "node-db4-project",
+  "name": "db4-project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/node-db4-project.git"
+  },
+  "description": "## Instructions",
+  "bugs": {
+    "url": "https://github.com/BloomInstituteOfTechnology/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/BloomInstituteOfTechnology/node-db4-project#readme",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^3.0.1",
+    "sqlite3": "^5.1.6"
   }
 }
