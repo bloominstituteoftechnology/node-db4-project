@@ -1,7 +1,12 @@
 const router = require("express").Router();
+const Recipe = require("./recipes-model.js");
 
-router.use("*", (req, res) => {
-  res.json({ api: "up" });
+router.get("/:recipe_id", (req, res, next) => {
+  Recipe.getRecipeById(req.params.recipe_id)
+    .then((resource) => {
+      res.status(200).json(resource);
+    })
+    .catch(next);
 });
 
 // eslint-disable-next-line no-unused-vars
