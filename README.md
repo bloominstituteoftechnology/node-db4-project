@@ -1,7 +1,8 @@
 <!--
 # Tasks
     [x] List out DB/Tables in notebook
-    [ ] Build tables in knexfile
+    [x] Build tables in knexfile
+    [ ] DB built -- but watch solution video to see if he does it like I did
 
  -->
 
