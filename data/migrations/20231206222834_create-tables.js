@@ -9,13 +9,13 @@ exports.up = async function (knex) {
       tbl.string("recipe_name", 128).notNullable().unique();
     })
     .createTable("ingredients", (tbl) => {
-      tbl.increments("ing_id");
-      tbl.string("ing_name", 128).notNullable();
-      tbl.string("ing_unit", 128);
+      tbl.increments("ingredient_id");
+      tbl.string("ingredient_name", 128).notNullable();
+      tbl.string("ingredient_unit", 50);
     })
     .createTable("steps", (tbl) => {
       tbl.increments("step_id");
-      tbl.string("step_instructions", 128);
+      tbl.string("step_instructions", 128).notNullable();
       tbl.integer("step_number").notNullable();
       tbl
         .integer("recipe_id")
@@ -23,28 +23,28 @@ exports.up = async function (knex) {
         .notNullable()
         .references("recipe_id")
         .inTable("recipes")
-        .onDelete("CASCADE") //or .onDelete('RESTRICT')?
-        .onUpdate("CASCADE"); //or .onUpdate('RESTRICT')?
+        .onDelete("RESTRICT")
+        .onUpdate("RESTRICT");
     })
     .createTable("steps_ingredients", (tbl) => {
-      tbl.increments("step_ing_id");
+      tbl.increments("step_ingredient_id");
+      tbl.float("quantity").notNullable();
       tbl
         .integer("step_id")
         .unsigned()
         .notNullable()
         .references("step_id")
         .inTable("steps")
-        .onDelete("CASCADE") //or .onDelete('RESTRICT')?
-        .onUpdate("CASCADE"); //or .onUpdate('RESTRICT')?
+        .onDelete("RESTRICT")
+        .onUpdate("RESTRICT");
       tbl
-        .integer("ing_id")
+        .integer("ingredient_id")
         .unsigned()
         .notNullable()
-        .references("ing_id")
+        .references("ingredient_id")
         .inTable("ingredients")
-        .onDelete("CASCADE") //or .onDelete('RESTRICT')?
-        .onUpdate("CASCADE"); //or .onUpdate('RESTRICT')?
-      tbl.float("ing_quantity").notNullable();
+        .onDelete("RESTRICT")
+        .onUpdate("RESTRICT");
     });
 };
 
