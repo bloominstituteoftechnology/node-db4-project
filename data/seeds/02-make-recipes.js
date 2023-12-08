@@ -16,7 +16,7 @@ const step_ingredients=[
     //broccoli
     {step_id:2, ingredient_id:1, quantity:1},
     {step_id:3, ingredient_id:2, quantity:1.5},
-    {step_id:3, ingredient_id:2, quantity:2},
+    {step_id:3, ingredient_id:3, quantity:2},
 //lemon chicken
     {step_id:5, ingredient_id:4, quantity:1},
     {step_id:5, ingredient_id:5, quantity:0.4},
