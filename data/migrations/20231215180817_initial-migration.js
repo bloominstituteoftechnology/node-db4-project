@@ -15,20 +15,20 @@ exports.up = async function (knex) {
     })
     .createTable("steps", (table) => {
       table.increments("step_id");
-      table.string("step_text", 200).notNullable;
-      table.integer("step_number").notNullable;
+      table.string("step_text", 200).notNullable();
+      table.integer("step_number").notNullable();
       table
-        .integer("reqipe_id")
+        .integer("recipe_id")
         .unsigned()
         .notNullable()
-        .references("receipt_id")
+        .references("recipe_id")
         .inTable("recipes")
         .onDelete("RESTRICT")
         .onDelete("RESTRICT");
     })
     .createTable("step_ingredients", (table) => {
       table.increments("step_ingredient_id");
-      table.float("quantity").notNullable;
+      table.float("quantity").notNullable();
       table
         .integer("step_id")
         .unsigned()

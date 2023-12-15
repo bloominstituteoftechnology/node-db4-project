@@ -1,7 +1,7 @@
 const sharedConfig = {
   client: "sqlite3",
   migrations: { directory: "./data/migrations" },
-  seed: { directory: "./data/seeds" },
+  seeds: { directory: "./data/seeds" },
   useNullAsDefault: true,
   pool: {
     afterCreate: (conn, done) => {
