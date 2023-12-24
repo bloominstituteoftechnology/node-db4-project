@@ -55,11 +55,11 @@ Before writing any code, write out all desired tables in the data model and dete
 
 **Try to keep your design to FOUR tables**. With three tables it will be hard to meet all requirements, and more than 5 is likely overkill.
 
-#### Project Scaffolding
+#### [X] Project Scaffolding
 
 - Put an Express application together starting with the `package.json` and a `knexfile.js`. Use existing projects as reference if needed.
 
-#### Migrations and Seeds
+#### [X] Migrations and Seeds
 
 - Write a migration file that creates all tables necessary to model this data
 - Write seed files to populate the tables with test data. **Hint**: Keep your recipes simple or this step could become extremely time consuming.
