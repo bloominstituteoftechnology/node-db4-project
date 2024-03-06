@@ -50,7 +50,7 @@ async function getRecipeById(recipe_id) {
             currentStep.ingredients.push({
                 ingredient_id: row.ingredient_id,
                 ingredient_name: row.ingredient_name,
-                quantity: row.quantity
+                quantity: row.quantity,
             })
             return acc
         }, [])
